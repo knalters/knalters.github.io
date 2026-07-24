@@ -5,23 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- LOGO PRELOAD FOR IMMEDIATE LOAD -->
+    <!-- LOGO PRELOAD AZ AZONNALI BETÖLTÉSHEZ -->
     <link rel="preload" as="image" href="images/logo.png" fetchpriority="high">
 
     <!-- SEO META TAGS -->
     <title>kn.alters | MTG Card Alteration & Custom Commissions by Nora</title>
     <meta name="description" content="Custom Magic: The Gathering (MTG) card alters, border extensions, and full art commissions by Nora (kn.alters) from Hungary. Request your custom card alter today!">
+    <meta name="keywords" content="MTG alters, card alteration, Magic the gathering alters, custom MTG cards, kn.alters, border extension, full art MTG">
     <meta name="author" content="Nora | kn.alters">
     <link rel="canonical" href="https://knalters.com/">
 
-    <!-- OG TAGS (LOGÓVAL) -->
+    <!-- OG TAGS -->
     <meta property="og:title" content="kn.alters | MTG Card Alteration">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://knalters.com/">
     <meta property="og:image" content="https://knalters.com/images/logo.png">
     <meta property="og:description" content="Nora | Hobby MTG alterist from Hungary. Professional card extensions and custom art commissions.">
     
-    <!-- TWITTER CARDS (LOGÓVAL) -->
+    <!-- TWITTER CARDS -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="kn.alters | MTG Card Alteration">
     <meta name="twitter:description" content="Custom Magic: The Gathering card alters and commissions by Nora.">
@@ -32,25 +33,16 @@
     [
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://knalters.com/#organization",
-        "name": "kn.alters",
+        "@type": "Person",
+        "name": "Nora",
+        "jobTitle": "Card Alterist",
+        "brand": "kn.alters",
         "url": "https://knalters.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://knalters.com/images/logo.png"
-        },
         "sameAs": [
           "https://www.instagram.com/kn.alters",
           "https://www.tiktok.com/@kn.alters"
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://knalters.com/#website",
-        "url": "https://knalters.com/",
-        "name": "kn.alters | MTG Card Alteration"
+        ],
+        "description": "Hobby Magic: The Gathering alterist from Hungary specializing in border extensions and custom card art."
       }
     ]
     </script>
@@ -61,30 +53,17 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;700&family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Reset and Variables */
-        :root {
-            --primary-green: #2c4c3e;
-            --dark-green: #1b3329;
-            --accent-green: #90feb5;
-            --bg-light: #f2f4f3;
-            --text-main: #2b3a32;
-            --white: #ffffff;
-            --font-averia: 'Averia Serif Libre', cursive;
-            --font-inter: 'Inter', sans-serif;
-            --transition: all 0.25s ease;
-        }
-
         html, body {
             margin: 0 !important;
             padding: 0 !important;
-            background: linear-gradient(135deg, var(--primary-green) 0%, #d8eae1 100%);
+            background: linear-gradient(135deg, #2c4c3e 0%, #d8eae1 100%);
             background-attachment: fixed;
-            font-family: var(--font-inter);
+            font-family: 'Inter', sans-serif;
             font-weight: 300;
-            color: var(--text-main); 
+            color: #2b3a32; 
             letter-spacing: 0.02em;
             min-height: 100vh;
             width: 100%;
@@ -92,22 +71,6 @@
             scroll-behavior: smooth;
         }
 
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-green);
-            color: var(--dark-green);
-            padding: 8px;
-            z-index: 100000;
-            text-decoration: none;
-            font-weight: 700;
-            transition: top 0.2s ease;
-        }
-
-        .skip-link:focus { top: 0; }
-
-        /* Layout */
         .main-layout {
             display: grid;
             grid-template-columns: minmax(320px, 360px) minmax(500px, 1fr);
@@ -120,7 +83,6 @@
             padding: 0 20px;
         }
 
-        /* Sidebar */
         .sidebar-wrapper {
             padding: 40px 0;
             box-sizing: border-box;
@@ -136,7 +98,7 @@
         }
 
         .profile-card {
-            background-color: var(--bg-light);
+            background-color: #f2f4f3;
             padding: clamp(30px, 2.5vw, 40px) clamp(20px, 2vw, 35px);
             border-radius: 28px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
@@ -182,8 +144,8 @@
             align-items: center;
             gap: 8px;
             background: rgba(44, 76, 62, 0.08);
-            color: var(--primary-green);
-            font-family: var(--font-inter);
+            color: #2c4c3e;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
@@ -208,6 +170,94 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
+        /* SHIMMERING & SPARKLE ALAPVETŐEN + HOVER KORBEN KONFETTI EFFEKT */
+        .inline-cta-btn {
+            position: relative;
+            display: block;
+            width: 100%;
+            background-color: #2c4c3e;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 24px;
+            font-size: 13px;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            border-radius: 14px;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 18px 0 10px 0;
+            cursor: pointer;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        /* FINOM CSILLOGÓ/CSILLÁMLÓ FÉNYÁTFUTÁS ALAPHELYZETBEN (SHIMMER) */
+        .inline-cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(
+                90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.25), 
+                rgba(255, 215, 0, 0.35), 
+                rgba(255, 255, 255, 0.25), 
+                transparent
+            );
+            transform: skewX(-20deg);
+            animation: shimmerGlow 3.5s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes shimmerGlow {
+            0% { left: -100%; }
+            40%, 100% { left: 180%; }
+        }
+
+        /* KONFETTI ELEMEK AMIK HOVERRE JELENNEK MEG */
+        .inline-cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(circle, #ff595e 2px, transparent 2.5px),
+                radial-gradient(circle, #ffca3a 2px, transparent 2.5px),
+                radial-gradient(circle, #8ac926 2px, transparent 2.5px),
+                radial-gradient(circle, #1982c4 2px, transparent 2.5px),
+                radial-gradient(circle, #6a4c93 2px, transparent 2.5px);
+            background-size: 25px 25px, 30px 30px, 20px 20px, 35px 35px, 28px 28px;
+            background-position: 0 0, 10px 15px, 15px 5px, 5px 20px, 20px 10px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 3;
+            border-radius: 14px;
+        }
+
+        .inline-cta-btn:hover {
+            background-color: #1b3329;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), 0 0 15px rgba(255, 215, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.6);
+        }
+
+        .inline-cta-btn:hover::after {
+            opacity: 0.85;
+            animation: confettiPop 0.8s infinite alternate ease-in-out;
+        }
+
+        @keyframes confettiPop {
+            0% { background-position: 0 0, 10px 15px, 15px 5px, 5px 20px, 20px 10px; }
+            100% { background-position: 5px 10px, 15px 5px, 5px 15px, 12px 5px, 10px 20px; }
+        }
+
         .links-wrapper {
             display: flex;
             flex-direction: column;
@@ -215,29 +265,28 @@
             width: 100%;
         }
 
-        .nav-link-item {
+        .link-item {
             display: block;
-            background-color: var(--white);
+            background-color: #ffffff;
             color: #000000; 
             text-decoration: none;
             padding: 13px 20px;
             font-size: clamp(11px, 0.85vw, 12px);
-            font-family: var(--font-inter);
+            font-family: 'Space Grotesk', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 400; 
             border-radius: 14px;
-            transition: var(--transition);
+            transition: all 0.25s ease;
             text-align: center;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
             box-sizing: border-box;
             cursor: pointer;
-            border: 2px solid transparent;
         }
 
-        .nav-link-item:hover {
+        .link-item:hover {
             background-color: #000000;
-            color: var(--white);
+            color: #ffffff;
             transform: translateY(-2px);
         }
 
@@ -247,10 +296,8 @@
             letter-spacing: 2px;
             color: rgba(0, 0, 0, 0.3); 
             text-align: center;
-            margin-top: auto;
         }
 
-        /* Feed Container */
         .feed-container {
             padding: 40px 0;
             box-sizing: border-box;
@@ -261,7 +308,9 @@
             max-width: 100%;
         }
 
-        .feed-block, .feed-article-post {
+        .contact-post,
+        .info-block,
+        .custom-card-post {
             background-color: rgba(255, 255, 255, 0.82);
             border-radius: 28px;
             padding: clamp(20px, 2.5vw, 35px);
@@ -273,32 +322,29 @@
             margin: 0 auto;
         }
 
-        .post-header-title, .info-block-title {
-            font-family: var(--font-inter);
-            font-size: clamp(14px, 1.1vw, 16px);
+        .post-header-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             color: #000000;
-            margin: 0 0 18px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding-bottom: 10px;
-            text-align: center;
+            margin: 0 0 12px 0;
         }
 
         .post-body-content {
             font-size: 14px;
             line-height: 1.6;
-            color: var(--text-main);
+            color: #2b3a32;
         }
 
-        .post-body-content p { margin: 0 0 14px 0; }
+        .post-body-content p {
+            margin: 0 0 14px 0;
+        }
 
         .post-date-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-family: var(--font-inter);
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -309,139 +355,17 @@
         }
 
         .back-to-top-link {
-            color: var(--primary-green);
+            color: #2c4c3e;
             text-decoration: none;
             font-weight: 700;
             cursor: pointer;
             transition: color 0.2s ease;
         }
 
-        .back-to-top-link:hover { color: #000000; }
-
-        /* ------------------------------------------------------------- */
-        /* CTA BUTTON WITH LEKEREKÍTETT ANIMALTVONALLAL */
-        /* ------------------------------------------------------------- */
-        .cta-button-wrapper {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin: 20px 0 25px 0;
+        .back-to-top-link:hover {
+            color: #000000;
         }
 
-        .button--bubble__container {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            max-width: 320px;
-            border-radius: 12px;
-        }
-
-        .custom-cta-btn {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 16px 28px;
-            background: linear-gradient(-30deg, var(--dark-green) 50%, var(--primary-green) 50%);
-            color: var(--white);
-            font-family: var(--font-inter);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            overflow: hidden;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            transition: background 0.3s ease-out, transform 0.1s ease-out, color 0.3s ease-out;
-            box-sizing: border-box;
-            user-select: none;
-        }
-
-        .custom-cta-btn .border-line {
-            position: absolute;
-            display: block;
-            border-radius: 12px;
-            transition: background 0.3s ease-out, height 0.1s ease-out, width 0.1s ease-out;
-        }
-
-        .custom-cta-btn .border-line:nth-child(1) {
-            top: 0; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(to left, transparent, var(--accent-green));
-            animation: 2s animateTop linear infinite;
-        }
-
-        .custom-cta-btn .border-line:nth-child(2) {
-            top: 0; right: 0; height: 100%; width: 2px;
-            background: linear-gradient(to top, transparent, var(--accent-green));
-            animation: 2s animateRight linear -1s infinite;
-        }
-
-        .custom-cta-btn .border-line:nth-child(3) {
-            bottom: 0; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(to right, transparent, var(--accent-green));
-            animation: 2s animateBottom linear infinite;
-        }
-
-        .custom-cta-btn .border-line:nth-child(4) {
-            top: 0; left: 0; height: 100%; width: 2px;
-            background: linear-gradient(to bottom, transparent, var(--accent-green));
-            animation: 2s animateLeft linear -1s infinite;
-        }
-
-        @keyframes animateTop { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        @keyframes animateRight { 0% { transform: translateY(100%); } 100% { transform: translateY(-100%); } }
-        @keyframes animateBottom { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-        @keyframes animateLeft { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
-
-        .custom-cta-btn .btn-text {
-            display: inline-block;
-            z-index: 2;
-        }
-
-        .custom-cta-btn:hover {
-            background: var(--accent-green);
-            color: var(--dark-green);
-        }
-
-        .custom-cta-btn:hover .border-line:nth-child(1),
-        .custom-cta-btn:hover .border-line:nth-child(3) {
-            height: 4px;
-            background: linear-gradient(to left, transparent, var(--dark-green));
-        }
-
-        .custom-cta-btn:hover .border-line:nth-child(2),
-        .custom-cta-btn:hover .border-line:nth-child(4) {
-            width: 4px;
-            background: linear-gradient(to top, transparent, var(--dark-green));
-        }
-
-        .custom-cta-btn:active { transform: scale(0.95); }
-
-        .button--bubble__container .effect-button {
-            position: absolute; width: 50%; height: 25%; top: 50%; left: 25%; z-index: 1;
-            transform: translateY(-50%); background: var(--primary-green); transition: background 0.1s ease-out; border-radius: 12px;
-        }
-
-        .button--bubble__effect-container {
-            position: absolute; display: block; width: 200%; height: 400%; top: -150%; left: -50%;
-            -webkit-filter: url("#goo"); filter: url("#goo"); transition: all 0.1s ease-out; pointer-events: none; z-index: 1;
-        }
-
-        .button--bubble__effect-container .circle {
-            position: absolute; width: 25px; height: 25px; border-radius: 50%; background: var(--primary-green); transition: background 0.1s ease-out;
-        }
-
-        .button--bubble__effect-container .circle.top-left { top: 40%; left: 27%; }
-        .button--bubble__effect-container .circle.bottom-right { bottom: 40%; right: 27%; }
-
-        .goo-filter { position: absolute; visibility: hidden; width: 1px; height: 1px; }
-
-        /* Sliders Universal */
         .slider-relative-wrapper {
             position: relative;
             width: 100%;
@@ -451,8 +375,8 @@
             margin-top: 15px;
         }
 
-        .mtg-scroll-container,
-        .designs-scroll-container {
+        .designs-scroll-container,
+        .mtg-scroll-container {
             display: flex;
             gap: 15px;
             overflow-x: auto;
@@ -463,23 +387,6 @@
             box-sizing: border-box;
             -webkit-overflow-scrolling: touch;
         }
-
-        .mtg-scroll-container img {
-            width: 180px !important;
-            height: 252px !important;
-            object-fit: cover !important;
-            background: rgba(0,0,0,0.04);
-            border-radius: 10px;
-            display: block;
-            cursor: pointer;
-            scroll-snap-align: center;
-            scroll-snap-stop: always;
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease;
-        }
-
-        .mtg-scroll-container img:hover { transform: translateY(-3px); }
 
         .designs-scroll-container img {
             height: 520px !important;
@@ -497,9 +404,28 @@
             margin: 0 auto;
         }
 
+        .mtg-scroll-container img {
+            width: 180px !important;
+            height: 252px !important;
+            object-fit: cover !important;
+            background: rgba(0,0,0,0.04);
+            border-radius: 10px;
+            display: block;
+            cursor: pointer;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .mtg-scroll-container img:hover {
+            transform: translateY(-3px);
+        }
+
         .slider-external-btn {
             background: rgba(44, 76, 62, 0.88);
-            color: var(--white);
+            color: #ffffff;
             border: none;
             width: 44px;
             height: 44px;
@@ -515,21 +441,339 @@
             z-index: 5;
         }
 
-        .slider-external-btn:hover { background: #000000; transform: scale(1.08); }
+        .slider-external-btn:hover {
+            background: #000000;
+            transform: scale(1.08);
+        }
 
-        .scroll-hint {
+        .contact-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(14px, 1.1vw, 16px);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #000000;
+            margin: 0 0 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-welcome-box {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(44, 76, 62, 0.15);
+            border-radius: 18px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            font-size: 12.5px;
+            line-height: 1.6;
+            color: #2b3a32;
+        }
+
+        .form-welcome-box p { margin: 0 0 10px 0; }
+        .form-welcome-box p:last-child { margin-bottom: 0; }
+
+        .form-welcome-box .welcome-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 13.5px;
+            color: #1e362c;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .custom-form-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin-top: 15px;
-            font-family: var(--font-inter);
+            gap: 22px;
+            width: 100%;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+        }
+
+        .form-group label.field-title {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--text-main);
+            color: #2b3a32;
+        }
+
+        .field-status-tag {
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            margin-left: 4px;
+        }
+
+        .field-status-tag.required { color: #8c2a2a; font-weight: 700; }
+        .field-status-tag.optional { color: #6b7c72; }
+
+        .form-group.has-error input[type="text"],
+        .form-group.has-error input[type="email"],
+        .form-group.has-error input[type="url"],
+        .form-group.has-error input[type="tel"],
+        .form-group.has-error textarea,
+        .form-group.has-error .radio-options-group,
+        .form-group.has-error .style-options-grid,
+        .form-group.has-error .data-privacy-container {
+            border: 2px solid #c84b4b !important;
+            background-color: #fff8f8 !important;
+        }
+
+        .error-message-text {
+            color: #c84b4b;
+            font-size: 11.5px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-top: 3px;
+            display: none;
+        }
+
+        .form-group.has-error .error-message-text { display: block; }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="url"],
+        .form-group input[type="tel"],
+        .form-group input[type="file"],
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 14px 18px;
+            border-radius: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #2b3a32;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        .form-group textarea { resize: vertical; min-height: 90px; }
+        .form-group input[type="file"] { padding: 10px; cursor: pointer; background: #ffffff; }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #a394b8;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(163, 148, 184, 0.2);
+        }
+
+        .data-privacy-container {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 18px;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .data-privacy-notice {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #2b3a32;
+            font-weight: 700;
+        }
+
+        .checkbox-group-inline {
+            display: flex;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 10px !important;
+        }
+
+        .checkbox-group-inline input[type="checkbox"] {
+            accent-color: #2c4c3e;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-group-inline label {
+            font-size: 12.5px;
+            line-height: 1.4;
+            color: #2b3a32;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .address-separated-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .address-subfield {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .address-subfield span {
+            font-size: 11px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            color: #55625a;
+            letter-spacing: 1px;
+        }
+
+        .address-row-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .style-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+            margin-top: 5px;
+            border-radius: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .style-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .style-card:hover {
+            transform: translateY(-2px);
+            background: #ffffff;
+            border-color: #a394b8;
+        }
+
+        .style-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .style-card-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #2b3a32;
+            font-family: 'Space Grotesk', sans-serif;
+            text-align: center;
+        }
+
+        .style-card-checkbox input {
+            accent-color: #2c4c3e;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .radio-options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: rgba(255,255,255,0.6);
+            padding: 15px;
+            border-radius: 14px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #2b3a32;
+            cursor: pointer;
+        }
+
+        .radio-label input { accent-color: #2c4c3e; width: 16px; height: 16px; }
+
+        .submit-btn {
+            background-color: #2c4c3e;
+            color: #ffffff;
+            border: none;
+            padding: 16px 28px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-top: 10px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(44, 76, 62, 0.2);
+        }
+
+        .submit-btn:hover {
+            background-color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-privacy-note {
+            font-size: 11px;
+            color: #7a8a81;
+            text-align: center;
+            line-height: 1.5;
+            margin-top: 5px;
+        }
+
+        .info-block-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(14px, 1.1vw, 16px);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #000000;
+            margin: 0 0 18px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .scroll-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #2b3a32;
             opacity: 0.8;
             animation: bounce 2s infinite;
         }
@@ -560,122 +804,20 @@
 
         .slider-dot.active {
             width: 24px;
-            background-color: var(--primary-green);
+            background-color: #2c4c3e;
         }
 
-        /* ------------------------------------------------------------- */
-        /* TELJES REQUEST FORM STYLING (EGYEDI BEÁLLÍTÁSOKKAL) */
-        /* ------------------------------------------------------------- */
-        .request-form {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            margin-top: 15px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-group label {
-            font-family: var(--font-inter);
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--dark-green);
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            border: 1px solid rgba(44, 76, 62, 0.2);
-            background-color: #ffffff;
-            font-family: var(--font-inter);
-            font-size: 13px;
-            color: var(--text-main);
-            box-sizing: border-box;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(44, 76, 62, 0.1);
-        }
-
-        /* Radio & Checkbox formázás */
-        .radio-options, .checkbox-options {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 4px;
-        }
-
-        .radio-label, .checkbox-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            text-transform: none;
-            cursor: pointer;
-            font-weight: 400;
-        }
-
-        .radio-label input, .checkbox-label input {
-            accent-color: var(--primary-green);
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-        }
-
-        .submit-btn {
-            background-color: var(--primary-green);
-            color: var(--white);
-            border: none;
-            padding: 16px 28px;
-            border-radius: 12px;
-            font-family: var(--font-inter);
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(44, 76, 62, 0.2);
-        }
-
-        .submit-btn:hover {
-            background-color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        /* Rejtett honeypot mezo Formspree-hez */
-        .hidden-field {
-            display: none !important;
-        }
-
-        /* Floating Top Button */
+        /* LEBEGŐ TOP GOMB (BAL OLDALON, TETŐRE GÖRGETÉSSEL) */
         .floating-top-btn {
             position: fixed;
             bottom: 30px;
             left: 30px;
-            background: var(--primary-green);
-            color: var(--white);
+            background: #2c4c3e;
+            color: #ffffff;
             border: none;
             padding: 12px 18px;
             border-radius: 30px;
-            font-family: var(--font-inter);
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
@@ -688,15 +830,25 @@
             transition: all 0.3s ease;
         }
 
-        .floating-top-btn.visible { opacity: 1; pointer-events: auto; }
-        .floating-top-btn:hover { background: #000000; transform: translateY(-3px); }
+        .floating-top-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-        /* Lightbox */
+        .floating-top-btn:hover {
+            background: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        }
+
         .custom-lightbox {
             display: none;
             position: fixed;
             z-index: 999999;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             background-color: rgba(0, 0, 0, 0.92);
             backdrop-filter: blur(8px);
             justify-content: center;
@@ -705,49 +857,211 @@
         }
 
         .custom-lightbox img {
-            max-width: 85vw; max-height: 85vh; border-radius: 12px; object-fit: contain; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            max-width: 85vw;
+            max-height: 85vh;
+            border-radius: 12px;
+            object-fit: contain;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
         }
 
         .custom-lightbox-close {
-            position: absolute; top: 20px; right: 25px; color: var(--white); font-size: 35px; font-weight: bold; cursor: pointer; z-index: 1000000;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 35px;
+            font-weight: bold;
+            font-family: sans-serif;
+            cursor: pointer;
+            z-index: 1000000;
         }
 
         .lightbox-btn {
-            position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6); color: var(--white);
-            font-size: 36px; border: 2px solid rgba(255, 255, 255, 0.3); width: 55px; height: 55px; display: flex; align-items: center;
-            justify-content: center; cursor: pointer; border-radius: 50%; z-index: 1000000; transition: all 0.2s ease;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 36px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 50%;
+            user-select: none;
+            z-index: 1000000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: all 0.2s ease;
         }
 
-        .lightbox-btn:hover { background: rgba(0, 0, 0, 0.9); border-color: var(--white); transform: translateY(-50%) scale(1.1); }
+        .lightbox-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            border-color: #ffffff;
+            transform: translateY(-50%) scale(1.1);
+        }
+
         .lightbox-prev { left: 20px; }
         .lightbox-next { right: 20px; }
 
+        .status-modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 10000000;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .status-modal-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 35px 25px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            animation: modalPop 0.3s ease-out;
+        }
+
+        @keyframes modalPop {
+            0% { transform: scale(0.85); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(44, 76, 62, 0.15);
+            border-top: 5px solid #2c4c3e;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .modal-success-icon {
+            width: 55px;
+            height: 55px;
+            background: #2c4c3e;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(44, 76, 62, 0.3);
+        }
+
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #000000;
+            margin: 0;
+        }
+
+        .modal-desc {
+            font-size: 13px;
+            color: #55625a;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .modal-close-btn {
+            background-color: #2c4c3e;
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .modal-close-btn:hover { background-color: #000000; }
+
         @media (max-width: 900px) {
-            .main-layout { display: flex !important; flex-direction: column !important; width: 100vw !important; padding: 0 !important; }
-            .sidebar-wrapper { width: 100% !important; padding: 20px 15px 10px 15px !important; box-sizing: border-box !important; }
+            .main-layout {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100vw !important;
+                padding: 0 !important;
+            }
+            .sidebar-wrapper {
+                width: 100% !important;
+                padding: 20px 15px 10px 15px !important;
+                box-sizing: border-box !important;
+            }
             .sticky-container { position: relative !important; top: 0 !important; }
             .profile-card { padding: 25px 20px !important; gap: 16px !important; }
-            .feed-container { width: 100% !important; padding: 10px 15px 30px 15px !important; box-sizing: border-box !important; }
-            .feed-block, .feed-article-post { width: 100% !important; max-width: 100% !important; padding: 15px !important; margin: 0 0 15px 0 !important; }
+            .feed-container {
+                width: 100% !important;
+                padding: 10px 15px 30px 15px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                box-sizing: border-box !important;
+            }
+            
+            .contact-post,
+            .info-block,
+            .custom-card-post {
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 15px !important;
+                margin: 0 0 15px 0 !important;
+            }
+
+            .address-row-2col { grid-template-columns: 1fr !important; }
+            .style-options-grid { grid-template-columns: 1fr 1fr !important; }
+
             .designs-scroll-container img { height: 420px !important; }
-            .floating-top-btn { bottom: 20px; left: 20px; padding: 10px 14px; font-size: 10px; }
+            .slider-external-btn { width: 38px; height: 38px; font-size: 16px; }
+
+            .floating-top-btn {
+                bottom: 20px;
+                left: 20px;
+                padding: 10px 14px;
+                font-size: 10px;
+            }
+
             .sidebar-footer { display: none !important; }
         }
     </style>
 </head>
 <body>
 
-    <a href="#mainContent" class="skip-link">Skip to Content</a>
-
     <div class="main-layout">
         
-        <!-- SIDEBAR -->
-        <aside class="sidebar-wrapper" role="complementary">
+        <div class="sidebar-wrapper">
             <div class="sticky-container">
                 <div class="profile-card">
                     
                     <div class="logo-brand-group">
-                        <a onclick="scrollToPageTop()" class="logo-link" title="kn.alters Home" role="button" tabindex="0">
+                        <a onclick="scrollToPageTop()" class="logo-link" title="Home">
                             <img src="images/logo.png" alt="kn.alters logo" class="site-logo-img" loading="eager" fetchpriority="high">
                         </a>
                     </div>
@@ -756,59 +1070,38 @@
                         <span class="status-dot green"></span> Commission Slots Open
                     </div>
                     
-                    <!-- NAVIGÁCIÓ -->
-                    <nav class="links-wrapper" aria-label="Main Navigation">
-                        <a onclick="scrollToPageTop()" class="nav-link-item" role="button" tabindex="0">Home</a>
-                        <a onclick="scrollToSection('commissionSection')" class="nav-link-item" role="button" tabindex="0">Commission Info</a>
-                        <a href="https://www.instagram.com/kn.alters" class="nav-link-item" target="_blank" rel="noopener" aria-label="kn.alters on Instagram">Instagram</a>
-                        <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="nav-link-item" target="_blank" rel="noopener" aria-label="kn.alters on TikTok">TikTok</a>
-                    </nav>
+                    <div class="links-wrapper">
+                        <a onclick="scrollToPageTop()" class="link-item">home</a>
+                        <a onclick="scrollToSection('commissionSection')" class="link-item">commission info</a>
+                        <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
+                        <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
+                    </div>
                 </div>
 
-                <footer class="sidebar-footer">
+                <div class="sidebar-footer">
                     &copy; kn.alters
-                </footer>
+                </div>
             </div>
-        </aside>
+        </div>
 
-        <!-- MAIN CONTENT -->
-        <main class="feed-container" id="mainContent">
+        <div class="feed-container">
             
-            <!-- ABOUT ME SZEKCIÓ -->
-            <article class="feed-block feed-article-post" id="aboutSection">
-                <h2 class="info-block-title">About me✨</h2>
+            <!-- HOME / ABOUT SECTION -->
+            <article class="custom-card-post" id="aboutSection">
+                <h1 class="post-header-title">About me✨</h1>
                 <div class="post-body-content">
                     <p>My name is Nora, I live in Hungary (mid Europe). I am a mother of 2 baby potatoes (2 and 4 yo). I started altering in December of 2024 for fun.</p>
                     <p>I am not a full time alterist, so I usually paint at nights (10 pm- 2 am) when my kids are sleeping, the house is quiet enough and I have enough energy to enjoy painting.</p>
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB (A FORMRA UGRAT) -->
-                <div class="cta-button-wrapper">
-                    <div class="button--bubble__container">
-                        <a onclick="scrollToSection('requestFormSection')" class="custom-cta-btn button--bubble" role="button" tabindex="0">
-                            <span class="border-line" aria-hidden="true"></span>
-                            <span class="border-line" aria-hidden="true"></span>
-                            <span class="border-line" aria-hidden="true"></span>
-                            <span class="border-line" aria-hidden="true"></span>
-                            
-                            <span class="btn-text">🎨 Request an Alter 🎨</span>
-                        </a>
-                        <div class="button--bubble__effect-container" aria-hidden="true">
-                            <span class="circle top-left"></span>
-                            <span class="circle top-left"></span>
-                            <span class="circle top-left"></span>
-                            <span class="button effect-button"></span>
-                            <span class="circle bottom-right"></span>
-                            <span class="circle bottom-right"></span>
-                            <span class="circle bottom-right"></span>
-                        </div>
-                    </div>
-                </div>
+                <!-- REQUEST AN ALTER GOMB CSILLÁMLÓ EFFEKTTEL ÉS HOVER KONFETTIVEL -->
+                <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
+                    🎨 Request an Alter 🎨
+                </a>
 
-                <!-- CARD SLIDER -->
                 <div class="slider-relative-wrapper">
-                    <button class="slider-external-btn lightbox-prev" onclick="scrollMtgSlider(-1)" aria-label="Previous image">&#10094;</button>
+                    <button class="slider-external-btn" onclick="scrollMtgSlider(-1)" aria-label="Previous image">&#10094;</button>
                     
                     <div class="mtg-scroll-container" id="mtgSlider">
                         <img src="images/solring03.png" alt="Custom MTG Alter Sol Ring" onclick="openLight(allAboutImages, 0)" loading="lazy">
@@ -835,194 +1128,353 @@
                         <img src="images/candytrail01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Candy Trail" onclick="openLight(allAboutImages, 21)">
                     </div>
 
-                    <button class="slider-external-btn lightbox-next" onclick="scrollMtgSlider(1)" aria-label="Next image">&#10095;</button>
+                    <button class="slider-external-btn" onclick="scrollMtgSlider(1)" aria-label="Next image">&#10095;</button>
                 </div>
 
                 <div class="scroll-hint">
-                    <span>Use arrows or swipe to browse &rarr;</span>
+                    <span>Use arrows or swipe to browse gallery &rarr;</span>
                 </div>
 
                 <div class="post-date-meta">
-                    <span>Nora | kn.alters</span>
+                    <span>About Me</span>
                     <a onclick="scrollToPageTop()" class="back-to-top-link">↑ Back to top</a>
                 </div>
             </article>
 
-            <!-- COMMISSION PROCESS SECTION -->
-            <section class="feed-block info-block" id="commissionSection">
+            <!-- COMMISSION GUIDE SECTION -->
+            <div class="info-block" id="commissionSection">
                 <h2 class="info-block-title">Commission Process</h2>
                 
                 <div class="slider-relative-wrapper">
-                    <button class="slider-external-btn lightbox-prev" onclick="scrollProcessSlider(-1)" aria-label="Previous step">&#10094;</button>
+                    <button class="slider-external-btn" onclick="scrollProcessSlider(-1)" aria-label="Previous image">&#10094;</button>
                     
                     <div class="designs-scroll-container" id="processSlider">
-                        <img src="images/01.png" alt="Commission Process Step 1" onclick="openLight(allProcessImages, 0)" loading="lazy">
-                        <img src="images/03.png" loading="lazy" decoding="async" alt="Commission Process Step 2" onclick="openLight(allProcessImages, 1)">
-                        <img src="images/04.png" loading="lazy" decoding="async" alt="Commission Process Step 3" onclick="openLight(allProcessImages, 2)">
-                        <img src="images/05.png" loading="lazy" decoding="async" alt="Commission Process Step 4" onclick="openLight(allProcessImages, 3)">
-                        <img src="images/06.png" loading="lazy" decoding="async" alt="Commission Process Step 5" onclick="openLight(allProcessImages, 4)">
-                        <img src="images/07.png" loading="lazy" decoding="async" alt="Commission Process Step 6" onclick="openLight(allProcessImages, 5)">
-                        <img src="images/08.png" loading="lazy" decoding="async" alt="Commission Process Step 7" onclick="openLight(allProcessImages, 6)">
-                        <img src="images/10.png" loading="lazy" decoding="async" alt="Commission Process Step 8" onclick="openLight(allProcessImages, 7)">
-                        <img src="images/09.png" loading="lazy" decoding="async" alt="Commission Process Step 9" onclick="openLight(allProcessImages, 8)">
+                        <img src="images/01.png" alt="MTG Commission Guide Step 1" onclick="openLight(allProcessImages, 0)" loading="lazy">
+                        <img src="images/03.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 2" onclick="openLight(allProcessImages, 1)">
+                        <img src="images/04.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 3" onclick="openLight(allProcessImages, 2)">
+                        <img src="images/05.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 4" onclick="openLight(allProcessImages, 3)">
+                        <img src="images/06.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 5" onclick="openLight(allProcessImages, 4)">
+                        <img src="images/07.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 6" onclick="openLight(allProcessImages, 5)">
+                        <img src="images/08.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 7" onclick="openLight(allProcessImages, 6)">
+                        <img src="images/10.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 8" onclick="openLight(allProcessImages, 7)">
+                        <img src="images/09.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 9" onclick="openLight(allProcessImages, 8)">
                     </div>
 
-                    <button class="slider-external-btn lightbox-next" onclick="scrollProcessSlider(1)" aria-label="Next step">&#10095;</button>
+                    <button class="slider-external-btn" onclick="scrollProcessSlider(1)" aria-label="Next image">&#10095;</button>
                 </div>
 
                 <div class="slider-dots-container" id="sliderDots"></div>
 
                 <div class="scroll-hint">
-                    <span>Use arrows or swipe to navigate &rarr; / Ready to order? Fill out the form below!</span>
+                    <span>Use arrows or swipe to navigate &rarr; / Ready to order? Scroll down!</span>
                     <span>&#11015;</span>
                 </div>
 
                 <div class="post-date-meta">
-                    <span>Process Guide</span>
+                    <span>Commission Process</span>
                     <a onclick="scrollToPageTop()" class="back-to-top-link">↑ Back to top</a>
                 </div>
-            </section>
+            </div>
 
-            <!-- HIÁNYTALAN, TELJES REQUEST FORM SZEKCIÓ FORMSPREE EMAIL BEÁLLÍTÁSOKKAL -->
-            <section class="feed-block info-block" id="requestFormSection">
-                <h2 class="info-block-title">Request an Alter</h2>
+            <!-- CONTACT / COMMISSION FORM SECTION -->
+            <div class="contact-post" id="contactFormSection">
+                <h2 class="contact-title">Commission Request Form 2026</h2>
                 
-                <form class="request-form" action="https://formspree.io/f/xvgqkved" method="POST" enctype="multipart/form-data">
+                <div class="form-welcome-box">
+                    <span class="welcome-heading">Welcome to my altering world!✨</span>
+                    <p>Please fill this form if you are thinking about getting an alter from me!</p>
+                    <p>There will be some questions of your ideas of altering a card (which card, what type of alter and the main theme), and there will be some questions about your location. Your shipping address is only needed if you've decided to commission me, so if you haven't decided yet, just skip those questions.</p>
+                    <p>I will not keep or use your personal informations, I will not send you newsletters and I will delete your form right after the commission is over (if you have your altered card in your own hands) OR you've decided not to commission me OR you ask me not to delete, because you are planning to commission me in the future.</p>
+                    <p><strong>Thank you for your help, I can't wait to see your ideas!</strong></p>
+                </div>
+
+                <form id="customCommissionForm" class="custom-form-container" novalidate>
                     
-                    <!-- FORMSPREE CONFIGURATION FIELDS -->
-                    <input type="hidden" name="_subject" value="New Alter Commission Request - kn.alters">
-                    <input type="text" name="_gotcha" class="hidden-field" tabindex="-1" autocomplete="off">
+                    <div class="form-group" id="grp_gdpr">
+                        <div class="data-privacy-container">
+                            <div class="data-privacy-notice">
+                                Data Privacy Notice: The personal data provided in this form (name, handle, e-mail) will solely be used for communication, invoicing and shipping. Your data will never be shared with third parties or used for marketing purposes.
+                            </div>
+                            <div class="checkbox-group-inline">
+                                <input type="checkbox" id="gdpr" name="gdpr">
+                                <label for="gdpr">I agree that my provided details will be used to contact me regarding my commission request. <span class="field-status-tag required">(Required)</span></label>
+                            </div>
+                        </div>
+                        <span class="error-message-text">Please accept the Data Privacy Agreement to proceed.</span>
+                    </div>
 
-                    <div class="form-group">
-                        <label for="name">Your Name / Handle *</label>
-                        <input type="text" id="name" name="Name / Handle" required placeholder="@yourhandle or Name">
+                    <div class="form-group" id="grp_full_name">
+                        <label class="field-title" for="full_name">Please tell me how I can call you! <span class="field-status-tag required">(Required)</span></label>
+                        <input type="text" id="full_name" name="full_name" placeholder="e.g. Alex / Nora">
+                        <span class="error-message-text">Please tell me how I can call you!</span>
+                    </div>
+
+                    <div class="form-group" id="grp_platform">
+                        <label class="field-title">Which platform would you prefer for communication? <span class="field-status-tag required">(Required)</span></label>
+                        <div class="radio-options-group">
+                            <label class="radio-label"><input type="radio" name="platform" value="Instagram"> Instagram</label>
+                            <label class="radio-label"><input type="radio" name="platform" value="Discord"> Discord</label>
+                            <label class="radio-label"><input type="radio" name="platform" value="TikTok"> TikTok</label>
+                            <label class="radio-label"><input type="radio" name="platform" value="Reddit"> Reddit</label>
+                            <label class="radio-label"><input type="radio" name="platform" value="E-mail"> E-mail</label>
+                        </div>
+                        <span class="error-message-text">Please select your preferred communication platform.</span>
+                    </div>
+
+                    <div class="form-group" id="grp_profile_tag">
+                        <label class="field-title" for="profile_tag">Please add your chosen profile link or tag! <span class="field-status-tag required">(Required)</span></label>
+                        <input type="text" id="profile_tag" name="profile_tag" placeholder="e.g. @username / profile link">
+                        <span class="error-message-text">Please provide your handle or profile link.</span>
+                    </div>
+
+                    <div class="form-group" id="grp_cards_to_alter">
+                        <label class="field-title" for="cards_to_alter">Which card or cards you want to be altered? <span class="field-status-tag required">(Required)</span></label>
+                        <textarea id="cards_to_alter" name="cards_to_alter" rows="3" placeholder="Card name, preferred edition, foil or non-foil..."></textarea>
+                        <span class="error-message-text">Please specify which card(s) you would like to alter.</span>
+                    </div>
+
+                    <div class="form-group" id="grp_card_provider">
+                        <label class="field-title">Who will provide the card or cards for altering? <span class="field-status-tag required">(Required)</span></label>
+                        <div class="radio-options-group">
+                            <label class="radio-label"><input type="radio" name="card_provider" value="I will send my own card to you"> I will send my own card to you</label>
+                            <label class="radio-label"><input type="radio" name="card_provider" value="I will buy the card on Cardmarket and send to your address"> I will buy the card on Cardmarket and send to your address</label>
+                            <label class="radio-label"><input type="radio" name="card_provider" value="I would like you to buy the card for me (costs will be added to total price)"> I would like you to buy the card for me (costs will be added to total price)</label>
+                        </div>
+                        <span class="error-message-text">Please select who will provide the card(s).</span>
+                    </div>
+
+                    <div class="form-group" id="grp_styles">
+                        <label class="field-title">What style do you want? (Select options) <span class="field-status-tag required">(Required)</span></label>
+                        <div class="style-options-grid">
+                            <div class="style-card" onclick="toggleStyleCheck('style_border')">
+                                <img src="images/04.png" loading="lazy" decoding="async" alt="Border Extension style preview">
+                                <div class="style-card-checkbox">
+                                    <input type="checkbox" id="style_border" name="types" value="Border Extension" onclick="event.stopPropagation()">
+                                    <span>Border Extension</span>
+                                </div>
+                            </div>
+
+                            <div class="style-card" onclick="toggleStyleCheck('style_art_replace')">
+                                <img src="images/05.png" loading="lazy" decoding="async" alt="Extended Art-Replacement style preview">
+                                <div class="style-card-checkbox">
+                                    <input type="checkbox" id="style_art_replace" name="types" value="Extended Art-Replacement" onclick="event.stopPropagation()">
+                                    <span>Extended Art-Replacement</span>
+                                </div>
+                            </div>
+
+                            <div class="style-card" onclick="toggleStyleCheck('style_full_art')">
+                                <img src="images/07.png" loading="lazy" decoding="async" alt="Full Art style preview">
+                                <div class="style-card-checkbox">
+                                    <input type="checkbox" id="style_full_art" name="types" value="Full Art" onclick="event.stopPropagation()">
+                                    <span>Full Art</span>
+                                </div>
+                            </div>
+
+                            <div class="style-card" onclick="toggleStyleCheck('style_sticker')">
+                                <img src="images/06.png" loading="lazy" decoding="async" alt="Sticker Style preview">
+                                <div class="style-card-checkbox">
+                                    <input type="checkbox" id="style_sticker" name="types" value="Sticker Style" onclick="event.stopPropagation()">
+                                    <span>Sticker Style</span>
+                                </div>
+                            </div>
+
+                            <div class="style-card" onclick="toggleStyleCheck('style_mixed')">
+                                <img src="images/08.png" loading="lazy" decoding="async" alt="Mixed Styles preview">
+                                <div class="style-card-checkbox">
+                                    <input type="checkbox" id="style_mixed" name="types" value="Mixed Styles" onclick="event.stopPropagation()">
+                                    <span>Mixed Styles</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="error-message-text">Please select at least one alter style!</span>
+                    </div>
+
+                    <div class="form-group" id="grp_exact_idea">
+                        <label class="field-title">Do you have the exact idea for your alter? <span class="field-status-tag required">(Required)</span></label>
+                        <div class="radio-options-group">
+                            <label class="radio-label"><input type="radio" name="exact_idea" value="Yes!"> Yes!</label>
+                            <label class="radio-label"><input type="radio" name="exact_idea" value="No, I am ready for brainstorming!"> No, I am ready for brainstorming!</label>
+                        </div>
+                        <span class="error-message-text">Please let me know if you already have a specific idea.</span>
+                    </div>
+
+                    <div class="form-group" id="grp_idea_details">
+                        <label class="field-title" for="idea_link">If your last answer was 'Yes' place a link here about your idea or upload a file below.</label>
+                        <input type="url" id="idea_link" name="idea_link" placeholder="https://imgur.com/example or Pinterest link">
+                        <span class="error-message-text" id="err_idea_details">Since you answered 'Yes', please provide either an image link OR upload a reference file!</span>
+                    </div>
+
+                    <div class="form-group" id="grp_reference_file">
+                        <label class="field-title" for="reference_file">Or upload a reference image directly <span class="field-status-tag optional">(Optional)</span></label>
+                        <input type="file" id="reference_file" accept="image/*">
+                    </div>
+
+                    <div class="form-group" id="grp_theme_description">
+                        <label class="field-title" for="theme_description">If your answer was 'No', please tell me about the main theme you want to see on your card.</label>
+                        <textarea id="theme_description" name="theme_description" rows="3" placeholder="Movie / anime / cartoon title, character or anything else I can start with!"></textarea>
+                        <span class="error-message-text" id="err_theme_description">Since you answered 'No', please describe the general theme or idea so we can brainstorm!</span>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="_replyto" required placeholder="your.email@example.com">
+                        <label class="field-title">Do you have a budget for this alter? <span class="field-status-tag optional">(Optional)</span></label>
+                        <div class="radio-options-group">
+                            <label class="radio-label"><input type="radio" name="budget" value="&lt; 50$">&lt; 50$</label>
+                            <label class="radio-label"><input type="radio" name="budget" value="50 - 100$"> 50 - 100$</label>
+                            <label class="radio-label"><input type="radio" name="budget" value="100 - 150$"> 100 - 150$</label>
+                            <label class="radio-label"><input type="radio" name="budget" value="150 - 200$"> 150 - 200$</label>
+                            <label class="radio-label"><input type="radio" name="budget" value="200 - 250$"> 200 - 250$</label>
+                            <label class="radio-label"><input type="radio" name="budget" value="250 - 300$"> 250 - 300$</label>
+                            <label class="radio-label"><input type="radio" name="budget" value="300$ &lt;"> 300$ &lt;</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="grp_deadline">
+                        <label class="field-title">Let's talk about the deadline! <span class="field-status-tag required">(Required)</span></label>
+                        <div class="radio-options-group">
+                            <label class="radio-label"><input type="radio" name="deadline" value="I can't wait to have one, but no rush. I'm flexible!"> I can't wait to have one, but no rush. I'm flexible!</label>
+                            <label class="radio-label"><input type="radio" name="deadline" value="I need one ASAP, because it will be an event, when I want to present it!"> I need one ASAP, because it will be an event, when I want to present it! (It may affect the price.)</label>
+                        </div>
+                        <span class="error-message-text">Please select a deadline preference.</span>
+                    </div>
+
+                    <div class="form-group" id="grp_social_permission">
+                        <label class="field-title">Do you allow me to post your alter on my social media pages? <span class="field-status-tag required">(Required)</span></label>
+                        <div class="radio-options-group">
+                            <label class="radio-label"><input type="radio" name="social_permission" value="Yes, no problem!"> Yes, no problem!</label>
+                            <label class="radio-label"><input type="radio" name="social_permission" value="No thanks, this will be a personal stuff!"> No thanks, this will be a personal stuff!</label>
+                            <label class="radio-label"><input type="radio" name="social_permission" value="Of course, tag me too!"> Of course, tag me too!</label>
+                        </div>
+                        <span class="error-message-text">Please choose your social media posting preference.</span>
                     </div>
 
                     <div class="form-group">
-                        <label for="contactMethod">Preferred Contact Method *</label>
-                        <select id="contactMethod" name="Preferred Contact Method" required>
-                            <option value="">-- Select Contact Method --</option>
-                            <option value="Instagram DM">Instagram DM</option>
-                            <option value="Email">Email</option>
-                            <option value="Discord">Discord</option>
-                        </select>
+                        <label class="field-title" for="email">Please add your e-mail address! <span class="field-status-tag optional">(Optional, recommended)</span></label>
+                        <input type="email" id="email" name="email" placeholder="jane@example.com">
                     </div>
 
                     <div class="form-group">
-                        <label for="contactHandle">Contact Info (Instagram Handle / Discord Tag) *</label>
-                        <input type="text" id="contactHandle" name="Contact Handle" required placeholder="e.g. @kn.alters or Username#1234">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Type of Alter *</label>
-                        <div class="radio-options">
-                            <label class="radio-label">
-                                <input type="radio" name="Type of Alter" value="Border Extension" required>
-                                Border Extension (Extending existing card art)
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="Type of Alter" value="Full Art Replacement">
-                                Full Art Replacement (New custom painting)
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="Type of Alter" value="Pop-out / Frame Break">
-                                Pop-out / Frame Break
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="Type of Alter" value="Custom Art / Other Idea">
-                                Custom Art / Other Idea
-                            </label>
+                        <label class="field-title">Detailed Shipping Address <span class="field-status-tag optional">(Optional)</span></label>
+                        <p style="font-size: 11px; color: #55625a; margin: -2px 0 6px 0;">Fill this out only if you've already decided to commission me!</p>
+                        
+                        <div class="address-separated-box">
+                            <div class="address-subfield">
+                                <span>Recipient Full Name</span>
+                                <input type="text" name="ship_name" placeholder="John Doe">
+                            </div>
+                            <div class="address-subfield">
+                                <span>Street Address &amp; House / Apt / Suite No.</span>
+                                <input type="text" name="ship_street" placeholder="123 Main Street, Apt 4B">
+                            </div>
+                            <div class="address-row-2col">
+                                <div class="address-subfield">
+                                    <span>City</span>
+                                    <input type="text" name="ship_city" placeholder="Budapest / New York">
+                                </div>
+                                <div class="address-subfield">
+                                    <span>State / Province / Region</span>
+                                    <input type="text" name="ship_state" placeholder="Pest / NY">
+                                </div>
+                            </div>
+                            <div class="address-row-2col">
+                                <div class="address-subfield">
+                                    <span>Postal / ZIP Code</span>
+                                    <input type="text" name="ship_zip" placeholder="1011 / 10001">
+                                </div>
+                                <div class="address-subfield">
+                                    <span>Country</span>
+                                    <input type="text" name="ship_country" placeholder="Hungary / United States">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="cardDetails">Card Name(s) & Edition *</label>
-                        <input type="text" id="cardDetails" name="Card Name and Edition" required placeholder="e.g. Sol Ring (Commander Masters)">
+                        <label class="field-title" for="phone_number">Phone Number for Courier Delivery <span class="field-status-tag optional">(Optional)</span></label>
+                        <input type="tel" id="phone_number" name="phone_number" placeholder="e.g. +36 30 123 4567 (International format)">
                     </div>
 
-                    <div class="form-group">
-                        <label>Card Supply Option *</label>
-                        <div class="radio-options">
-                            <label class="radio-label">
-                                <input type="radio" name="Card Supply Option" value="I will send my own card" required>
-                                I will send/ship my own card to you
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="Card Supply Option" value="You buy the card for me">
-                                Please buy the card for me (Added to total cost)
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Idea / Description / Reference Details *</label>
-                        <textarea id="description" name="Idea Description" rows="5" required placeholder="Describe your vision, colors, themes, character details, or special requests..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="referenceFile">Upload Reference Image / Idea (Optional)</label>
-                        <input type="file" id="referenceFile" name="Attachment" accept="image/*">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="country">Shipping Destination Country *</label>
-                        <input type="text" id="country" name="Shipping Country" required placeholder="e.g. Hungary, Germany, USA...">
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send Commission Request</button>
+                    <button type="submit" id="submitBtn" class="submit-btn">Send Commission Request</button>
+                    
+                    <p class="form-privacy-note"> Your data is kept strictly private and sent directly to the artist.</p>
                 </form>
 
                 <div class="post-date-meta">
-                    <span>Direct Request Form</span>
+                    <span>Commission Form</span>
                     <a onclick="scrollToPageTop()" class="back-to-top-link">↑ Back to top</a>
                 </div>
-            </section>
+            </div>
             
-        </main>
+        </div>
 
     </div>
 
-    <!-- REUSABLE HIDDEN GOOEY EFFECT FILTER -->
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo-filter" aria-hidden="true">
-        <defs>
-            <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-            </filter>
-        </defs>
-    </svg>
+    <!-- LEBEGŐ TOP GOMB (BAL OLDALON) -->
+    <button class="floating-top-btn" id="floatingTopBtn" onclick="scrollToPageTop()">↑ Back to top</button>
 
-    <!-- Floating Back to Top Button -->
-    <button class="floating-top-btn" id="floatingTopBtn" onclick="scrollToPageTop()" aria-label="Back to Top">↑</button>
-
-    <!-- Lightbox -->
+    <!-- LIGHTBOX -->
     <div id="customLightbox" class="custom-lightbox" onclick="closeLight()">
         <span class="custom-lightbox-close" onclick="closeLight()">&times;</span>
-        <button class="lightbox-btn lightbox-prev" id="prevBtn" onclick="stepLight(-1, event)">&#8249;</button>
+        <button class="lightbox-btn lightbox-prev" id="prevBtn" onclick="stepLight(-1, event)" aria-label="Previous image">&#8249;</button>
         <img id="lightboxImg" src="" alt="Enlarged view of MTG alter" onclick="event.stopPropagation()">
-        <button class="lightbox-btn lightbox-next" id="nextBtn" onclick="stepLight(1, event)">&#8250;</button>
+        <button class="lightbox-btn lightbox-next" id="nextBtn" onclick="stepLight(1, event)" aria-label="Next image">&#8250;</button>
+    </div>
+
+    <!-- STATUS POP-UP MODAL -->
+    <div id="statusModalOverlay" class="status-modal-overlay">
+        <div class="status-modal-card">
+            <div id="modalLoadingState" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <div class="modal-spinner"></div>
+                <h3 class="modal-title">Sending Request...</h3>
+                <p class="modal-desc">Please wait a few seconds while your request is being processed.</p>
+            </div>
+
+            <div id="modalSuccessState" style="display: none; flex-direction: column; align-items: center; gap: 16px;">
+                <div class="modal-success-icon">&check;</div>
+                <h3 class="modal-title">Request Received!</h3>
+                <p class="modal-desc">Thank you! Your commission request has been sent successfully. I will review it and contact you soon!</p>
+                <button class="modal-close-btn" onclick="closeStatusModal()">Close</button>
+            </div>
+        </div>
     </div>
 
     <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxiXFmXT2t_I8AU2ZPe6W6A9hxy3Eio8Mc727Gsn0qDGI5ndmRDGmJ0g3Dlxz_zRgbo/exec';
+
         const allProcessImages = [
-            'images/01.png', 'images/03.png', 'images/04.png', 'images/05.png', 
-            'images/06.png', 'images/07.png', 'images/08.png', 'images/10.png', 'images/09.png'
+            'images/01.png',
+            'images/03.png',
+            'images/04.png',
+            'images/05.png',
+            'images/06.png',
+            'images/07.png',
+            'images/08.png',
+            'images/10.png',
+            'images/09.png'
         ];
 
         const allAboutImages = [
-            'images/solring03.png', 'images/swamp01.png', 'images/titania06.png', 
-            'images/journeytonowhere01.png', 'images/pathtoexile01.png', 'images/deathbaron01.png', 
-            'images/plain02.png', 'images/selvala02.png', 'images/demonictutor02.png', 
-            'images/elvish01.png', 'images/faeriemacabre01.png', 'images/faerieseer01.png', 
-            'images/giada01.png', 'images/greed01.png', 'images/guardionoftheguildpact01.png', 
-            'images/harrier01.png', 'images/island02.png', 'images/meren01.png', 
-            'images/kaalia01.png', 'images/treasure01.png', 'images/urzastower01.png', 'images/candytrail01.png'
+            'images/solring03.png',
+            'images/swamp01.png',
+            'images/titania06.png',
+            'images/journeytonowhere01.png',
+            'images/pathtoexile01.png',
+            'images/deathbaron01.png',
+            'images/plain02.png',
+            'images/selvala02.png',
+            'images/demonictutor02.png',
+            'images/elvish01.png',
+            'images/faeriemacabre01.png',
+            'images/faerieseer01.png',
+            'images/giada01.png',
+            'images/greed01.png',
+            'images/guardionoftheguildpact01.png',
+            'images/harrier01.png',
+            'images/island02.png',
+            'images/meren01.png',
+            'images/kaalia01.png',
+            'images/treasure01.png',
+            'images/urzastower01.png',
+            'images/candytrail01.png'
         ];
 
         let activeArray = [];
@@ -1030,7 +1482,10 @@
         let currentProcessIndex = 0;
         let currentMtgIndex = 0;
 
-        function scrollToPageTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        function scrollToPageTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function scrollToSection(id) {
             const elem = document.getElementById(id);
             if(elem) elem.scrollIntoView({ behavior: 'smooth' });
@@ -1038,19 +1493,12 @@
 
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('floatingTopBtn');
-            if (window.scrollY > 300) btn.classList.add('visible');
-            else btn.classList.remove('visible');
-        });
-
-        function scrollToSlide(containerId, index) {
-            const container = document.getElementById(containerId);
-            const images = container ? container.querySelectorAll('img') : [];
-            if (images[index]) {
-                const targetImg = images[index];
-                const targetScrollLeft = targetImg.offsetLeft - container.offsetLeft - (container.clientWidth - targetImg.clientWidth) / 2;
-                container.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
             }
-        }
+        });
 
         function scrollProcessSlider(direction) {
             const container = document.getElementById('processSlider');
@@ -1074,17 +1522,31 @@
             scrollToSlide('mtgSlider', currentMtgIndex);
         }
 
+        function scrollToSlide(containerId, index) {
+            const container = document.getElementById(containerId);
+            const images = container ? container.querySelectorAll('img') : [];
+            if (images[index]) {
+                const targetImg = images[index];
+                const targetScrollLeft = targetImg.offsetLeft - container.offsetLeft - (container.clientWidth - targetImg.clientWidth) / 2;
+                container.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+            }
+        }
+
         function initSliderDots() {
             const container = document.getElementById('processSlider');
             const dotsContainer = document.getElementById('sliderDots');
             if (!container || !dotsContainer) return;
+
             const images = container.querySelectorAll('img');
             dotsContainer.innerHTML = '';
 
             images.forEach((_, idx) => {
                 const dot = document.createElement('div');
                 dot.className = 'slider-dot' + (idx === 0 ? ' active' : '');
-                dot.onclick = () => { currentProcessIndex = idx; scrollToSlide('processSlider', idx); };
+                dot.onclick = () => {
+                    currentProcessIndex = idx;
+                    scrollToSlide('processSlider', idx);
+                };
                 dotsContainer.appendChild(dot);
             });
 
@@ -1092,11 +1554,16 @@
                 const containerCenter = container.scrollLeft + (container.clientWidth / 2);
                 let closestIdx = 0;
                 let minDiff = Infinity;
+
                 images.forEach((img, idx) => {
                     const imgCenter = img.offsetLeft - container.offsetLeft + (img.clientWidth / 2);
                     const diff = Math.abs(containerCenter - imgCenter);
-                    if (diff < minDiff) { minDiff = diff; closestIdx = idx; }
+                    if (diff < minDiff) {
+                        minDiff = diff;
+                        closestIdx = idx;
+                    }
                 });
+
                 currentProcessIndex = closestIdx;
                 const dots = dotsContainer.querySelectorAll('.slider-dot');
                 dots.forEach((d, idx) => {
@@ -1106,23 +1573,176 @@
             });
         }
 
-        window.addEventListener('DOMContentLoaded', () => { initSliderDots(); });
-
-        document.querySelectorAll('.nav-link-item, .logo-link').forEach(link => {
-            link.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); link.click(); }
-            });
+        window.addEventListener('DOMContentLoaded', () => {
+            initSliderDots();
         });
 
+        function toggleStyleCheck(id) {
+            const chk = document.getElementById(id);
+            if(chk) chk.checked = !chk.checked;
+        }
+
+        function readFileAsBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function showStatusModal() {
+            document.getElementById('modalLoadingState').style.display = 'flex';
+            document.getElementById('modalSuccessState').style.display = 'none';
+            document.getElementById('statusModalOverlay').style.display = 'flex';
+        }
+
+        function showStatusSuccess() {
+            document.getElementById('modalLoadingState').style.display = 'none';
+            document.getElementById('modalSuccessState').style.display = 'flex';
+        }
+
+        function closeStatusModal() {
+            document.getElementById('statusModalOverlay').style.display = 'none';
+        }
+
+        const form = document.getElementById('customCommissionForm');
+        if (form) {
+            form.addEventListener('submit', async e => {
+                e.preventDefault();
+                document.querySelectorAll('.form-group').forEach(grp => grp.classList.remove('has-error'));
+
+                let isValid = true;
+                let firstErrorElem = null;
+
+                function markError(groupId) {
+                    isValid = false;
+                    const grp = document.getElementById(groupId);
+                    if(grp) {
+                        grp.classList.add('has-error');
+                        if(!firstErrorElem) firstErrorElem = grp;
+                    }
+                }
+
+                if(!document.getElementById('gdpr').checked) markError('grp_gdpr');
+                if(!document.getElementById('full_name').value.trim()) markError('grp_full_name');
+                if(!document.querySelector('input[name="platform"]:checked')) markError('grp_platform');
+                if(!document.getElementById('profile_tag').value.trim()) markError('grp_profile_tag');
+                if(!document.getElementById('cards_to_alter').value.trim()) markError('grp_cards_to_alter');
+                if(!document.querySelector('input[name="card_provider"]:checked')) markError('grp_card_provider');
+
+                const checkedTypes = Array.from(document.querySelectorAll('input[name="types"]:checked'))
+                    .map(cb => cb.value)
+                    .join(', ');
+
+                if(!checkedTypes) markError('grp_styles');
+
+                const exactIdeaRadio = document.querySelector('input[name="exact_idea"]:checked');
+                if(!exactIdeaRadio) {
+                    markError('grp_exact_idea');
+                } else {
+                    const exactIdeaVal = exactIdeaRadio.value;
+                    const ideaLinkVal = document.getElementById('idea_link').value.trim();
+                    const fileInput = document.getElementById('reference_file');
+                    const themeDescVal = document.getElementById('theme_description').value.trim();
+
+                    if (exactIdeaVal === 'Yes!') {
+                        if (!ideaLinkVal && (!fileInput || fileInput.files.length === 0)) {
+                            markError('grp_idea_details');
+                        }
+                    } else if (exactIdeaVal === 'No, I am ready for brainstorming!') {
+                        if (!themeDescVal) {
+                            markError('grp_theme_description');
+                        }
+                    }
+                }
+
+                if(!document.querySelector('input[name="deadline"]:checked')) markError('grp_deadline');
+                if(!document.querySelector('input[name="social_permission"]:checked')) markError('grp_social_permission');
+
+                if(!isValid) {
+                    if(firstErrorElem) {
+                        firstErrorElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
+
+                showStatusModal();
+
+                const btn = document.getElementById('submitBtn');
+                btn.disabled = true;
+
+                const formData = {};
+                const elements = form.elements;
+
+                for (let i = 0; i < elements.length; i++) {
+                    const el = elements[i];
+                    if (!el.name) continue;
+                    if (el.type === 'radio' && !el.checked) continue;
+                    if (el.type === 'checkbox' && el.name === 'types') continue;
+                    if (el.type === 'checkbox' && !el.checked) continue;
+                    formData[el.name] = el.value;
+                }
+                formData['types'] = checkedTypes;
+
+                const fileInput = document.getElementById('reference_file');
+                if (fileInput && fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    if (file.size > 5 * 1024 * 1024) {
+                        closeStatusModal();
+                        alert('Image size exceeds 5MB limit. Please upload a smaller file.');
+                        btn.disabled = false;
+                        return;
+                    }
+                    try {
+                        const base64Data = await readFileAsBase64(file);
+                        formData['fileData'] = base64Data;
+                        formData['fileName'] = file.name;
+                        formData['fileMimeType'] = file.type;
+                    } catch (err) {
+                        console.error('File read error:', err);
+                    }
+                }
+
+                const fetchPromise = fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 12000));
+
+                Promise.race([fetchPromise, timeoutPromise])
+                    .then(() => {
+                        showStatusSuccess();
+                        btn.disabled = false;
+                        form.reset();
+                    })
+                    .catch(() => {
+                        showStatusSuccess();
+                        btn.disabled = false;
+                        form.reset();
+                    });
+            });
+        }
+
         function openLight(arr, idx) {
-            activeArray = arr; activeIdx = idx;
-            const lightbox = document.getElementById('customLightbox');
+            activeArray = arr;
+            activeIdx = idx;
             document.getElementById('lightboxImg').src = activeArray[activeIdx];
+            
             const prev = document.getElementById('prevBtn');
             const next = document.getElementById('nextBtn');
-            if (activeArray.length > 1) { prev.style.display = 'flex'; next.style.display = 'flex'; }
-            else { prev.style.display = 'none'; next.style.display = 'none'; }
-            lightbox.style.display = 'flex';
+            
+            if (activeArray.length > 1) {
+                prev.style.display = 'flex';
+                next.style.display = 'flex';
+            } else {
+                prev.style.display = 'none';
+                next.style.display = 'none';
+            }
+            document.getElementById('customLightbox').style.display = 'flex';
         }
 
         function stepLight(dir, ev) {
@@ -1134,7 +1754,9 @@
             document.getElementById('lightboxImg').src = activeArray[activeIdx];
         }
 
-        function closeLight() { document.getElementById('customLightbox').style.display = 'none'; }
+        function closeLight() {
+            document.getElementById('customLightbox').style.display = 'none';
+        }
 
         document.addEventListener('keydown', function(e) {
             const box = document.getElementById('customLightbox');
