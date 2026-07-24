@@ -130,13 +130,15 @@
             transform: scale(1.03);
         }
 
+        /* LOGÓ BEILLESZTÉS: LÁTHATATLAN HÁTTÉR MULTIPLY + KONTRAASZT SZŰRŐVEL */
         .site-logo-img {
             max-width: 240px;
             width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
-            mix-blend-mode: multiply; /* Eltünteti a törtfehér keretet, átengedi a kártya hátterét */
+            mix-blend-mode: multiply;
+            filter: contrast(160%) brightness(96%);
         }
 
         .status-badge {
@@ -170,7 +172,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* ELEGÁNS FÉNYCSILLANÁS ANIMÁCIÓ A CTA GOMBON */
+        /* FINOM LÜKTETŐ FÉNYUDVAR A "REQUEST AN ALTER" GOMBON (SOHASEM SHINE) */
         .inline-cta-btn {
             position: relative;
             display: inline-block;
@@ -187,40 +189,26 @@
             border-radius: 14px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25);
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             box-sizing: border-box;
             margin: 18px 0 10px 0;
             cursor: pointer;
-            overflow: hidden;
+            animation: softGlow 3s infinite ease-in-out;
         }
 
-        .inline-cta-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 40%;
-            height: 200%;
-            background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.4) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            transform: rotate(25deg);
-            animation: shine 4s infinite ease-in-out;
-        }
-
-        @keyframes shine {
-            0% { left: -60%; }
-            20% { left: 120%; }
-            100% { left: 120%; }
+        @keyframes softGlow {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25);
+            }
+            50% {
+                box-shadow: 0 4px 22px rgba(44, 76, 62, 0.55), 0 0 10px rgba(163, 148, 184, 0.4);
+            }
         }
 
         .inline-cta-btn:hover {
             background-color: #000000;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
         }
 
         .links-wrapper {
@@ -772,7 +760,6 @@
             background-color: #2c4c3e;
         }
 
-        /* LEBEGŐ "BACK TO TOP" GOMB A JOBB ALSÓ SAROKBAN */
         .floating-top-btn {
             position: fixed;
             bottom: 30px;
@@ -1061,7 +1048,7 @@
                 </div>
 
                 <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
-                    ✨ Request an Alter
+                    🎨 Request an Alter 🎨
                 </a>
 
                 <div class="slider-relative-wrapper">
@@ -1451,7 +1438,6 @@
             if(elem) elem.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Görgetés figyelése a lebegő Top gomb megjelenítéséhez
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('floatingTopBtn');
             if (window.scrollY > 300) {
