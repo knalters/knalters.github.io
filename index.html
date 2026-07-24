@@ -93,11 +93,10 @@
         }
 
         .profile-card {
-            background-color: rgba(255, 255, 255, 0.88);
+            background-color: #f2f4f3; /* Beállítva pontosan a logo kép alaphátterére! */
             padding: clamp(30px, 2.5vw, 40px) clamp(20px, 2vw, 35px);
             border-radius: 28px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-            backdrop-filter: blur(10px);
             box-sizing: border-box;
             width: 100%;
             display: flex;
@@ -130,15 +129,14 @@
             transform: scale(1.03);
         }
 
-        /* LOGÓ BEILLESZTÉS: LÁTHATATLAN HÁTTÉR MULTIPLY + KONTRAASZT SZŰRŐVEL */
+        /* 100% BEILLESZKEDŐ LOGÓ */
         .site-logo-img {
             max-width: 240px;
             width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
-            mix-blend-mode: multiply;
-            filter: contrast(160%) brightness(96%);
+            background-color: transparent;
         }
 
         .status-badge {
@@ -172,7 +170,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* FINOM LÜKTETŐ FÉNYUDVAR A "REQUEST AN ALTER" GOMBON (SOHASEM SHINE) */
+        /* FINOM FINOM CSILLÁMLÓ (SPARKLE/SHIMMER) EFFECT A GOMBON */
         .inline-cta-btn {
             position: relative;
             display: inline-block;
@@ -193,16 +191,23 @@
             box-sizing: border-box;
             margin: 18px 0 10px 0;
             cursor: pointer;
-            animation: softGlow 3s infinite ease-in-out;
+            overflow: hidden;
         }
 
-        @keyframes softGlow {
-            0%, 100% {
-                box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25);
-            }
-            50% {
-                box-shadow: 0 4px 22px rgba(44, 76, 62, 0.55), 0 0 10px rgba(163, 148, 184, 0.4);
-            }
+        .inline-cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            animation: subtleShimmer 3.5s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes subtleShimmer {
+            0% { opacity: 0; transform: scale(0.5) translate(-50%, -50%); }
+            50% { opacity: 0.8; transform: scale(1.2) translate(20%, 20%); }
+            100% { opacity: 0; transform: scale(1.5) translate(80%, 80%); }
         }
 
         .inline-cta-btn:hover {
@@ -760,10 +765,11 @@
             background-color: #2c4c3e;
         }
 
+        /* LEBEGŐ TOP GOMB ÁTTETVE A BAL OLDALRA */
         .floating-top-btn {
             position: fixed;
             bottom: 30px;
-            right: 30px;
+            left: 30px; /* ÁTTETVE A BAL OLDALRA */
             background: #2c4c3e;
             color: #ffffff;
             border: none;
@@ -995,7 +1001,7 @@
 
             .floating-top-btn {
                 bottom: 20px;
-                right: 20px;
+                left: 20px;
                 padding: 10px 14px;
                 font-size: 10px;
             }
@@ -1359,7 +1365,7 @@
 
     </div>
 
-    <!-- LEBEGŐ TOP GOMB -->
+    <!-- LEBEGŐ TOP GOMB (BAL OLDALON) -->
     <button class="floating-top-btn" id="floatingTopBtn" onclick="scrollToSection('aboutSection')">↑ Back to top</button>
 
     <!-- LIGHTBOX -->
