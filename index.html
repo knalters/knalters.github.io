@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
+    <!-- LOGO PRELOAD AZ AZONNALI (BAAMM) BETÖLTÉSHEZ -->
+    <link rel="preload" as="image" href="images/logo.png" fetchpriority="high">
+
     <!-- SEO META TAGS -->
     <title>kn.alters | MTG Card Alteration & Custom Commissions by Nora</title>
     <meta name="description" content="Custom Magic: The Gathering (MTG) card alters, border extensions, and full art commissions by Nora (kn.alters) from Hungary. Request your custom card alter today!">
@@ -124,7 +127,7 @@
             cursor: pointer;
         }
 
-        /* STATIKUS LOGÓ (NINCS TRANSFORM / NÖVEKEDÉS HOVER-RE) */
+        /* STATIKUS, AZONNAL LÁTHATÓ LOGÓ */
         .site-logo-img {
             max-width: 240px;
             width: 100%;
@@ -132,6 +135,7 @@
             display: block;
             margin: 0 auto;
             background-color: transparent;
+            content-visibility: auto;
         }
 
         .status-badge {
@@ -165,7 +169,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* FINOM GLITTERING SZEGÉLY ANIMÁCIÓ A "REQUEST AN ALTER" GOMBON */
+        /* VALÓDI VALÓDI PONT-CSILLÁMOS (GLITTER FABRIC / POLÓ) EFFEKTUS */
         .inline-cta-btn {
             position: relative;
             display: inline-block;
@@ -185,27 +189,40 @@
             margin: 18px 0 10px 0;
             cursor: pointer;
             overflow: hidden;
-            border: 2px solid transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25);
-            animation: glitterBorder 4s infinite linear;
+            z-index: 1;
         }
 
-        @keyframes glitterBorder {
+        /* APRÓ CSILLÁM PONT MÁTRIX MINTA A GOMB FELÜLETÉN */
+        .inline-cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1.5px),
+                radial-gradient(circle, rgba(255, 215, 0, 0.8) 1px, transparent 1.5px),
+                radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1.5px);
+            background-size: 12px 12px, 18px 18px, 15px 15px;
+            background-position: 0 0, 6px 6px, 3px 9px;
+            opacity: 0.45;
+            animation: glitterSparkle 2.5s infinite alternate ease-in-out;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes glitterSparkle {
             0% {
-                border-color: rgba(255, 215, 0, 0.4);
-                box-shadow: 0 0 8px rgba(255, 215, 0, 0.3), 0 4px 15px rgba(44, 76, 62, 0.25);
+                opacity: 0.3;
+                filter: brightness(0.9) contrast(1);
             }
-            33% {
-                border-color: rgba(255, 255, 255, 0.8);
-                box-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(44, 76, 62, 0.25);
-            }
-            66% {
-                border-color: rgba(163, 148, 184, 0.6);
-                box-shadow: 0 0 8px rgba(163, 148, 184, 0.4), 0 4px 15px rgba(44, 76, 62, 0.25);
+            50% {
+                opacity: 0.8;
+                filter: brightness(1.4) contrast(1.3);
             }
             100% {
-                border-color: rgba(255, 215, 0, 0.4);
-                box-shadow: 0 0 8px rgba(255, 215, 0, 0.3), 0 4px 15px rgba(44, 76, 62, 0.25);
+                opacity: 0.4;
+                filter: brightness(1.1) contrast(1.1);
             }
         }
 
@@ -1019,7 +1036,7 @@
                     
                     <div class="logo-brand-group">
                         <a onclick="scrollToPageTop()" class="logo-link" title="Home">
-                            <img src="images/logo.png" alt="kn.alters logo" class="site-logo-img">
+                            <img src="images/logo.png" alt="kn.alters logo" class="site-logo-img" loading="eager" fetchpriority="high">
                         </a>
                     </div>
 
@@ -1060,7 +1077,7 @@
                     <button class="slider-external-btn" onclick="scrollMtgSlider(-1)" aria-label="Previous image">&#10094;</button>
                     
                     <div class="mtg-scroll-container" id="mtgSlider">
-                        <img src="images/solring03.png" alt="Custom MTG Alter Sol Ring" onclick="openLight(allAboutImages, 0)">
+                        <img src="images/solring03.png" alt="Custom MTG Alter Sol Ring" onclick="openLight(allAboutImages, 0)" loading="lazy">
                         <img src="images/swamp01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Swamp" onclick="openLight(allAboutImages, 1)">
                         <img src="images/titania06.png" loading="lazy" decoding="async" alt="Custom MTG Alter Titania" onclick="openLight(allAboutImages, 2)">
                         <img src="images/journeytonowhere01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Journey to Nowhere" onclick="openLight(allAboutImages, 3)">
@@ -1105,7 +1122,7 @@
                     <button class="slider-external-btn" onclick="scrollProcessSlider(-1)" aria-label="Previous image">&#10094;</button>
                     
                     <div class="designs-scroll-container" id="processSlider">
-                        <img src="images/01.png" alt="MTG Commission Guide Step 1" onclick="openLight(allProcessImages, 0)">
+                        <img src="images/01.png" alt="MTG Commission Guide Step 1" onclick="openLight(allProcessImages, 0)" loading="lazy">
                         <img src="images/03.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 2" onclick="openLight(allProcessImages, 1)">
                         <img src="images/04.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 3" onclick="openLight(allProcessImages, 2)">
                         <img src="images/05.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 4" onclick="openLight(allProcessImages, 3)">
