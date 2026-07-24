@@ -168,14 +168,15 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* KERETEN GLOW ALAPHELYZETBEN + FIZZY KONFETTI KÍVÜL HOVERRE */
+        /* LILA-FEKETE GLOW & KORLÁTLAN, RANDOMIZÁLT PEZSGŐ KONFETTI EFFEKT */
         .cta-outer-container {
             position: relative;
             display: block;
             width: 100%;
             margin: 18px 0 10px 0;
-            padding: 6px; /* Hely a külső pezsgésnek */
+            padding: 0;
             box-sizing: border-box;
+            overflow: visible !important; /* Nincs határvonal, átnyúlhat a konfetti! */
         }
 
         .inline-cta-btn {
@@ -195,60 +196,90 @@
             text-align: center;
             box-sizing: border-box;
             cursor: pointer;
-            border: 2px solid rgba(255, 215, 0, 0.5);
-            /* BORDER GLOW EFFEKT ALAPHELYZETBEN */
-            box-shadow: 0 0 12px rgba(255, 215, 0, 0.35), 0 4px 15px rgba(44, 76, 62, 0.2);
+            border: 2px solid rgba(138, 43, 226, 0.5); /* Különleges lila keret */
+            box-shadow: 0 0 12px rgba(138, 43, 226, 0.3), 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-            animation: borderGlowPulse 2.5s infinite alternate ease-in-out;
+            animation: purpleGlowPulse 3s infinite alternate ease-in-out;
             z-index: 2;
         }
 
-        @keyframes borderGlowPulse {
+        @keyframes purpleGlowPulse {
             0% {
-                border-color: rgba(255, 215, 0, 0.4);
-                box-shadow: 0 0 8px rgba(255, 215, 0, 0.25), 0 4px 15px rgba(44, 76, 62, 0.2);
+                border-color: rgba(138, 43, 226, 0.4);
+                box-shadow: 0 0 8px rgba(138, 43, 226, 0.25), 0 4px 15px rgba(0, 0, 0, 0.2);
             }
             100% {
-                border-color: rgba(255, 215, 0, 0.85);
-                box-shadow: 0 0 18px rgba(255, 215, 0, 0.55), 0 4px 15px rgba(44, 76, 62, 0.25);
+                border-color: rgba(186, 85, 211, 0.85);
+                box-shadow: 0 0 18px rgba(186, 85, 211, 0.5), 0 4px 15px rgba(0, 0, 0, 0.25);
             }
         }
 
-        /* FIZZY KONFETTI EFFEKT A GOMB KÖRÜL (KÍVÜL) HOVERRE */
-        .cta-outer-container::before {
+        /* HATÁROKTÓL MENTES, SZABADON PEZSGŐ KONFETTI SZIPORKÁK A GOMB KÖRÜL */
+        .cta-outer-container::before,
+        .cta-outer-container::after {
             content: '';
             position: absolute;
-            top: -10px; left: -10px; right: -10px; bottom: -10px;
-            background-image: 
-                radial-gradient(circle, #ff595e 2px, transparent 2.5px),
-                radial-gradient(circle, #ffca3a 2px, transparent 2.5px),
-                radial-gradient(circle, #8ac926 2px, transparent 2.5px),
-                radial-gradient(circle, #1982c4 2px, transparent 2.5px),
-                radial-gradient(circle, #ffca3a 2.5px, transparent 3px);
-            background-size: 28px 28px, 34px 34px, 24px 24px, 38px 38px, 30px 30px;
-            background-position: 0 0, 12px 18px, 18px 6px, 6px 22px, 22px 12px;
-            opacity: 0;
-            transition: opacity 0.35s ease;
             pointer-events: none;
-            z-index: 1;
-            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 3;
+            border-radius: 50%;
         }
 
-        .cta-outer-container:hover::before {
-            opacity: 0.9;
-            animation: fizzyOutside 0.7s infinite alternate linear;
+        /* Első réteg: Szórt lila, arany, éjkék és rózsaszín pici pöttyök és csillagok */
+        .cta-outer-container::before {
+            top: -25px; left: -20px; right: -20px; bottom: -25px;
+            background-image: 
+                radial-gradient(circle, #ba55d3 2.5px, transparent 3px),
+                radial-gradient(circle, #8a2be2 2px, transparent 2.5px),
+                radial-gradient(circle, #ffffff 1.5px, transparent 2px),
+                radial-gradient(circle, #dda0dd 2px, transparent 2.5px),
+                radial-gradient(circle, #4b0082 3px, transparent 3.5px),
+                radial-gradient(circle, #ba55d3 2px, transparent 2.5px);
+            background-size: 45px 45px, 35px 35px, 50px 50px, 40px 40px, 60px 60px, 30px 30px;
+            background-position: 5% 10%, 85% 15%, 25% 80%, 75% 75%, 50% -10%, 95% 50%;
         }
 
-        @keyframes fizzyOutside {
-            0% { transform: scale(0.98); background-position: 0 0, 12px 18px, 18px 6px, 6px 22px, 22px 12px; }
-            100% { transform: scale(1.02); background-position: 6px 12px, 18px 6px, 6px 18px, 14px 6px, 12px 24px; }
+        /* Második réteg: Még egy aszimmetrikus konfetti felhő elforgatva */
+        .cta-outer-container::after {
+            top: -30px; left: -25px; right: -25px; bottom: -30px;
+            background-image: 
+                radial-gradient(circle, #e6e6fa 2px, transparent 2.5px),
+                radial-gradient(circle, #9370db 2.5px, transparent 3px),
+                radial-gradient(circle, #8a2be2 1.5px, transparent 2px),
+                radial-gradient(circle, #ffffff 2px, transparent 2.5px);
+            background-size: 38px 38px, 48px 48px, 32px 32px, 55px 55px;
+            background-position: 12% 85%, 68% 5%, 90% 88%, 35% 15%;
         }
 
+        .cta-outer-container:hover::before,
+        .cta-outer-container:hover::after {
+            opacity: 1;
+            animation: randomFizzy 1.2s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cta-outer-container:hover::after {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes randomFizzy {
+            0% {
+                transform: translateY(0px) scale(0.96) rotate(0deg);
+                filter: drop-shadow(0 0 2px rgba(186, 85, 211, 0.8));
+            }
+            100% {
+                transform: translateY(-4px) scale(1.05) rotate(4deg);
+                filter: drop-shadow(0 0 6px rgba(138, 43, 226, 0.9));
+            }
+        }
+
+        /* ELEGÁNS LILA-FEKETE HOVER GOMB DÍSZÍTÉS */
         .inline-cta-btn:hover {
-            background-color: #1b3329;
+            background-color: #0d0d0d; /* Mély fekete background */
+            color: #ffffff;
             transform: translateY(-2px);
-            border-color: #ffd700;
-            box-shadow: 0 0 22px rgba(255, 215, 0, 0.7), 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: #ba55d3; /* Élénk lila szegély */
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.85), 0 8px 25px rgba(0, 0, 0, 0.6);
         }
 
         .links-wrapper {
@@ -1088,7 +1119,7 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB KERET-GLOW ALAPHELYZETBEN ÉS KÜLSŐ FIZZY KONFETTI HOVERRE -->
+                <!-- REQUEST AN ALTER GOMB LILA-FEKETE DERENGÉSSEL ÉS HATÁRTALAN PEZSGŐ KONFETTI EFFEKTISSEL -->
                 <div class="cta-outer-container">
                     <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
                         🎨 Request an Alter 🎨
