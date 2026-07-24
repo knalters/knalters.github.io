@@ -51,7 +51,7 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;700&family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;700&family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;700&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
 
     <style>
         html, body {
@@ -168,86 +168,163 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* LILA-FEKETE GLOW ALAPHELYZETBEN -> FINOM SZÁLLÓ KONFETTIVÉ ÁTALAULÓ HOVER EFFEKT */
-        .cta-outer-container {
-            position: relative;
-            display: block;
+        /* ------------------------------------------------------------- */
+        /* ÚJ KOMBOWÁLT REQUEST AN ALTER GOMB (ANIMÁLT KERET + HOVER NYÍL) */
+        /* ------------------------------------------------------------- */
+        .cta-button-wrapper {
+            display: flex;
+            justify-content: center;
             width: 100%;
-            margin: 18px 0 10px 0;
-            padding: 0;
-            box-sizing: border-box;
-            overflow: visible !important;
+            margin: 20px 0 10px 0;
         }
 
-        .inline-cta-btn {
+        .custom-cta-btn {
             position: relative;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            background-color: #2c4c3e;
+            padding: 16px 28px;
+            background: linear-gradient(-30deg, #1b3329 50%, #2c4c3e 50%);
             color: #ffffff;
-            text-decoration: none;
-            padding: 15px 24px;
-            font-size: 13px;
             font-family: 'Space Grotesk', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 13px;
             font-weight: 700;
-            border-radius: 14px;
-            text-align: center;
-            box-sizing: border-box;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            overflow: hidden;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             cursor: pointer;
-            border: 2px solid rgba(138, 43, 226, 0.6);
-            /* ALAPHELYZETBEN LILA-FEKETE GLOW A KERETEN */
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.45), 0 4px 15px rgba(0, 0, 0, 0.25);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s ease;
+            box-sizing: border-box;
+        }
+
+        /* ALAPHELYZETBEN: MEGADOTT CSÍK FUTÓ ANIMÁCIÓ (4 SPAN) */
+        .custom-cta-btn .border-line {
+            position: absolute;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .custom-cta-btn .border-line:nth-child(1) {
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to left, rgba(44, 76, 62, 0), #aaccb8);
+            animation: 2s animateTop linear infinite;
+        }
+
+        .custom-cta-btn .border-line:nth-child(2) {
+            top: 0; right: 0; height: 100%; width: 2px;
+            background: linear-gradient(to top, rgba(44, 76, 62, 0), #aaccb8);
+            animation: 2s animateRight linear -1s infinite;
+        }
+
+        .custom-cta-btn .border-line:nth-child(3) {
+            bottom: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, rgba(44, 76, 62, 0), #aaccb8);
+            animation: 2s animateBottom linear infinite;
+        }
+
+        .custom-cta-btn .border-line:nth-child(4) {
+            top: 0; left: 0; height: 100%; width: 2px;
+            background: linear-gradient(to bottom, rgba(44, 76, 62, 0), #aaccb8);
+            animation: 2s animateLeft linear -1s infinite;
+        }
+
+        @keyframes animateTop {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes animateRight {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+        @keyframes animateBottom {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        @keyframes animateLeft {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .custom-cta-btn .btn-text {
+            display: inline-block;
+            transition: transform 0.5s ease;
             z-index: 2;
         }
 
-        /* HATÁRTALAN, RITKÍTOTT, FINOM LILA PEZSGŐ CSOCSÓ / KONFETTI REPÜLÉS A GOMB KÖRÜL */
-        .cta-outer-container::before {
-            content: '';
-            position: absolute;
-            top: -20px; left: -15px; right: -15px; bottom: -20px;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.35s ease, transform 0.4s ease;
-            z-index: 3;
-            /* Csupán néhány szórt, ízléses lila és gyöngyház részecske */
-            background-image: 
-                radial-gradient(circle, #ba55d3 2px, transparent 2.5px),
-                radial-gradient(circle, #8a2be2 2px, transparent 2.5px),
-                radial-gradient(circle, #ffffff 1.5px, transparent 2px),
-                radial-gradient(circle, #e6e6fa 2px, transparent 2.5px);
-            background-size: 60px 60px, 50px 50px, 70px 70px, 55px 55px;
-            background-position: 10% 20%, 88% 15%, 25% 85%, 75% 80%;
-            transform: scale(0.92);
+        .custom-cta-btn .arrow-icon-span {
+            width: 24px;
+            height: 18px;
+            margin-left: 15px;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.5s ease;
+            z-index: 2;
         }
 
-        /* HOVERRE A GLOW KITERJED ÉS ÁTÁRAMLIK SZÁLLÓ KONFETTIKÉNT */
-        .cta-outer-container:hover::before {
-            opacity: 1;
-            transform: scale(1.05);
-            animation: subtleFlyParticles 1.5s infinite alternate ease-in-out;
+        .custom-cta-btn svg {
+            width: 100%;
+            height: 100%;
         }
 
-        @keyframes subtleFlyParticles {
-            0% {
-                transform: translateY(0px) scale(1);
-                background-position: 10% 20%, 88% 15%, 25% 85%, 75% 80%;
-            }
-            100% {
-                transform: translateY(-5px) scale(1.08);
-                background-position: 12% 10%, 85% 25%, 20% 75%, 80% 90%;
-            }
+        .custom-cta-btn path.one {
+            transition: 0.4s;
+            transform: translateX(-60%);
+            fill: #ffffff;
+        }
+        .custom-cta-btn path.two {
+            transition: 0.5s;
+            transform: translateX(-30%);
+            fill: #ffffff;
+        }
+        .custom-cta-btn path.three {
+            fill: #ffffff;
         }
 
-        .inline-cta-btn:hover {
-            background-color: #0d0d0d; /* Fekete háttér */
-            color: #ffffff;
-            transform: translateY(-2px);
-            border-color: #ba55d3;
-            /* A Glowing hatás felerősödik és szétterjed */
-            box-shadow: 0 0 30px rgba(186, 85, 211, 0.8), 0 0 10px rgba(138, 43, 226, 0.6), 0 8px 25px rgba(0, 0, 0, 0.5);
+        /* ------------------------------------------------------------- */
+        /* EGÉRRÁHÚZÁS (HOVER EFFEKT A MEGADOTT KÓD ALAPJÁN) */
+        /* ------------------------------------------------------------- */
+        .custom-cta-btn:hover {
+            background: #2c4c3e;
+            box-shadow: 6px 6px 0px #1e362c;
+            transform: skewX(-10deg) translateY(-2px);
+            border-radius: 6px;
+        }
+
+        .custom-cta-btn:hover .border-line {
+            opacity: 0; /* A keret csíkok hoverre elhalványulnak */
+        }
+
+        .custom-cta-btn:hover .btn-text {
+            transform: skewX(10deg);
+        }
+
+        .custom-cta-btn:hover .arrow-icon-span {
+            transform: skewX(10deg);
+            margin-left: 22px;
+        }
+
+        .custom-cta-btn:hover path.three {
+            animation: color_anim 1s infinite 0.2s;
+        }
+        .custom-cta-btn:hover path.one {
+            transform: translateX(0%);
+            animation: color_anim 1s infinite 0.6s;
+        }
+        .custom-cta-btn:hover path.two {
+            transform: translateX(0%);
+            animation: color_anim 1s infinite 0.4s;
+        }
+
+        @keyframes color_anim {
+            0% { fill: #ffffff; }
+            50% { fill: #fbc638; }
+            100% { fill: #ffffff; }
         }
 
         .links-wrapper {
@@ -1087,10 +1164,23 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB LILA-FEKETE GLOW ES HOVERRE FINOM HATARTALAN REPULO KONFETTI CSOCSO -->
-                <div class="cta-outer-container">
-                    <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
-                        🎨 Request an Alter 🎨
+                <!-- UTÓLAGOS KÉRT "REQUEST AN ALTER" GOMB ANIMÁLTSÁGGAL ÉS HOVER NYÍLLAL -->
+                <div class="cta-button-wrapper">
+                    <a onclick="scrollToSection('contactFormSection')" class="custom-cta-btn">
+                        <span class="border-line"></span>
+                        <span class="border-line"></span>
+                        <span class="border-line"></span>
+                        <span class="border-line"></span>
+                        
+                        <span class="btn-text">🎨 Request an Alter 🎨</span>
+                        
+                        <span class="arrow-icon-span">
+                            <svg viewBox="0 0 13 10">
+                                <path class="one" d="M1,5 L11,5"></path>
+                                <path class="two" d="M8,2 L11,5 L8,8"></path>
+                                <path class="three" d="M11,5 L1,5"></path>
+                            </svg>
+                        </span>
                     </a>
                 </div>
 
