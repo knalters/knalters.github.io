@@ -170,15 +170,17 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* SHIMMERING & SPARKLE ALAPVETŐEN + HOVER KORBEN KONFETTI EFFEKT */
+        /* KÖRBEFUTÓ, SZÍNVÁLTÓ ANIMÁLT KONTÚRÚ REQUEST GOMB */
         .inline-cta-btn {
             position: relative;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             background-color: #2c4c3e;
             color: #ffffff;
             text-decoration: none;
-            padding: 15px 24px;
+            padding: 16px 24px;
             font-size: 13px;
             font-family: 'Space Grotesk', sans-serif;
             text-transform: uppercase;
@@ -190,72 +192,55 @@
             margin: 18px 0 10px 0;
             cursor: pointer;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.25);
             box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25);
             transition: all 0.3s ease;
             z-index: 1;
+            border: none;
         }
 
-        /* FINOM CSILLOGÓ/CSILLÁMLÓ FÉNYÁTFUTÁS ALAPHELYZETBEN (SHIMMER) */
+        /* 1. MÉRÉSKERET: Animált színátmenetes háttérréteg */
         .inline-cta-btn::before {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 60%; height: 100%;
-            background: linear-gradient(
-                90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.25), 
-                rgba(255, 215, 0, 0.35), 
-                rgba(255, 255, 255, 0.25), 
-                transparent
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                #ff595e, 
+                #ffca3a, 
+                #8ac926, 
+                #1982c4, 
+                #6a4c93, 
+                #ff595e
             );
-            transform: skewX(-20deg);
-            animation: shimmerGlow 3.5s infinite ease-in-out;
-            pointer-events: none;
-            z-index: 2;
+            animation: rotateBorder 4s linear infinite;
+            z-index: -2;
         }
 
-        @keyframes shimmerGlow {
-            0% { left: -100%; }
-            40%, 100% { left: 180%; }
-        }
-
-        /* KONFETTI ELEMEK AMIK HOVERRE JELENNEK MEG */
+        /* 2. BELSŐ MASH: Eltakarja a közepet, hogy csak a 2px szegély látsszon */
         .inline-cta-btn::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                radial-gradient(circle, #ff595e 2px, transparent 2.5px),
-                radial-gradient(circle, #ffca3a 2px, transparent 2.5px),
-                radial-gradient(circle, #8ac926 2px, transparent 2.5px),
-                radial-gradient(circle, #1982c4 2px, transparent 2.5px),
-                radial-gradient(circle, #6a4c93 2px, transparent 2.5px);
-            background-size: 25px 25px, 30px 30px, 20px 20px, 35px 35px, 28px 28px;
-            background-position: 0 0, 10px 15px, 15px 5px, 5px 20px, 20px 10px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-            z-index: 3;
-            border-radius: 14px;
+            inset: 2px;
+            background-color: #2c4c3e;
+            border-radius: 12px;
+            z-index: -1;
+            transition: background-color 0.3s ease;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .inline-cta-btn:hover {
-            background-color: #1b3329;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), 0 0 15px rgba(255, 215, 0, 0.4);
-            border-color: rgba(255, 215, 0, 0.6);
         }
 
         .inline-cta-btn:hover::after {
-            opacity: 0.85;
-            animation: confettiPop 0.8s infinite alternate ease-in-out;
-        }
-
-        @keyframes confettiPop {
-            0% { background-position: 0 0, 10px 15px, 15px 5px, 5px 20px, 20px 10px; }
-            100% { background-position: 5px 10px, 15px 5px, 5px 15px, 12px 5px, 10px 20px; }
+            background-color: #1b3329;
         }
 
         .links-wrapper {
@@ -1088,14 +1073,14 @@
             
             <!-- HOME / ABOUT SECTION -->
             <article class="custom-card-post" id="aboutSection">
-                <h1 class="post-header-title">About me</h1>
+                <h2 class="info-block-title">About Me✨</h2>
                 <div class="post-body-content">
                     <p>My name is Nora, I live in Hungary (mid Europe). I am a mother of 2 baby potatoes (2 and 4 yo). I started altering in December of 2024 for fun.</p>
                     <p>I am not a full time alterist, so I usually paint at nights (10 pm- 2 am) when my kids are sleeping, the house is quiet enough and I have enough energy to enjoy painting.</p>
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB CSILLÁMLÓ EFFEKTTEL ÉS HOVER KONFETTIVEL -->
+                <!-- REQUEST AN ALTER GOMB KÖRBEFUTÓ ÁTMENETES STRIP/BORDER ANIMÁCIÓVAL -->
                 <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
                     🎨 Request an Alter 🎨
                 </a>
