@@ -113,7 +113,7 @@
             justify-content: center;
             margin: 0;
             padding: 0;
-            position: relative;
+            width: 100%;
         }
 
         .logo-link {
@@ -121,41 +121,20 @@
             color: inherit;
             display: inline-block;
             transition: transform 0.2s ease;
+            width: 100%;
+            text-align: center;
         }
 
         .logo-link:hover {
             transform: scale(1.02);
         }
 
-        .text-logo {
-            margin: 0;
-            line-height: 1;
-            color: #000000; 
-            font-family: 'Averia Serif Libre', serif;
-            font-weight: 300;
-            font-size: clamp(28px, 2.2vw, 36px); 
-            letter-spacing: 0.5px; 
-            text-transform: lowercase;
-            display: flex;
-            align-items: center;
-        }
-
-        .custom-monogram {
-            height: 3.8em; 
-            width: auto;
-            display: inline-block;
-            margin-right: -20px; 
-            vertical-align: middle;
-            transform: rotate(10deg);
-            margin-bottom: 12px;
-            z-index: 1;
-        }
-
-        .text-logo .dot {
-            color: #a394b8; 
-            padding: 0 2px;
-            position: relative;
-            z-index: 2;
+        .site-logo-img {
+            max-width: 240px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         .status-badge {
@@ -972,9 +951,7 @@
                     
                     <div class="logo-brand-group">
                         <a href="#" class="logo-link">
-                            <div class="text-logo">
-                                <img src="images/logo.png" alt="kn.alters logo monogram" class="custom-monogram"><span class="dot">.</span>alters
-                            </div>
+                            <img src="images/logo.png" alt="kn.alters logo" class="site-logo-img">
                         </a>
                     </div>
 
@@ -1084,7 +1061,7 @@
                 <h2 class="contact-title">Commission Request Form 2026</h2>
                 
                 <div class="form-welcome-box">
-                    <span class="welcome-heading">Welcome to my altering world! &amp;nbsp;✨</span>
+                    <span class="welcome-heading">Welcome to my altering world!✨</span>
                     <p>Please fill this form if you are thinking about getting an alter from me!</p>
                     <p>There will be some questions of your ideas of altering a card (which card, what type of alter and the main theme), and there will be some questions about your location. Your shipping address is only needed if you've decided to commission me, so if you haven't decided yet, just skip those questions.</p>
                     <p>I will not keep or use your personal informations, I will not send you newsletters and I will delete your form right after the commission is over (if you have your altered card in your own hands) OR you've decided not to commission me OR you ask me not to delete, because you are planning to commission me in the future.</p>
