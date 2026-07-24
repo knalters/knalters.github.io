@@ -168,7 +168,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* LILA-FEKETE GLOW & KORLÁTLAN, RANDOMIZÁLT PEZSGŐ KONFETTI EFFEKT */
+        /* LILA-FEKETE GLOW ALAPHELYZETBEN -> FINOM SZÁLLÓ KONFETTIVÉ ÁTALAULÓ HOVER EFFEKT */
         .cta-outer-container {
             position: relative;
             display: block;
@@ -176,7 +176,7 @@
             margin: 18px 0 10px 0;
             padding: 0;
             box-sizing: border-box;
-            overflow: visible !important; /* Nincs határvonal, átnyúlhat a konfetti! */
+            overflow: visible !important;
         }
 
         .inline-cta-btn {
@@ -196,90 +196,58 @@
             text-align: center;
             box-sizing: border-box;
             cursor: pointer;
-            border: 2px solid rgba(138, 43, 226, 0.5); /* Különleges lila keret */
-            box-shadow: 0 0 12px rgba(138, 43, 226, 0.3), 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            animation: purpleGlowPulse 3s infinite alternate ease-in-out;
+            border: 2px solid rgba(138, 43, 226, 0.6);
+            /* ALAPHELYZETBEN LILA-FEKETE GLOW A KERETEN */
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.45), 0 4px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 2;
         }
 
-        @keyframes purpleGlowPulse {
-            0% {
-                border-color: rgba(138, 43, 226, 0.4);
-                box-shadow: 0 0 8px rgba(138, 43, 226, 0.25), 0 4px 15px rgba(0, 0, 0, 0.2);
-            }
-            100% {
-                border-color: rgba(186, 85, 211, 0.85);
-                box-shadow: 0 0 18px rgba(186, 85, 211, 0.5), 0 4px 15px rgba(0, 0, 0, 0.25);
-            }
-        }
-
-        /* HATÁROKTÓL MENTES, SZABADON PEZSGŐ KONFETTI SZIPORKÁK A GOMB KÖRÜL */
-        .cta-outer-container::before,
-        .cta-outer-container::after {
+        /* HATÁRTALAN, RITKÍTOTT, FINOM LILA PEZSGŐ CSOCSÓ / KONFETTI REPÜLÉS A GOMB KÖRÜL */
+        .cta-outer-container::before {
             content: '';
             position: absolute;
+            top: -20px; left: -15px; right: -15px; bottom: -20px;
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.35s ease, transform 0.4s ease;
             z-index: 3;
-            border-radius: 50%;
-        }
-
-        /* Első réteg: Szórt lila, arany, éjkék és rózsaszín pici pöttyök és csillagok */
-        .cta-outer-container::before {
-            top: -25px; left: -20px; right: -20px; bottom: -25px;
+            /* Csupán néhány szórt, ízléses lila és gyöngyház részecske */
             background-image: 
-                radial-gradient(circle, #ba55d3 2.5px, transparent 3px),
+                radial-gradient(circle, #ba55d3 2px, transparent 2.5px),
                 radial-gradient(circle, #8a2be2 2px, transparent 2.5px),
                 radial-gradient(circle, #ffffff 1.5px, transparent 2px),
-                radial-gradient(circle, #dda0dd 2px, transparent 2.5px),
-                radial-gradient(circle, #4b0082 3px, transparent 3.5px),
-                radial-gradient(circle, #ba55d3 2px, transparent 2.5px);
-            background-size: 45px 45px, 35px 35px, 50px 50px, 40px 40px, 60px 60px, 30px 30px;
-            background-position: 5% 10%, 85% 15%, 25% 80%, 75% 75%, 50% -10%, 95% 50%;
+                radial-gradient(circle, #e6e6fa 2px, transparent 2.5px);
+            background-size: 60px 60px, 50px 50px, 70px 70px, 55px 55px;
+            background-position: 10% 20%, 88% 15%, 25% 85%, 75% 80%;
+            transform: scale(0.92);
         }
 
-        /* Második réteg: Még egy aszimmetrikus konfetti felhő elforgatva */
-        .cta-outer-container::after {
-            top: -30px; left: -25px; right: -25px; bottom: -30px;
-            background-image: 
-                radial-gradient(circle, #e6e6fa 2px, transparent 2.5px),
-                radial-gradient(circle, #9370db 2.5px, transparent 3px),
-                radial-gradient(circle, #8a2be2 1.5px, transparent 2px),
-                radial-gradient(circle, #ffffff 2px, transparent 2.5px);
-            background-size: 38px 38px, 48px 48px, 32px 32px, 55px 55px;
-            background-position: 12% 85%, 68% 5%, 90% 88%, 35% 15%;
-        }
-
-        .cta-outer-container:hover::before,
-        .cta-outer-container:hover::after {
+        /* HOVERRE A GLOW KITERJED ÉS ÁTÁRAMLIK SZÁLLÓ KONFETTIKÉNT */
+        .cta-outer-container:hover::before {
             opacity: 1;
-            animation: randomFizzy 1.2s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1.05);
+            animation: subtleFlyParticles 1.5s infinite alternate ease-in-out;
         }
 
-        .cta-outer-container:hover::after {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes randomFizzy {
+        @keyframes subtleFlyParticles {
             0% {
-                transform: translateY(0px) scale(0.96) rotate(0deg);
-                filter: drop-shadow(0 0 2px rgba(186, 85, 211, 0.8));
+                transform: translateY(0px) scale(1);
+                background-position: 10% 20%, 88% 15%, 25% 85%, 75% 80%;
             }
             100% {
-                transform: translateY(-4px) scale(1.05) rotate(4deg);
-                filter: drop-shadow(0 0 6px rgba(138, 43, 226, 0.9));
+                transform: translateY(-5px) scale(1.08);
+                background-position: 12% 10%, 85% 25%, 20% 75%, 80% 90%;
             }
         }
 
-        /* ELEGÁNS LILA-FEKETE HOVER GOMB DÍSZÍTÉS */
         .inline-cta-btn:hover {
-            background-color: #0d0d0d; /* Mély fekete background */
+            background-color: #0d0d0d; /* Fekete háttér */
             color: #ffffff;
             transform: translateY(-2px);
-            border-color: #ba55d3; /* Élénk lila szegély */
-            box-shadow: 0 0 25px rgba(138, 43, 226, 0.85), 0 8px 25px rgba(0, 0, 0, 0.6);
+            border-color: #ba55d3;
+            /* A Glowing hatás felerősödik és szétterjed */
+            box-shadow: 0 0 30px rgba(186, 85, 211, 0.8), 0 0 10px rgba(138, 43, 226, 0.6), 0 8px 25px rgba(0, 0, 0, 0.5);
         }
 
         .links-wrapper {
@@ -1119,7 +1087,7 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB LILA-FEKETE DERENGÉSSEL ÉS HATÁRTALAN PEZSGŐ KONFETTI EFFEKTISSEL -->
+                <!-- REQUEST AN ALTER GOMB LILA-FEKETE GLOW ES HOVERRE FINOM HATARTALAN REPULO KONFETTI CSOCSO -->
                 <div class="cta-outer-container">
                     <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
                         🎨 Request an Alter 🎨
