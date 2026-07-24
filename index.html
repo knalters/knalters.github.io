@@ -16,14 +16,14 @@
     <meta property="og:title" content="kn.alters | MTG Card Alteration">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://knalters.com/">
-    <meta property="og:image" content="https://64.media.tumblr.com/3ae35d940473a2b5a05841ca50bdbd22/7984eb111032ee53-09/s2048x3072/56199aa3d3e8e6ef67944a6d1141db5af07d18d3.pnj">
+    <meta property="og:image" content="images/solring03.png">
     <meta property="og:description" content="Nora | Hobby MTG alterist from Hungary. Professional card extensions and custom art commissions.">
     
     <!-- TWITTER CARDS -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="kn.alters | MTG Card Alteration">
     <meta name="twitter:description" content="Custom Magic: The Gathering card alters and commissions by Nora.">
-    <meta name="twitter:image" content="https://64.media.tumblr.com/3ae35d940473a2b5a05841ca50bdbd22/7984eb111032ee53-09/s2048x3072/56199aa3d3e8e6ef67944a6d1141db5af07d18d3.pnj">
+    <meta name="twitter:image" content="images/solring03.png">
 
     <!-- JSON-LD SEO -->
     <script type="application/ld+json">
@@ -43,7 +43,7 @@
     </script>
     
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="https://64.media.tumblr.com/2f94081525d230edd5614b9031879437/37bd4df405162970-f6/s1280x1920/ffa5a33dd332b5ca26072bd232e518ba20ca58fd.pnj?v=3">
+    <link rel="shortcut icon" href="images/favicon.png">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -208,11 +208,19 @@
             box-sizing: border-box;
             margin: 18px 0 10px 0;
             cursor: pointer;
+            animation: btnPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes btnPulse {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(44, 76, 62, 0.45); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25); }
         }
 
         .inline-cta-btn:hover {
             background-color: #000000;
-            transform: translateY(-2px);
+            animation: none;
+            transform: translateY(-2px) scale(1.02);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
@@ -750,40 +758,6 @@
             background-color: #2c4c3e;
         }
 
-        .section-divider {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            margin: 10px 0 25px 0;
-            text-align: center;
-            width: 100%;
-            max-width: 800px;
-            align-self: center;
-        }
-
-        .section-divider span {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #55625a;
-            background: #d4e5dc;
-            padding: 0 18px;
-            position: relative;
-            top: 8px;
-        }
-
-        .archive-section {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .archive-grid-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            width: 100%;
-        }
-
         .custom-lightbox {
             display: none;
             position: fixed;
@@ -970,8 +944,7 @@
             
             .contact-post,
             .info-block,
-            .custom-card-post,
-            .archive-section {
+            .custom-card-post {
                 width: 100% !important;
                 max-width: 100% !important;
                 box-sizing: border-box !important;
@@ -985,10 +958,6 @@
             .designs-scroll-container img { height: 420px !important; }
             .slider-external-btn { width: 38px; height: 38px; font-size: 16px; }
 
-            .archive-grid-wrapper {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
-                gap: 10px !important;
-            }
             .sidebar-footer { display: none !important; }
         }
     </style>
@@ -1004,7 +973,7 @@
                     <div class="logo-brand-group">
                         <a href="#" class="logo-link">
                             <div class="text-logo">
-                                <img src="https://64.media.tumblr.com/b9f78329818f412094cf1fa7719a2df6/b4da1c24a09640bf-e3/s2048x3072/c3c9bf70e8753a4cb9c754b96a90ae0d1936fa4b.pnj" alt="kn.alters logo monogram" class="custom-monogram"><span class="dot">.</span>alters
+                                <img src="images/logo.png" alt="kn.alters logo monogram" class="custom-monogram"><span class="dot">.</span>alters
                             </div>
                         </a>
                     </div>
@@ -1018,7 +987,6 @@
                         <a onclick="scrollToSection('commissionSection')" class="link-item">commission info</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
                         <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
-                        <a onclick="scrollToSection('archiveTarget')" class="link-item">gallery archive</a>
                     </div>
                 </div>
 
@@ -1032,7 +1000,7 @@
             
             <!-- HOME / ABOUT SECTION -->
             <article class="custom-card-post" id="aboutSection">
-                <h1 class="post-header-title">Custom MTG Card Alters by Nora (kn.alters) ✨</h1>
+                <h1 class="post-header-title">About me✨</h1>
                 <div class="post-body-content">
                     <p>My name is Nora, I live in Hungary (mid Europe). I am a mother of 2 baby potatoes (2 and 4 yo). I started altering in December of 2024 for fun.</p>
                     <p>I am not a full time alterist, so I usually paint at nights (10 pm- 2 am) when my kids are sleeping, the house is quiet enough and I have enough energy to enjoy painting.</p>
@@ -1047,16 +1015,28 @@
                     <button class="slider-external-btn" onclick="scrollMtgSlider(-1)" aria-label="Previous image">&#10094;</button>
                     
                     <div class="mtg-scroll-container" id="mtgSlider">
-                        <img src="https://64.media.tumblr.com/171871999fe493483e4ad6d8fb5f5bec/8446d4d56f6e1ad1-07/s1280x1920/9665040893f3b46677ea85086da893b384e53370.pnj" alt="Custom MTG Alter Artwork 1" onclick="openLight(allAboutImages, 0)">
-                        <img src="https://64.media.tumblr.com/fdb3fefb5d2cbf4d861a446d39646380/8446d4d56f6e1ad1-17/s1280x1920/eaac122a0ad58f350686aa7a3f779e799a30beba.pnj" loading="lazy" decoding="async" alt="Custom MTG Alter Artwork 2" onclick="openLight(allAboutImages, 1)">
-                        <img src="https://64.media.tumblr.com/2a9a7b2576e136d9011718bf51cbb503/8446d4d56f6e1ad1-74/s1280x1920/db4ee241a5b7ddc5056df2ed0944a481f8f0ce00.pnj" loading="lazy" decoding="async" alt="Custom MTG Alter Artwork 3" onclick="openLight(allAboutImages, 2)">
-                        <img src="https://64.media.tumblr.com/b21abdf6c6ff76355dcd6fb9c6ef67fd/74bffbd72a04c9e8-25/s1280x1920/7ce9ec697da66b0d5d975c3eed18f06d8b106ea8.pnj" loading="lazy" decoding="async" alt="Custom MTG Alter Artwork 4" onclick="openLight(allAboutImages, 3)">
-                        <img src="https://64.media.tumblr.com/8e68af2078745a6c738f4a33b090cd57/74bffbd72a04c9e8-8f/s1280x1920/ae658c8889f96258e986c9dad2c1ea911f59485d.pnj" loading="lazy" decoding="async" alt="Custom MTG Alter Artwork 5" onclick="openLight(allAboutImages, 4)">
-                        <img src="https://64.media.tumblr.com/ae696b117786c4ae9ea2b6e7c5af8f84/66a9f924d4c1bfb7-bb/s1280x1920/5b7c776552995610c8584785da874f7ac9742471.pnj" loading="lazy" decoding="async" alt="Custom MTG Alter Artwork 6" onclick="openLight(allAboutImages, 5)">
-                        <img src="https://64.media.tumblr.com/e31f4ca0e73585c99930cf2238490eba/74bffbd72a04c9e8-7a/s1280x1920/85eb950c22e8700ab0151d35932cf5982809ca29.pnj" loading="lazy" decoding="async" alt="Custom MTG Alter Artwork 7" onclick="openLight(allAboutImages, 6)">
-                        <img src="https://64.media.tumblr.com/70b294938d34ea32ccf16e926d25717a/74bffbd72a04c9e8-fd/s1280x1920/ed976e442d37ada9d17fed14879362bbce78c986.pnj" loading="lazy" decoding="async" alt="Custom MTG Alter Artwork 8" onclick="openLight(allAboutImages, 7)">
-                        <img src="https://64.media.tumblr.com/b0198061f22dbdc20f2b6c9cec3fd0c4/66a9f924d4c1bfb7-5c/s1280x1920/c951ba67ddb32bb399ce8c029cad3688e260cbd2.pnj" loading="lazy" decoding="async" alt="Custom MTG Alter Artwork 9" onclick="openLight(allAboutImages, 8)">
-                        <img src="https://64.media.tumblr.com/c11a604ee3780c514401981284ad345b/66a9f924d4c1bfb7-5b/s1280x1920/7a062e24b09e049d655e4e6e607301a8d2b3f381.pnj" loading="lazy" decoding="async" alt="Custom MTG Alter Artwork 10" onclick="openLight(allAboutImages, 9)">
+                        <img src="images/solring03.png" alt="Custom MTG Alter Sol Ring" onclick="openLight(allAboutImages, 0)">
+                        <img src="images/swamp01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Swamp" onclick="openLight(allAboutImages, 1)">
+                        <img src="images/titania06.png" loading="lazy" decoding="async" alt="Custom MTG Alter Titania" onclick="openLight(allAboutImages, 2)">
+                        <img src="images/journeytonowhere01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Journey to Nowhere" onclick="openLight(allAboutImages, 3)">
+                        <img src="images/pathtoexile01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Path to Exile" onclick="openLight(allAboutImages, 4)">
+                        <img src="images/deathbaron01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Death Baron" onclick="openLight(allAboutImages, 5)">
+                        <img src="images/plain02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Plain" onclick="openLight(allAboutImages, 6)">
+                        <img src="images/selvala02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Selvala" onclick="openLight(allAboutImages, 7)">
+                        <img src="images/demonictutor02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Demonic Tutor" onclick="openLight(allAboutImages, 8)">
+                        <img src="images/elvish01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Elvish" onclick="openLight(allAboutImages, 9)">
+                        <img src="images/faeriemacabre01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Faerie Macabre" onclick="openLight(allAboutImages, 10)">
+                        <img src="images/faerieseer01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Faerie Seer" onclick="openLight(allAboutImages, 11)">
+                        <img src="images/giada01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Giada" onclick="openLight(allAboutImages, 12)">
+                        <img src="images/greed01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Greed" onclick="openLight(allAboutImages, 13)">
+                        <img src="images/guardionoftheguildpact01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Guardian of the Guildpact" onclick="openLight(allAboutImages, 14)">
+                        <img src="images/harrier01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Harrier" onclick="openLight(allAboutImages, 15)">
+                        <img src="images/island02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Island" onclick="openLight(allAboutImages, 16)">
+                        <img src="images/meren01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Meren" onclick="openLight(allAboutImages, 17)">
+                        <img src="images/kaalia01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Kaalia" onclick="openLight(allAboutImages, 18)">
+                        <img src="images/treasure01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Treasure Token" onclick="openLight(allAboutImages, 19)">
+                        <img src="images/urzastower01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Urza's Tower" onclick="openLight(allAboutImages, 20)">
+                        <img src="images/candytrail01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Candy Trail" onclick="openLight(allAboutImages, 21)">
                     </div>
 
                     <button class="slider-external-btn" onclick="scrollMtgSlider(1)" aria-label="Next image">&#10095;</button>
@@ -1071,21 +1051,21 @@
 
             <!-- COMMISSION GUIDE SECTION -->
             <div class="info-block" id="commissionSection">
-                <h2 class="info-block-title">Commission Process &amp; Guide</h2>
+                <h2 class="info-block-title">Commission Process</h2>
                 
                 <div class="slider-relative-wrapper">
                     <button class="slider-external-btn" onclick="scrollProcessSlider(-1)" aria-label="Previous image">&#10094;</button>
                     
                     <div class="designs-scroll-container" id="processSlider">
-                        <img src="https://64.media.tumblr.com/5b474a4d26164b72ec26c8bf925de5b2/b3f9cd86e3c273a1-e2/s1280x1920/0a2ba06a457409948efd769fa5a68819a602d4bd.pnj" alt="MTG Commission Guide Step 1" onclick="openLight(allProcessImages, 0)">
-                        <img src="https://64.media.tumblr.com/8339c78d48f744583b9aebfb83776823/b3f9cd86e3c273a1-fe/s1280x1920/4e98624bc05402db11bdec8fe5f08d3ce861a967.pnj" loading="lazy" decoding="async" alt="MTG Card Design Example 1" onclick="openLight(allProcessImages, 1)">
-                        <img src="https://64.media.tumblr.com/72dba6c005a5822a36e0db46a696d800/b3f9cd86e3c273a1-17/s1280x1920/5cddba153f56202aeee9f088bdec79255a45543a.pnj" loading="lazy" decoding="async" alt="MTG Border Extension Example" onclick="openLight(allProcessImages, 2)">
-                        <img src="https://64.media.tumblr.com/e8c539364450831275e27625dedefd8c/b3f9cd86e3c273a1-33/s1280x1920/5acf937edcca18e8512cd955c19b25156ea40ab9.pnj" loading="lazy" decoding="async" alt="Extended Art Replacement Example" onclick="openLight(allProcessImages, 3)">
-                        <img src="https://64.media.tumblr.com/f95fe0b716e9d580a4cd0153fd65042a/b3f9cd86e3c273a1-b1/s1280x1920/1c4ba616a272c56ccbb3f4eb826132bb205b444b.pnj" loading="lazy" decoding="async" alt="Sticker Style MTG Alter Example" onclick="openLight(allProcessImages, 4)">
-                        <img src="https://64.media.tumblr.com/f3ca71bf4fd17386b353359c4b6d87bb/b3f9cd86e3c273a1-78/s1280x1920/08ab101b58612825a6261302a2ba376e44b30017.pnj" loading="lazy" decoding="async" alt="Full Art MTG Alter Example" onclick="openLight(allProcessImages, 5)">
-                        <img src="https://64.media.tumblr.com/ae47779491f5358bbddd573a82d5ee7a/b3f9cd86e3c273a1-3d/s1280x1920/05ab20475ae29b0d09f2b70c8bab3d2be72b5170.pnj" loading="lazy" decoding="async" alt="Mixed Styles MTG Alter Example" onclick="openLight(allProcessImages, 6)">
-                        <img src="https://64.media.tumblr.com/b2af834731f5404afdc8e3f7b2585df3/b3f9cd86e3c273a1-49/s1280x1920/93e3d5dc70d4d6ad8316acca24629ff4fc05b37c.pnj" loading="lazy" decoding="async" alt="Payment Information for Commissions" onclick="openLight(allProcessImages, 7)">
-                        <img src="https://64.media.tumblr.com/ca3a799b300a7dc978ad56482c89d3d2/b3f9cd86e3c273a1-ec/s1280x1920/fe879eda82ebd226a6a0e3b31b9e80998f27b501.pnj" loading="lazy" decoding="async" alt="Shipping Details for Custom Alters" onclick="openLight(allProcessImages, 8)">
+                        <img src="images/01.png" alt="MTG Commission Guide Step 1" onclick="openLight(allProcessImages, 0)">
+                        <img src="images/03.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 2" onclick="openLight(allProcessImages, 1)">
+                        <img src="images/04.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 3" onclick="openLight(allProcessImages, 2)">
+                        <img src="images/05.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 4" onclick="openLight(allProcessImages, 3)">
+                        <img src="images/06.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 5" onclick="openLight(allProcessImages, 4)">
+                        <img src="images/07.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 6" onclick="openLight(allProcessImages, 5)">
+                        <img src="images/08.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 7" onclick="openLight(allProcessImages, 6)">
+                        <img src="images/10.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 8" onclick="openLight(allProcessImages, 7)">
+                        <img src="images/09.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 9" onclick="openLight(allProcessImages, 8)">
                     </div>
 
                     <button class="slider-external-btn" onclick="scrollProcessSlider(1)" aria-label="Next image">&#10095;</button>
@@ -1139,7 +1119,6 @@
                             <label class="radio-label"><input type="radio" name="platform" value="Discord"> Discord</label>
                             <label class="radio-label"><input type="radio" name="platform" value="TikTok"> TikTok</label>
                             <label class="radio-label"><input type="radio" name="platform" value="Reddit"> Reddit</label>
-                            <label class="radio-label"><input type="radio" name="platform" value="Tumblr"> Tumblr</label>
                             <label class="radio-label"><input type="radio" name="platform" value="E-mail"> E-mail</label>
                         </div>
                         <span class="error-message-text">Please select your preferred communication platform.</span>
@@ -1171,7 +1150,7 @@
                         <label class="field-title">What style do you want? (Select options) <span class="field-status-tag required">(Required)</span></label>
                         <div class="style-options-grid">
                             <div class="style-card" onclick="toggleStyleCheck('style_border')">
-                                <img src="https://64.media.tumblr.com/72dba6c005a5822a36e0db46a696d800/b3f9cd86e3c273a1-17/s1280x1920/5cddba153f56202aeee9f088bdec79255a45543a.pnj" loading="lazy" decoding="async" alt="Border Extension style preview">
+                                <img src="images/04.png" loading="lazy" decoding="async" alt="Border Extension style preview">
                                 <div class="style-card-checkbox">
                                     <input type="checkbox" id="style_border" name="types" value="Border Extension" onclick="event.stopPropagation()">
                                     <span>Border Extension</span>
@@ -1179,7 +1158,7 @@
                             </div>
 
                             <div class="style-card" onclick="toggleStyleCheck('style_art_replace')">
-                                <img src="https://64.media.tumblr.com/e8c539364450831275e27625dedefd8c/b3f9cd86e3c273a1-33/s1280x1920/5acf937edcca18e8512cd955c19b25156ea40ab9.pnj" loading="lazy" decoding="async" alt="Extended Art-Replacement style preview">
+                                <img src="images/05.png" loading="lazy" decoding="async" alt="Extended Art-Replacement style preview">
                                 <div class="style-card-checkbox">
                                     <input type="checkbox" id="style_art_replace" name="types" value="Extended Art-Replacement" onclick="event.stopPropagation()">
                                     <span>Extended Art-Replacement</span>
@@ -1187,7 +1166,7 @@
                             </div>
 
                             <div class="style-card" onclick="toggleStyleCheck('style_full_art')">
-                                <img src="https://64.media.tumblr.com/f3ca71bf4fd17386b353359c4b6d87bb/b3f9cd86e3c273a1-78/s1280x1920/08ab101b58612825a6261302a2ba376e44b30017.pnj" loading="lazy" decoding="async" alt="Full Art style preview">
+                                <img src="images/07.png" loading="lazy" decoding="async" alt="Full Art style preview">
                                 <div class="style-card-checkbox">
                                     <input type="checkbox" id="style_full_art" name="types" value="Full Art" onclick="event.stopPropagation()">
                                     <span>Full Art</span>
@@ -1195,7 +1174,7 @@
                             </div>
 
                             <div class="style-card" onclick="toggleStyleCheck('style_sticker')">
-                                <img src="https://64.media.tumblr.com/f95fe0b716e9d580a4cd0153fd65042a/b3f9cd86e3c273a1-b1/s1280x1920/1c4ba616a272c56ccbb3f4eb826132bb205b444b.pnj" loading="lazy" decoding="async" alt="Sticker Style preview">
+                                <img src="images/06.png" loading="lazy" decoding="async" alt="Sticker Style preview">
                                 <div class="style-card-checkbox">
                                     <input type="checkbox" id="style_sticker" name="types" value="Sticker Style" onclick="event.stopPropagation()">
                                     <span>Sticker Style</span>
@@ -1203,7 +1182,7 @@
                             </div>
 
                             <div class="style-card" onclick="toggleStyleCheck('style_mixed')">
-                                <img src="https://64.media.tumblr.com/ae47779491f5358bbddd573a82d5ee7a/b3f9cd86e3c273a1-3d/s1280x1920/05ab20475ae29b0d09f2b70c8bab3d2be72b5170.pnj" loading="lazy" decoding="async" alt="Mixed Styles preview">
+                                <img src="images/08.png" loading="lazy" decoding="async" alt="Mixed Styles preview">
                                 <div class="style-card-checkbox">
                                     <input type="checkbox" id="style_mixed" name="types" value="Mixed Styles" onclick="event.stopPropagation()">
                                     <span>Mixed Styles</span>
@@ -1322,15 +1301,6 @@
                     <p class="form-privacy-note"> Your data is kept strictly private and sent directly to the artist.</p>
                 </form>
             </div>
-
-            <!-- ARCHIVE SECTION -->
-            <div class="section-divider" id="archiveTarget">
-                <span>Archive / All Artwork</span>
-            </div>
-
-            <div class="archive-section">
-                <div class="archive-grid-wrapper" id="archiveGrid"></div>
-            </div>
             
         </div>
 
@@ -1366,28 +1336,40 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxiXFmXT2t_I8AU2ZPe6W6A9hxy3Eio8Mc727Gsn0qDGI5ndmRDGmJ0g3Dlxz_zRgbo/exec';
 
         const allProcessImages = [
-            'https://64.media.tumblr.com/5b474a4d26164b72ec26c8bf925de5b2/b3f9cd86e3c273a1-e2/s1280x1920/0a2ba06a457409948efd769fa5a68819a602d4bd.pnj',
-            'https://64.media.tumblr.com/8339c78d48f744583b9aebfb83776823/b3f9cd86e3c273a1-fe/s1280x1920/4e98624bc05402db11bdec8fe5f08d3ce861a967.pnj',
-            'https://64.media.tumblr.com/72dba6c005a5822a36e0db46a696d800/b3f9cd86e3c273a1-17/s1280x1920/5cddba153f56202aeee9f088bdec79255a45543a.pnj',
-            'https://64.media.tumblr.com/e8c539364450831275e27625dedefd8c/b3f9cd86e3c273a1-33/s1280x1920/5acf937edcca18e8512cd955c19b25156ea40ab9.pnj',
-            'https://64.media.tumblr.com/f95fe0b716e9d580a4cd0153fd65042a/b3f9cd86e3c273a1-b1/s1280x1920/1c4ba616a272c56ccbb3f4eb826132bb205b444b.pnj',
-            'https://64.media.tumblr.com/f3ca71bf4fd17386b353359c4b6d87bb/b3f9cd86e3c273a1-78/s1280x1920/08ab101b58612825a6261302a2ba376e44b30017.pnj',
-            'https://64.media.tumblr.com/ae47779491f5358bbddd573a82d5ee7a/b3f9cd86e3c273a1-3d/s1280x1920/05ab20475ae29b0d09f2b70c8bab3d2be72b5170.pnj',
-            'https://64.media.tumblr.com/b2af834731f5404afdc8e3f7b2585df3/b3f9cd86e3c273a1-49/s1280x1920/93e3d5dc70d4d6ad8316acca24629ff4fc05b37c.pnj',
-            'https://64.media.tumblr.com/ca3a799b300a7dc978ad56482c89d3d2/b3f9cd86e3c273a1-ec/s1280x1920/fe879eda82ebd226a6a0e3b31b9e80998f27b501.pnj'
+            'images/01.png',
+            'images/03.png',
+            'images/04.png',
+            'images/05.png',
+            'images/06.png',
+            'images/07.png',
+            'images/08.png',
+            'images/10.png',
+            'images/09.png'
         ];
 
         const allAboutImages = [
-            'https://64.media.tumblr.com/171871999fe493483e4ad6d8fb5f5bec/8446d4d56f6e1ad1-07/s1280x1920/9665040893f3b46677ea85086da893b384e53370.pnj',
-            'https://64.media.tumblr.com/fdb3fefb5d2cbf4d861a446d39646380/8446d4d56f6e1ad1-17/s1280x1920/eaac122a0ad58f350686aa7a3f779e799a30beba.pnj',
-            'https://64.media.tumblr.com/2a9a7b2576e136d9011718bf51cbb503/8446d4d56f6e1ad1-74/s1280x1920/db4ee241a5b7ddc5056df2ed0944a481f8f0ce00.pnj',
-            'https://64.media.tumblr.com/b21abdf6c6ff76355dcd6fb9c6ef67fd/74bffbd72a04c9e8-25/s1280x1920/7ce9ec697da66b0d5d975c3eed18f06d8b106ea8.pnj',
-            'https://64.media.tumblr.com/8e68af2078745a6c738f4a33b090cd57/74bffbd72a04c9e8-8f/s1280x1920/ae658c8889f96258e986c9dad2c1ea911f59485d.pnj',
-            'https://64.media.tumblr.com/ae696b117786c4ae9ea2b6e7c5af8f84/66a9f924d4c1bfb7-bb/s1280x1920/5b7c776552995610c8584785da874f7ac9742471.pnj',
-            'https://64.media.tumblr.com/e31f4ca0e73585c99930cf2238490eba/74bffbd72a04c9e8-7a/s1280x1920/85eb950c22e8700ab0151d35932cf5982809ca29.pnj',
-            'https://64.media.tumblr.com/70b294938d34ea32ccf16e926d25717a/74bffbd72a04c9e8-fd/s1280x1920/ed976e442d37ada9d17fed14879362bbce78c986.pnj',
-            'https://64.media.tumblr.com/b0198061f22dbdc20f2b6c9cec3fd0c4/66a9f924d4c1bfb7-5c/s1280x1920/c951ba67ddb32bb399ce8c029cad3688e260cbd2.pnj',
-            'https://64.media.tumblr.com/c11a604ee3780c514401981284ad345b/66a9f924d4c1bfb7-5b/s1280x1920/7a062e24b09e049d655e4e6e607301a8d2b3f381.pnj'
+            'images/solring03.png',
+            'images/swamp01.png',
+            'images/titania06.png',
+            'images/journeytonowhere01.png',
+            'images/pathtoexile01.png',
+            'images/deathbaron01.png',
+            'images/plain02.png',
+            'images/selvala02.png',
+            'images/demonictutor02.png',
+            'images/elvish01.png',
+            'images/faeriemacabre01.png',
+            'images/faerieseer01.png',
+            'images/giada01.png',
+            'images/greed01.png',
+            'images/guardionoftheguildpact01.png',
+            'images/harrier01.png',
+            'images/island02.png',
+            'images/meren01.png',
+            'images/kaalia01.png',
+            'images/treasure01.png',
+            'images/urzastower01.png',
+            'images/candytrail01.png'
         ];
 
         let activeArray = [];
@@ -1473,21 +1455,8 @@
             });
         }
 
-        function initArchiveGrid() {
-            const grid = document.getElementById('archiveGrid');
-            if (!grid) return;
-            grid.innerHTML = '';
-            allAboutImages.forEach((imgUrl, idx) => {
-                const card = document.createElement('div');
-                card.style.cssText = 'background: rgba(255, 255, 255, 0.8); border-radius: 20px; padding: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); display: flex; flex-direction: column; gap: 8px;';
-                card.innerHTML = `<img src="${imgUrl}" loading="lazy" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; cursor: pointer;" onclick="openLight(allAboutImages, ${idx})" alt="MTG Alter Gallery Image">`;
-                grid.appendChild(card);
-            });
-        }
-
         window.addEventListener('DOMContentLoaded', () => {
             initSliderDots();
-            initArchiveGrid();
         });
 
         function toggleStyleCheck(id) {
