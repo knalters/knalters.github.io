@@ -354,7 +354,7 @@
             text-decoration: none;
             overflow: hidden;
             border: none;
-            border-radius: 12px; /* Lekerekítés */
+            border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             transition: background 0.3s ease-out, transform 0.1s ease-out, color 0.3s ease-out;
@@ -362,7 +362,6 @@
             user-select: none;
         }
 
-        /* ANIMALTVONALAK LEKEREKÍTETT SAROKKVAL */
         .custom-cta-btn .border-line {
             position: absolute;
             display: block;
@@ -565,13 +564,13 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* REQUEST FORM STYLING (VISSZARAKVA PONTOSAN) */
+        /* TELJES REQUEST FORM STYLING (EGYEDI BEÁLLÍTÁSOKKAL) */
         /* ------------------------------------------------------------- */
         .request-form {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-top: 10px;
+            gap: 18px;
+            margin-top: 15px;
         }
 
         .form-group {
@@ -589,7 +588,8 @@
             color: var(--dark-green);
         }
 
-        .form-group input,
+        .form-group input[type="text"],
+        .form-group input[type="email"],
         .form-group select,
         .form-group textarea {
             width: 100%;
@@ -612,14 +612,39 @@
             box-shadow: 0 0 0 3px rgba(44, 76, 62, 0.1);
         }
 
+        /* Radio & Checkbox formázás */
+        .radio-options, .checkbox-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .radio-label, .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            text-transform: none;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .radio-label input, .checkbox-label input {
+            accent-color: var(--primary-green);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
         .submit-btn {
             background-color: var(--primary-green);
             color: var(--white);
             border: none;
-            padding: 14px 28px;
+            padding: 16px 28px;
             border-radius: 12px;
             font-family: var(--font-inter);
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -633,6 +658,11 @@
             background-color: #000000;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Rejtett honeypot mezo Formspree-hez */
+        .hidden-field {
+            display: none !important;
         }
 
         /* Floating Top Button */
@@ -726,7 +756,7 @@
                         <span class="status-dot green"></span> Commission Slots Open
                     </div>
                     
-                    <!-- NAVIGÁCIÓ (ABOUT ME MENU KISZEDVE) -->
+                    <!-- NAVIGÁCIÓ -->
                     <nav class="links-wrapper" aria-label="Main Navigation">
                         <a onclick="scrollToPageTop()" class="nav-link-item" role="button" tabindex="0">Home</a>
                         <a onclick="scrollToSection('commissionSection')" class="nav-link-item" role="button" tabindex="0">Commission Info</a>
@@ -744,7 +774,7 @@
         <!-- MAIN CONTENT -->
         <main class="feed-container" id="mainContent">
             
-            <!-- ABOUT ME SZEKCIÓ (A GOMB PONTOSAN A SZÖVEG ÉS A SLIDER KÖZÖTT VAN) -->
+            <!-- ABOUT ME SZEKCIÓ -->
             <article class="feed-block feed-article-post" id="aboutSection">
                 <h2 class="info-block-title">About me✨</h2>
                 <div class="post-body-content">
@@ -753,7 +783,7 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB (ÁTIRÁNYÍT A FORMHOZ) -->
+                <!-- REQUEST AN ALTER GOMB (A FORMRA UGRAT) -->
                 <div class="cta-button-wrapper">
                     <div class="button--bubble__container">
                         <a onclick="scrollToSection('requestFormSection')" class="custom-cta-btn button--bubble" role="button" tabindex="0">
@@ -828,7 +858,7 @@
                     <div class="designs-scroll-container" id="processSlider">
                         <img src="images/01.png" alt="Commission Process Step 1" onclick="openLight(allProcessImages, 0)" loading="lazy">
                         <img src="images/03.png" loading="lazy" decoding="async" alt="Commission Process Step 2" onclick="openLight(allProcessImages, 1)">
-                        <img src="images/04.png" loading="lazy" decoding="async" alt="Commission Process Step 3" onclick="openLight(allProcessImages, 4)">
+                        <img src="images/04.png" loading="lazy" decoding="async" alt="Commission Process Step 3" onclick="openLight(allProcessImages, 2)">
                         <img src="images/05.png" loading="lazy" decoding="async" alt="Commission Process Step 4" onclick="openLight(allProcessImages, 3)">
                         <img src="images/06.png" loading="lazy" decoding="async" alt="Commission Process Step 5" onclick="openLight(allProcessImages, 4)">
                         <img src="images/07.png" loading="lazy" decoding="async" alt="Commission Process Step 6" onclick="openLight(allProcessImages, 5)">
@@ -853,45 +883,95 @@
                 </div>
             </section>
 
-            <!-- REQUEST FORM SECTION (PONTOSAN VISSZARAKVA) -->
+            <!-- HIÁNYTALAN, TELJES REQUEST FORM SZEKCIÓ FORMSPREE EMAIL BEÁLLÍTÁSOKKAL -->
             <section class="feed-block info-block" id="requestFormSection">
                 <h2 class="info-block-title">Request an Alter</h2>
                 
                 <form class="request-form" action="https://formspree.io/f/xvgqkved" method="POST" enctype="multipart/form-data">
+                    
+                    <!-- FORMSPREE CONFIGURATION FIELDS -->
+                    <input type="hidden" name="_subject" value="New Alter Commission Request - kn.alters">
+                    <input type="text" name="_gotcha" class="hidden-field" tabindex="-1" autocomplete="off">
+
                     <div class="form-group">
-                        <label for="name">Your Name / Instagram Handle *</label>
-                        <input type="text" id="name" name="name" required placeholder="@yourhandle or Name">
+                        <label for="name">Your Name / Handle *</label>
+                        <input type="text" id="name" name="Name / Handle" required placeholder="@yourhandle or Name">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        <input type="email" id="email" name="_replyto" required placeholder="your.email@example.com">
                     </div>
 
                     <div class="form-group">
-                        <label for="alterType">Type of Alter *</label>
-                        <select id="alterType" name="alterType" required>
-                            <option value="">-- Select Option --</option>
-                            <option value="Border Extension">Border Extension</option>
-                            <option value="Full Art Replacement">Full Art Replacement</option>
-                            <option value="Pop-out / Frame Break">Pop-out / Frame Break</option>
-                            <option value="Custom Art / Idea">Custom Art / Idea</option>
+                        <label for="contactMethod">Preferred Contact Method *</label>
+                        <select id="contactMethod" name="Preferred Contact Method" required>
+                            <option value="">-- Select Contact Method --</option>
+                            <option value="Instagram DM">Instagram DM</option>
+                            <option value="Email">Email</option>
+                            <option value="Discord">Discord</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="cardName">Card Name(s) & Edition *</label>
-                        <input type="text" id="cardName" name="cardName" required placeholder="e.g. Sol Ring (Commander Masters)">
+                        <label for="contactHandle">Contact Info (Instagram Handle / Discord Tag) *</label>
+                        <input type="text" id="contactHandle" name="Contact Handle" required placeholder="e.g. @kn.alters or Username#1234">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Type of Alter *</label>
+                        <div class="radio-options">
+                            <label class="radio-label">
+                                <input type="radio" name="Type of Alter" value="Border Extension" required>
+                                Border Extension (Extending existing card art)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="Type of Alter" value="Full Art Replacement">
+                                Full Art Replacement (New custom painting)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="Type of Alter" value="Pop-out / Frame Break">
+                                Pop-out / Frame Break
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="Type of Alter" value="Custom Art / Other Idea">
+                                Custom Art / Other Idea
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardDetails">Card Name(s) & Edition *</label>
+                        <input type="text" id="cardDetails" name="Card Name and Edition" required placeholder="e.g. Sol Ring (Commander Masters)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Card Supply Option *</label>
+                        <div class="radio-options">
+                            <label class="radio-label">
+                                <input type="radio" name="Card Supply Option" value="I will send my own card" required>
+                                I will send/ship my own card to you
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="Card Supply Option" value="You buy the card for me">
+                                Please buy the card for me (Added to total cost)
+                            </label>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="description">Idea / Description / Reference Details *</label>
-                        <textarea id="description" name="description" rows="4" required placeholder="Describe your vision, colors, themes, or special requests..."></textarea>
+                        <textarea id="description" name="Idea Description" rows="5" required placeholder="Describe your vision, colors, themes, character details, or special requests..."></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="referenceFile">Upload Reference Image (Optional)</label>
-                        <input type="file" id="referenceFile" name="upload" accept="image/*">
+                        <label for="referenceFile">Upload Reference Image / Idea (Optional)</label>
+                        <input type="file" id="referenceFile" name="Attachment" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Shipping Destination Country *</label>
+                        <input type="text" id="country" name="Shipping Country" required placeholder="e.g. Hungary, Germany, USA...">
                     </div>
 
                     <button type="submit" class="submit-btn">Send Commission Request</button>
