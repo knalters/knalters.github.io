@@ -250,7 +250,7 @@
             width: 100%;
         }
 
-        /* MENÜGOMBOK: Finom kiemelés, diszkrét szegély és lágy árnyék */
+        /* MENÜGOMBOK: Finom betűtípus, diszkrét szegély és lágy árnyék */
         .link-item {
             display: block;
             background-color: #ffffff;
@@ -261,7 +261,7 @@
             font-family: 'Space Grotesk', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 700; 
+            font-weight: 400; 
             border-radius: 14px;
             border: 1px solid rgba(44, 76, 62, 0.12);
             transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -1061,7 +1061,7 @@
                     
                     <div class="links-wrapper">
                         <a onclick="scrollToPageTop()" class="link-item">home</a>
-                        <a onclick="scrollToSection('commissionSection')" class="link-item">commission info</a>
+                        <a onclick="scrollToSection('commissionSection', true)" class="link-item">commission</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
                         <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
                     </div>
@@ -1158,6 +1158,11 @@
                     <span>Use arrows or swipe to navigate &rarr; / Ready to order? Scroll down!</span>
                     <span>&#11015;</span>
                 </div>
+
+                <!-- REQUEST AN ALTER GOMB A COMMISSION PROCESS SLIDER ALÁ IS BEILLESZTVE -->
+                <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
+                    🎨 Request an Alter 🎨
+                </a>
 
                 <div class="post-date-meta">
                     <span>Commission Process</span>
@@ -1475,9 +1480,15 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function scrollToSection(id) {
+        function scrollToSection(id, alignBottom = false) {
             const elem = document.getElementById(id);
-            if(elem) elem.scrollIntoView({ behavior: 'smooth' });
+            if(elem) {
+                if (alignBottom) {
+                    elem.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                } else {
+                    elem.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         }
 
         window.addEventListener('scroll', () => {
@@ -1562,8 +1573,34 @@
             });
         }
 
+        // SLIDEREK GARANTÁLT NULLÁZÁSA FRISSÍTÉSKOR
+        function resetSlidersToFirst() {
+            currentProcessIndex = 0;
+            currentMtgIndex = 0;
+            
+            const processContainer = document.getElementById('processSlider');
+            if (processContainer) processContainer.scrollLeft = 0;
+            
+            const mtgContainer = document.getElementById('mtgSlider');
+            if (mtgContainer) mtgContainer.scrollLeft = 0;
+
+            const dotsContainer = document.getElementById('sliderDots');
+            if (dotsContainer) {
+                const dots = dotsContainer.querySelectorAll('.slider-dot');
+                dots.forEach((d, idx) => {
+                    if (idx === 0) d.classList.add('active');
+                    else d.classList.remove('active');
+                });
+            }
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             initSliderDots();
+            resetSlidersToFirst();
+        });
+
+        window.addEventListener('load', () => {
+            resetSlidersToFirst();
         });
 
         function toggleStyleCheck(id) {
