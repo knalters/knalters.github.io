@@ -14,20 +14,20 @@
     <meta name="author" content="Nora | kn.alters">
     <link rel="canonical" href="https://knalters.com/">
 
-    <!-- OG TAGS (USING ABSOLUTE URLS) -->
+    <!-- OG TAGS (LOGÓVAL) -->
     <meta property="og:title" content="kn.alters | MTG Card Alteration">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://knalters.com/">
     <meta property="og:image" content="https://knalters.com/images/logo.png">
     <meta property="og:description" content="Nora | Hobby MTG alterist from Hungary. Professional card extensions and custom art commissions.">
     
-    <!-- TWITTER CARDS (USING ABSOLUTE URLS) -->
+    <!-- TWITTER CARDS (LOGÓVAL) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="kn.alters | MTG Card Alteration">
     <meta name="twitter:description" content="Custom Magic: The Gathering card alters and commissions by Nora.">
     <meta name="twitter:image" content="https://knalters.com/images/logo.png">
 
-    <!-- EXPANDED JSON-LD SEO (Organization, WebSite, Person, ImageObject, BreadcrumbList) -->
+    <!-- JSON-LD SEO -->
     <script type="application/ld+json">
     [
       {
@@ -38,9 +38,7 @@
         "url": "https://knalters.com/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://knalters.com/images/logo.png",
-          "width": "600",
-          "height": "60"
+          "url": "https://knalters.com/images/logo.png"
         },
         "sameAs": [
           "https://www.instagram.com/kn.alters",
@@ -52,39 +50,7 @@
         "@type": "WebSite",
         "@id": "https://knalters.com/#website",
         "url": "https://knalters.com/",
-        "name": "kn.alters | MTG Card Alteration",
-        "publisher": {
-          "@id": "https://knalters.com/#organization"
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://knalters.com/#person",
-        "name": "Nora",
-        "jobTitle": "Card Alterist",
-        "brand": {
-          "@id": "https://knalters.com/#organization"
-        },
-        "url": "https://knalters.com/",
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://knalters.com/images/logo.png"
-        },
-        "description": "Hobby Magic: The Gathering alterist from Hungary specializing in border extensions and custom card art."
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "@id": "https://knalters.com/#breadcrumb",
-        "itemListElement": [{
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@id": "https://knalters.com/",
-            "name": "Home"
-          }
-        }]
+        "name": "kn.alters | MTG Card Alteration"
       }
     ]
     </script>
@@ -92,7 +58,7 @@
     <!-- FAVICON -->
     <link rel="shortcut icon" href="images/favicon.png">
 
-    <!-- FONTS (OPTIMIZED: AVERIA & INTER ONLY) -->
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
@@ -126,7 +92,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Skip to Content Link for Accessibility */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -140,9 +105,7 @@
             transition: top 0.2s ease;
         }
 
-        .skip-link:focus {
-            top: 0;
-        }
+        .skip-link:focus { top: 0; }
 
         /* Layout */
         .main-layout {
@@ -278,12 +241,6 @@
             transform: translateY(-2px);
         }
 
-        .nav-link-item:focus {
-            outline: none;
-            border-color: var(--accent-green);
-            box-shadow: 0 0 0 4px rgba(144, 254, 181, 0.4);
-        }
-
         .sidebar-footer {
             font-size: 10px;
             text-transform: uppercase;
@@ -304,7 +261,6 @@
             max-width: 100%;
         }
 
-        /* Universal Post Styling (About me & Commission Process) */
         .feed-block, .feed-article-post {
             background-color: rgba(255, 255, 255, 0.82);
             border-radius: 28px;
@@ -336,9 +292,7 @@
             color: var(--text-main);
         }
 
-        .post-body-content p {
-            margin: 0 0 14px 0;
-        }
+        .post-body-content p { margin: 0 0 14px 0; }
 
         .post-date-meta {
             display: flex;
@@ -362,18 +316,16 @@
             transition: color 0.2s ease;
         }
 
-        .back-to-top-link:hover {
-            color: #000000;
-        }
+        .back-to-top-link:hover { color: #000000; }
 
         /* ------------------------------------------------------------- */
-        /* HOVER BUBBLES + ANIMATED BORDER REQUEST AN ALTER BUTTON */
+        /* CTA BUTTON WITH LEKEREKÍTETT ANIMALTVONALLAL */
         /* ------------------------------------------------------------- */
         .cta-button-wrapper {
             display: flex;
             justify-content: center;
             width: 100%;
-            margin: 30px 0 30px 0;
+            margin: 20px 0 25px 0;
         }
 
         .button--bubble__container {
@@ -381,6 +333,7 @@
             display: inline-block;
             width: 100%;
             max-width: 320px;
+            border-radius: 12px;
         }
 
         .custom-cta-btn {
@@ -401,7 +354,7 @@
             text-decoration: none;
             overflow: hidden;
             border: none;
-            border-radius: 12px;
+            border-radius: 12px; /* Lekerekítés */
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             transition: background 0.3s ease-out, transform 0.1s ease-out, color 0.3s ease-out;
@@ -409,31 +362,30 @@
             user-select: none;
         }
 
-        /* BASE BORDER LINES (Light Green by Default) */
+        /* ANIMALTVONALAK LEKEREKÍTETT SAROKKVAL */
         .custom-cta-btn .border-line {
             position: absolute;
             display: block;
+            border-radius: 12px;
             transition: background 0.3s ease-out, height 0.1s ease-out, width 0.1s ease-out;
         }
 
-        /* Horizontal Lines */
         .custom-cta-btn .border-line:nth-child(1) {
             top: 0; left: 0; width: 100%; height: 2px;
             background: linear-gradient(to left, transparent, var(--accent-green));
             animation: 2s animateTop linear infinite;
         }
 
-        .custom-cta-btn .border-line:nth-child(3) {
-            bottom: 0; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(to right, transparent, var(--accent-green));
-            animation: 2s animateBottom linear infinite;
-        }
-
-        /* Vertical Lines */
         .custom-cta-btn .border-line:nth-child(2) {
             top: 0; right: 0; height: 100%; width: 2px;
             background: linear-gradient(to top, transparent, var(--accent-green));
             animation: 2s animateRight linear -1s infinite;
+        }
+
+        .custom-cta-btn .border-line:nth-child(3) {
+            bottom: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, transparent, var(--accent-green));
+            animation: 2s animateBottom linear infinite;
         }
 
         .custom-cta-btn .border-line:nth-child(4) {
@@ -452,91 +404,43 @@
             z-index: 2;
         }
 
-        /* HOVER STATE (Button Light, Text Sötét) */
         .custom-cta-btn:hover {
             background: var(--accent-green);
             color: var(--dark-green);
         }
 
-        /* BORDER CHANGES ON HOVER (Thicker and Dark Green) */
-        /* Horizontal */
         .custom-cta-btn:hover .border-line:nth-child(1),
         .custom-cta-btn:hover .border-line:nth-child(3) {
-            height: 4px; /* Vaskarabb */
+            height: 4px;
             background: linear-gradient(to left, transparent, var(--dark-green));
         }
 
-        /* Vertical */
         .custom-cta-btn:hover .border-line:nth-child(2),
         .custom-cta-btn:hover .border-line:nth-child(4) {
-            width: 4px; /* Vaskarabb */
+            width: 4px;
             background: linear-gradient(to top, transparent, var(--dark-green));
         }
 
-        /* Special Focus for Accessibility */
-        .custom-cta-btn:focus {
-            outline: none;
-            box-shadow: 0 0 0 4px var(--accent-green), 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .custom-cta-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Bubbles/Gooey Effect Containers */
-        .custom-cta-btn:hover + .button--bubble__effect-container .circle {
-            background: var(--primary-green);
-        }
-
-        .custom-cta-btn:hover + .button--bubble__effect-container .effect-button {
-            background: var(--primary-green);
-        }
+        .custom-cta-btn:active { transform: scale(0.95); }
 
         .button--bubble__container .effect-button {
-            position: absolute;
-            width: 50%;
-            height: 25%;
-            top: 50%;
-            left: 25%;
-            z-index: 1;
-            transform: translateY(-50%);
-            background: var(--primary-green);
-            transition: background 0.1s ease-out;
-            border-radius: 12px;
+            position: absolute; width: 50%; height: 25%; top: 50%; left: 25%; z-index: 1;
+            transform: translateY(-50%); background: var(--primary-green); transition: background 0.1s ease-out; border-radius: 12px;
         }
 
         .button--bubble__effect-container {
-            position: absolute;
-            display: block;
-            width: 200%;
-            height: 400%;
-            top: -150%;
-            left: -50%;
-            -webkit-filter: url("#goo");
-            filter: url("#goo");
-            transition: all 0.1s ease-out;
-            pointer-events: none;
-            z-index: 1;
+            position: absolute; display: block; width: 200%; height: 400%; top: -150%; left: -50%;
+            -webkit-filter: url("#goo"); filter: url("#goo"); transition: all 0.1s ease-out; pointer-events: none; z-index: 1;
         }
 
         .button--bubble__effect-container .circle {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: var(--primary-green);
-            transition: background 0.1s ease-out;
+            position: absolute; width: 25px; height: 25px; border-radius: 50%; background: var(--primary-green); transition: background 0.1s ease-out;
         }
 
         .button--bubble__effect-container .circle.top-left { top: 40%; left: 27%; }
         .button--bubble__effect-container .circle.bottom-right { bottom: 40%; right: 27%; }
 
-        .goo-filter {
-            position: absolute;
-            visibility: hidden;
-            width: 1px;
-            height: 1px;
-        }
+        .goo-filter { position: absolute; visibility: hidden; width: 1px; height: 1px; }
 
         /* Sliders Universal */
         .slider-relative-wrapper {
@@ -660,6 +564,77 @@
             background-color: var(--primary-green);
         }
 
+        /* ------------------------------------------------------------- */
+        /* REQUEST FORM STYLING (VISSZARAKVA PONTOSAN) */
+        /* ------------------------------------------------------------- */
+        .request-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-family: var(--font-inter);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--dark-green);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(44, 76, 62, 0.2);
+            background-color: #ffffff;
+            font-family: var(--font-inter);
+            font-size: 13px;
+            color: var(--text-main);
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(44, 76, 62, 0.1);
+        }
+
+        .submit-btn {
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-family: var(--font-inter);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(44, 76, 62, 0.2);
+        }
+
+        .submit-btn:hover {
+            background-color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
         /* Floating Top Button */
         .floating-top-btn {
             position: fixed;
@@ -683,26 +658,15 @@
             transition: all 0.3s ease;
         }
 
-        .floating-top-btn.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .floating-top-btn.visible { opacity: 1; pointer-events: auto; }
+        .floating-top-btn:hover { background: #000000; transform: translateY(-3px); }
 
-        .floating-top-btn:hover {
-            background: #000000;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Lightbox Universal */
+        /* Lightbox */
         .custom-lightbox {
             display: none;
             position: fixed;
             z-index: 999999;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0; width: 100vw; height: 100vh;
             background-color: rgba(0, 0, 0, 0.92);
             backdrop-filter: blur(8px);
             justify-content: center;
@@ -711,104 +675,43 @@
         }
 
         .custom-lightbox img {
-            max-width: 85vw;
-            max-height: 85vh;
-            border-radius: 12px;
-            object-fit: contain;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            max-width: 85vw; max-height: 85vh; border-radius: 12px; object-fit: contain; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
         }
 
         .custom-lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            color: var(--white);
-            font-size: 35px;
-            font-weight: bold;
-            font-family: sans-serif;
-            cursor: pointer;
-            z-index: 1000000;
+            position: absolute; top: 20px; right: 25px; color: var(--white); font-size: 35px; font-weight: bold; cursor: pointer; z-index: 1000000;
         }
 
         .lightbox-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: var(--white);
-            font-size: 36px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            width: 55px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border-radius: 50%;
-            user-select: none;
-            z-index: 1000000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: all 0.2s ease;
+            position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6); color: var(--white);
+            font-size: 36px; border: 2px solid rgba(255, 255, 255, 0.3); width: 55px; height: 55px; display: flex; align-items: center;
+            justify-content: center; cursor: pointer; border-radius: 50%; z-index: 1000000; transition: all 0.2s ease;
         }
 
         .lightbox-btn:hover { background: rgba(0, 0, 0, 0.9); border-color: var(--white); transform: translateY(-50%) scale(1.1); }
         .lightbox-prev { left: 20px; }
         .lightbox-next { right: 20px; }
 
-        /* Tablet & Mobile Media Queries */
         @media (max-width: 900px) {
-            .main-layout {
-                display: flex !important;
-                flex-direction: column !important;
-                width: 100vw !important;
-                padding: 0 !important;
-            }
-            .sidebar-wrapper {
-                width: 100% !important;
-                padding: 20px 15px 10px 15px !important;
-                box-sizing: border-box !important;
-            }
+            .main-layout { display: flex !important; flex-direction: column !important; width: 100vw !important; padding: 0 !important; }
+            .sidebar-wrapper { width: 100% !important; padding: 20px 15px 10px 15px !important; box-sizing: border-box !important; }
             .sticky-container { position: relative !important; top: 0 !important; }
             .profile-card { padding: 25px 20px !important; gap: 16px !important; }
-            
-            .feed-container {
-                width: 100% !important;
-                padding: 10px 15px 30px 15px !important;
-                display: flex !important;
-                flex-direction: column !important;
-                box-sizing: border-box !important;
-            }
-            
-            .feed-block, .feed-article-post {
-                width: 100% !important;
-                max-width: 100% !important;
-                box-sizing: border-box !important;
-                padding: 15px !important;
-                margin: 0 0 15px 0 !important;
-            }
-
+            .feed-container { width: 100% !important; padding: 10px 15px 30px 15px !important; box-sizing: border-box !important; }
+            .feed-block, .feed-article-post { width: 100% !important; max-width: 100% !important; padding: 15px !important; margin: 0 0 15px 0 !important; }
             .designs-scroll-container img { height: 420px !important; }
-            .slider-external-btn { width: 38px; height: 38px; font-size: 16px; }
-
-            .floating-top-btn {
-                bottom: 20px;
-                left: 20px;
-                padding: 10px 14px;
-                font-size: 10px;
-            }
-
+            .floating-top-btn { bottom: 20px; left: 20px; padding: 10px 14px; font-size: 10px; }
             .sidebar-footer { display: none !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Accessible Skip Link -->
     <a href="#mainContent" class="skip-link">Skip to Content</a>
 
     <div class="main-layout">
         
-        <!-- SIDEBAR LANDMARK -->
+        <!-- SIDEBAR -->
         <aside class="sidebar-wrapper" role="complementary">
             <div class="sticky-container">
                 <div class="profile-card">
@@ -823,11 +726,10 @@
                         <span class="status-dot green"></span> Commission Slots Open
                     </div>
                     
-                    <!-- NAVIGATION LANDMARK -->
+                    <!-- NAVIGÁCIÓ (ABOUT ME MENU KISZEDVE) -->
                     <nav class="links-wrapper" aria-label="Main Navigation">
                         <a onclick="scrollToPageTop()" class="nav-link-item" role="button" tabindex="0">Home</a>
                         <a onclick="scrollToSection('commissionSection')" class="nav-link-item" role="button" tabindex="0">Commission Info</a>
-                        <a onclick="scrollToSection('aboutSection')" class="nav-link-item" role="button" tabindex="0">About Me</a>
                         <a href="https://www.instagram.com/kn.alters" class="nav-link-item" target="_blank" rel="noopener" aria-label="kn.alters on Instagram">Instagram</a>
                         <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="nav-link-item" target="_blank" rel="noopener" aria-label="kn.alters on TikTok">TikTok</a>
                     </nav>
@@ -839,20 +741,44 @@
             </div>
         </aside>
 
-        <!-- MAIN CONTENT LANDMARK -->
+        <!-- MAIN CONTENT -->
         <main class="feed-container" id="mainContent">
             
-            <!-- HOME / ABOUT SECTION (Marketing position and styling fix) -->
-            <article class="feed-block feed-article-post" id="aboutSection" aria-labelledby="aboutTitle">
-                <h2 class="info-block-title" id="aboutTitle">About me✨</h2>
+            <!-- ABOUT ME SZEKCIÓ (A GOMB PONTOSAN A SZÖVEG ÉS A SLIDER KÖZÖTT VAN) -->
+            <article class="feed-block feed-article-post" id="aboutSection">
+                <h2 class="info-block-title">About me✨</h2>
                 <div class="post-body-content">
                     <p>My name is Nora, I live in Hungary (mid Europe). I am a mother of 2 baby potatoes (2 and 4 yo). I started altering in December of 2024 for fun.</p>
                     <p>I am not a full time alterist, so I usually paint at nights (10 pm- 2 am) when my kids are sleeping, the house is quiet enough and I have enough energy to enjoy painting.</p>
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
+                <!-- REQUEST AN ALTER GOMB (ÁTIRÁNYÍT A FORMHOZ) -->
+                <div class="cta-button-wrapper">
+                    <div class="button--bubble__container">
+                        <a onclick="scrollToSection('requestFormSection')" class="custom-cta-btn button--bubble" role="button" tabindex="0">
+                            <span class="border-line" aria-hidden="true"></span>
+                            <span class="border-line" aria-hidden="true"></span>
+                            <span class="border-line" aria-hidden="true"></span>
+                            <span class="border-line" aria-hidden="true"></span>
+                            
+                            <span class="btn-text">🎨 Request an Alter 🎨</span>
+                        </a>
+                        <div class="button--bubble__effect-container" aria-hidden="true">
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+                            <span class="button effect-button"></span>
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD SLIDER -->
                 <div class="slider-relative-wrapper">
-                    <button class="slider-external-btn lightbox-prev" onclick="scrollMtgSlider(-1)" aria-label="Previous image in gallery">&#10094;</button>
+                    <button class="slider-external-btn lightbox-prev" onclick="scrollMtgSlider(-1)" aria-label="Previous image">&#10094;</button>
                     
                     <div class="mtg-scroll-container" id="mtgSlider">
                         <img src="images/solring03.png" alt="Custom MTG Alter Sol Ring" onclick="openLight(allAboutImages, 0)" loading="lazy">
@@ -879,7 +805,7 @@
                         <img src="images/candytrail01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Candy Trail" onclick="openLight(allAboutImages, 21)">
                     </div>
 
-                    <button class="slider-external-btn lightbox-next" onclick="scrollMtgSlider(1)" aria-label="Next image in gallery">&#10095;</button>
+                    <button class="slider-external-btn lightbox-next" onclick="scrollMtgSlider(1)" aria-label="Next image">&#10095;</button>
                 </div>
 
                 <div class="scroll-hint">
@@ -892,34 +818,9 @@
                 </div>
             </article>
 
-            <!-- Strong CTA Button between About and Process -->
-            <div class="cta-button-wrapper">
-                <div class="button--bubble__container">
-                    <a href="https://www.instagram.com/kn.alters" class="custom-cta-btn button--bubble" target="_blank" rel="noopener" aria-label="Request an MTG card alter on Instagram">
-                        <!-- Border lines for animation -->
-                        <span class="border-line" aria-hidden="true"></span>
-                        <span class="border-line" aria-hidden="true"></span>
-                        <span class="border-line" aria-hidden="true"></span>
-                        <span class="border-line" aria-hidden="true"></span>
-                        
-                        <span class="btn-text">🎨 Request an Alter 🎨</span>
-                    </a>
-                    <!-- Gooey Bubble Effect Containers (Hidden from Accessibility) -->
-                    <div class="button--bubble__effect-container" aria-hidden="true">
-                        <span class="circle top-left"></span>
-                        <span class="circle top-left"></span>
-                        <span class="circle top-left"></span>
-                        <span class="button effect-button"></span>
-                        <span class="circle bottom-right"></span>
-                        <span class="circle bottom-right"></span>
-                        <span class="circle bottom-right"></span>
-                    </div>
-                </div>
-            </div>
-
             <!-- COMMISSION PROCESS SECTION -->
-            <section class="feed-block info-block" id="commissionSection" aria-labelledby="commissionTitle">
-                <h2 class="info-block-title" id="commissionTitle">Commission Process</h2>
+            <section class="feed-block info-block" id="commissionSection">
+                <h2 class="info-block-title">Commission Process</h2>
                 
                 <div class="slider-relative-wrapper">
                     <button class="slider-external-btn lightbox-prev" onclick="scrollProcessSlider(-1)" aria-label="Previous step">&#10094;</button>
@@ -927,7 +828,7 @@
                     <div class="designs-scroll-container" id="processSlider">
                         <img src="images/01.png" alt="Commission Process Step 1" onclick="openLight(allProcessImages, 0)" loading="lazy">
                         <img src="images/03.png" loading="lazy" decoding="async" alt="Commission Process Step 2" onclick="openLight(allProcessImages, 1)">
-                        <img src="images/04.png" loading="lazy" decoding="async" alt="Commission Process Step 3" onclick="openLight(allProcessImages, 2)">
+                        <img src="images/04.png" loading="lazy" decoding="async" alt="Commission Process Step 3" onclick="openLight(allProcessImages, 4)">
                         <img src="images/05.png" loading="lazy" decoding="async" alt="Commission Process Step 4" onclick="openLight(allProcessImages, 3)">
                         <img src="images/06.png" loading="lazy" decoding="async" alt="Commission Process Step 5" onclick="openLight(allProcessImages, 4)">
                         <img src="images/07.png" loading="lazy" decoding="async" alt="Commission Process Step 6" onclick="openLight(allProcessImages, 5)">
@@ -939,10 +840,10 @@
                     <button class="slider-external-btn lightbox-next" onclick="scrollProcessSlider(1)" aria-label="Next step">&#10095;</button>
                 </div>
 
-                <div class="slider-dots-container" id="sliderDots" aria-label="Process steps progress"></div>
+                <div class="slider-dots-container" id="sliderDots"></div>
 
                 <div class="scroll-hint">
-                    <span>Use arrows or swipe to navigate &rarr; / Ready to order? DM me on Instagram!</span>
+                    <span>Use arrows or swipe to navigate &rarr; / Ready to order? Fill out the form below!</span>
                     <span>&#11015;</span>
                 </div>
 
@@ -951,12 +852,62 @@
                     <a onclick="scrollToPageTop()" class="back-to-top-link">↑ Back to top</a>
                 </div>
             </section>
+
+            <!-- REQUEST FORM SECTION (PONTOSAN VISSZARAKVA) -->
+            <section class="feed-block info-block" id="requestFormSection">
+                <h2 class="info-block-title">Request an Alter</h2>
+                
+                <form class="request-form" action="https://formspree.io/f/xvgqkved" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Your Name / Instagram Handle *</label>
+                        <input type="text" id="name" name="name" required placeholder="@yourhandle or Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alterType">Type of Alter *</label>
+                        <select id="alterType" name="alterType" required>
+                            <option value="">-- Select Option --</option>
+                            <option value="Border Extension">Border Extension</option>
+                            <option value="Full Art Replacement">Full Art Replacement</option>
+                            <option value="Pop-out / Frame Break">Pop-out / Frame Break</option>
+                            <option value="Custom Art / Idea">Custom Art / Idea</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardName">Card Name(s) & Edition *</label>
+                        <input type="text" id="cardName" name="cardName" required placeholder="e.g. Sol Ring (Commander Masters)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Idea / Description / Reference Details *</label>
+                        <textarea id="description" name="description" rows="4" required placeholder="Describe your vision, colors, themes, or special requests..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="referenceFile">Upload Reference Image (Optional)</label>
+                        <input type="file" id="referenceFile" name="upload" accept="image/*">
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Commission Request</button>
+                </form>
+
+                <div class="post-date-meta">
+                    <span>Direct Request Form</span>
+                    <a onclick="scrollToPageTop()" class="back-to-top-link">↑ Back to top</a>
+                </div>
+            </section>
             
         </main>
 
     </div>
 
-    <!-- REUSABLE HIDDEN GOOEY EFFECT FILTER (Hidden from Accessibility) -->
+    <!-- REUSABLE HIDDEN GOOEY EFFECT FILTER -->
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo-filter" aria-hidden="true">
         <defs>
             <filter id="goo">
@@ -970,16 +921,15 @@
     <!-- Floating Back to Top Button -->
     <button class="floating-top-btn" id="floatingTopBtn" onclick="scrollToPageTop()" aria-label="Back to Top">↑</button>
 
-    <!-- Reusable Lightbox Container (Accessibility improved) -->
-    <div id="customLightbox" class="custom-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" onclick="closeLight()">
-        <span class="custom-lightbox-close" onclick="closeLight()" role="button" aria-label="Close viewer">&times;</span>
-        <button class="lightbox-btn lightbox-prev" id="prevBtn" onclick="stepLight(-1, event)" aria-label="Previous image">&#8249;</button>
+    <!-- Lightbox -->
+    <div id="customLightbox" class="custom-lightbox" onclick="closeLight()">
+        <span class="custom-lightbox-close" onclick="closeLight()">&times;</span>
+        <button class="lightbox-btn lightbox-prev" id="prevBtn" onclick="stepLight(-1, event)">&#8249;</button>
         <img id="lightboxImg" src="" alt="Enlarged view of MTG alter" onclick="event.stopPropagation()">
-        <button class="lightbox-btn lightbox-next" id="nextBtn" onclick="stepLight(1, event)" aria-label="Next image">&#8250;</button>
+        <button class="lightbox-btn lightbox-next" id="nextBtn" onclick="stepLight(1, event)">&#8250;</button>
     </div>
 
     <script>
-        // Gallery arrays
         const allProcessImages = [
             'images/01.png', 'images/03.png', 'images/04.png', 'images/05.png', 
             'images/06.png', 'images/07.png', 'images/08.png', 'images/10.png', 'images/09.png'
@@ -995,33 +945,23 @@
             'images/kaalia01.png', 'images/treasure01.png', 'images/urzastower01.png', 'images/candytrail01.png'
         ];
 
-        // State variables
         let activeArray = [];
         let activeIdx = 0;
         let currentProcessIndex = 0;
         let currentMtgIndex = 0;
 
-        // Scroll functions
-        function scrollToPageTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
+        function scrollToPageTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
         function scrollToSection(id) {
             const elem = document.getElementById(id);
             if(elem) elem.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Floating button visibility
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('floatingTopBtn');
-            if (window.scrollY > 300) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
-            }
+            if (window.scrollY > 300) btn.classList.add('visible');
+            else btn.classList.remove('visible');
         });
 
-        // Universal slider scroll function
         function scrollToSlide(containerId, index) {
             const container = document.getElementById(containerId);
             const images = container ? container.querySelectorAll('img') : [];
@@ -1032,129 +972,77 @@
             }
         }
 
-        // Process Slider controls
         function scrollProcessSlider(direction) {
             const container = document.getElementById('processSlider');
             if (!container) return;
             const images = container.querySelectorAll('img');
             if (!images.length) return;
-            
             currentProcessIndex += direction;
             if (currentProcessIndex < 0) currentProcessIndex = 0;
             if (currentProcessIndex >= images.length) currentProcessIndex = images.length - 1;
             scrollToSlide('processSlider', currentProcessIndex);
         }
 
-        // MTG Alters Slider controls
         function scrollMtgSlider(direction) {
             const container = document.getElementById('mtgSlider');
             if (!container) return;
             const images = container.querySelectorAll('img');
             if (!images.length) return;
-            
             currentMtgIndex += direction;
             if (currentMtgIndex < 0) currentMtgIndex = 0;
             if (currentMtgIndex >= images.length) currentMtgIndex = images.length - 1;
             scrollToSlide('mtgSlider', currentMtgIndex);
         }
 
-        // Initialize Process Slider Dots
         function initSliderDots() {
             const container = document.getElementById('processSlider');
             const dotsContainer = document.getElementById('sliderDots');
             if (!container || !dotsContainer) return;
-
             const images = container.querySelectorAll('img');
             dotsContainer.innerHTML = '';
 
             images.forEach((_, idx) => {
                 const dot = document.createElement('div');
                 dot.className = 'slider-dot' + (idx === 0 ? ' active' : '');
-                dot.setAttribute('role', 'button');
-                dot.setAttribute('aria-label', `Go to step ${idx + 1}`);
-                dot.setAttribute('tabindex', '0');
-                dot.onclick = () => {
-                    currentProcessIndex = idx;
-                    scrollToSlide('processSlider', idx);
-                };
-                // Support keyboard interaction for dots
-                dot.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        dot.click();
-                    }
-                });
+                dot.onclick = () => { currentProcessIndex = idx; scrollToSlide('processSlider', idx); };
                 dotsContainer.appendChild(dot);
             });
 
-            // Update dots on scroll
             container.addEventListener('scroll', () => {
                 const containerCenter = container.scrollLeft + (container.clientWidth / 2);
                 let closestIdx = 0;
                 let minDiff = Infinity;
-
                 images.forEach((img, idx) => {
                     const imgCenter = img.offsetLeft - container.offsetLeft + (img.clientWidth / 2);
                     const diff = Math.abs(containerCenter - imgCenter);
-                    if (diff < minDiff) {
-                        minDiff = diff;
-                        closestIdx = idx;
-                    }
+                    if (diff < minDiff) { minDiff = diff; closestIdx = idx; }
                 });
-
                 currentProcessIndex = closestIdx;
                 const dots = dotsContainer.querySelectorAll('.slider-dot');
                 dots.forEach((d, idx) => {
-                    if (idx === currentProcessIndex) {
-                        d.classList.add('active');
-                        d.setAttribute('aria-current', 'step');
-                    } else {
-                        d.classList.remove('active');
-                        d.removeAttribute('aria-current');
-                    }
+                    if (idx === currentProcessIndex) d.classList.add('active');
+                    else d.classList.remove('active');
                 });
             });
         }
 
-        // Run dot initialization on load
-        window.addEventListener('DOMContentLoaded', () => {
-            initSliderDots();
-        });
+        window.addEventListener('DOMContentLoaded', () => { initSliderDots(); });
 
-        // Accessibility support for nav buttons (About/Process)
-        function handleLinkInteraction(id, type) {
-            if (type === 'top') scrollToPageTop();
-            else scrollToSection(id);
-        }
-        
         document.querySelectorAll('.nav-link-item, .logo-link').forEach(link => {
             link.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    link.click();
-                }
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); link.click(); }
             });
         });
 
-        // Lightbox Functions
         function openLight(arr, idx) {
-            activeArray = arr;
-            activeIdx = idx;
+            activeArray = arr; activeIdx = idx;
             const lightbox = document.getElementById('customLightbox');
             document.getElementById('lightboxImg').src = activeArray[activeIdx];
-            
             const prev = document.getElementById('prevBtn');
             const next = document.getElementById('nextBtn');
-            
-            if (activeArray.length > 1) {
-                prev.style.display = 'flex';
-                next.style.display = 'flex';
-            } else {
-                prev.style.display = 'none';
-                next.style.display = 'none';
-            }
+            if (activeArray.length > 1) { prev.style.display = 'flex'; next.style.display = 'flex'; }
+            else { prev.style.display = 'none'; next.style.display = 'none'; }
             lightbox.style.display = 'flex';
-            lightbox.focus(); // Focus the lightbox for accessibility
         }
 
         function stepLight(dir, ev) {
@@ -1166,11 +1054,8 @@
             document.getElementById('lightboxImg').src = activeArray[activeIdx];
         }
 
-        function closeLight() {
-            document.getElementById('customLightbox').style.display = 'none';
-        }
+        function closeLight() { document.getElementById('customLightbox').style.display = 'none'; }
 
-        // Keyboard navigation for Lightbox
         document.addEventListener('keydown', function(e) {
             const box = document.getElementById('customLightbox');
             if (box.style.display === 'flex') {
