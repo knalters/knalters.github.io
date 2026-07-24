@@ -169,7 +169,7 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* ÚJ KOMBOWÁLT REQUEST AN ALTER GOMB (ANIMÁLT KERET + HOVER NYÍL) */
+        /* HOVER BUBORÉK / GOOEY ANIMÁCIÓS REQUEST AN ALTER GOMB STÍLUS */
         /* ------------------------------------------------------------- */
         .cta-button-wrapper {
             display: flex;
@@ -178,8 +178,16 @@
             margin: 20px 0 10px 0;
         }
 
+        .button--bubble__container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 320px;
+        }
+
         .custom-cta-btn {
             position: relative;
+            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -198,11 +206,12 @@
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             cursor: pointer;
-            transition: all 0.5s ease;
+            transition: background 0.3s ease-out, transform 0.1s ease-out;
             box-sizing: border-box;
+            user-select: none;
         }
 
-        /* ALAPHELYZETBEN: MEGADOTT CSÍK FUTÓ ANIMÁCIÓ (4 SPAN) */
+        /* ALAPHELYZETI KERET CSÍKOK */
         .custom-cta-btn .border-line {
             position: absolute;
             display: block;
@@ -233,98 +242,89 @@
             animation: 2s animateLeft linear -1s infinite;
         }
 
-        @keyframes animateTop {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        @keyframes animateRight {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
-        }
-        @keyframes animateBottom {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @keyframes animateLeft {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
+        @keyframes animateTop { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        @keyframes animateRight { 0% { transform: translateY(100%); } 100% { transform: translateY(-100%); } }
+        @keyframes animateBottom { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+        @keyframes animateLeft { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
 
         .custom-cta-btn .btn-text {
             display: inline-block;
-            transition: transform 0.5s ease;
             z-index: 2;
         }
 
-        .custom-cta-btn .arrow-icon-span {
-            width: 24px;
-            height: 18px;
-            margin-left: 15px;
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            transition: all 0.5s ease;
-            z-index: 2;
-        }
-
-        .custom-cta-btn svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .custom-cta-btn path.one {
-            transition: 0.4s;
-            transform: translateX(-60%);
-            fill: #ffffff;
-        }
-        .custom-cta-btn path.two {
-            transition: 0.5s;
-            transform: translateX(-30%);
-            fill: #ffffff;
-        }
-        .custom-cta-btn path.three {
-            fill: #ffffff;
-        }
-
-        /* ------------------------------------------------------------- */
-        /* EGÉRRÁHÚZÁS (HOVER EFFEKT A MEGADOTT KÓD ALAPJÁN) */
-        /* ------------------------------------------------------------- */
+        /* HOVER ÁLLAPOT ÉS BUBORÉK EFFEKT */
         .custom-cta-btn:hover {
-            background: #2c4c3e;
-            box-shadow: 6px 6px 0px #1e362c;
-            transform: skewX(-10deg) translateY(-2px);
-            border-radius: 6px;
+            background: #90feb5;
+            color: #1b3329;
         }
 
         .custom-cta-btn:hover .border-line {
-            opacity: 0; /* A keret csíkok hoverre elhalványulnak */
+            opacity: 0;
         }
 
-        .custom-cta-btn:hover .btn-text {
-            transform: skewX(10deg);
+        .custom-cta-btn:hover + .button--bubble__effect-container .circle {
+            background: #2c4c3e;
         }
 
-        .custom-cta-btn:hover .arrow-icon-span {
-            transform: skewX(10deg);
-            margin-left: 22px;
+        .custom-cta-btn:hover + .button--bubble__effect-container .effect-button {
+            background: #2c4c3e;
         }
 
-        .custom-cta-btn:hover path.three {
-            animation: color_anim 1s infinite 0.2s;
-        }
-        .custom-cta-btn:hover path.one {
-            transform: translateX(0%);
-            animation: color_anim 1s infinite 0.6s;
-        }
-        .custom-cta-btn:hover path.two {
-            transform: translateX(0%);
-            animation: color_anim 1s infinite 0.4s;
+        .custom-cta-btn:active {
+            transform: scale(0.95);
         }
 
-        @keyframes color_anim {
-            0% { fill: #ffffff; }
-            50% { fill: #fbc638; }
-            100% { fill: #ffffff; }
+        .button--bubble__container .effect-button {
+            position: absolute;
+            width: 50%;
+            height: 25%;
+            top: 50%;
+            left: 25%;
+            z-index: 1;
+            transform: translateY(-50%);
+            background: #2c4c3e;
+            transition: background 0.1s ease-out;
+            border-radius: 12px;
+        }
+
+        .button--bubble__effect-container {
+            position: absolute;
+            display: block;
+            width: 200%;
+            height: 400%;
+            top: -150%;
+            left: -50%;
+            -webkit-filter: url("#goo");
+            filter: url("#goo");
+            transition: all 0.1s ease-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .button--bubble__effect-container .circle {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #2c4c3e;
+            transition: background 0.1s ease-out;
+        }
+
+        .button--bubble__effect-container .circle.top-left {
+            top: 40%;
+            left: 27%;
+        }
+
+        .button--bubble__effect-container .circle.bottom-right {
+            bottom: 40%;
+            right: 27%;
+        }
+
+        .goo-filter {
+            position: absolute;
+            visibility: hidden;
+            width: 1px;
+            height: 1px;
         }
 
         .links-wrapper {
@@ -1164,24 +1164,27 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- UTÓLAGOS KÉRT "REQUEST AN ALTER" GOMB ANIMÁLTSÁGGAL ÉS HOVER NYÍLLAL -->
+                <!-- ÚJ HOVER BUBORÉK EFFEKTES "REQUEST AN ALTER" GOMB -->
                 <div class="cta-button-wrapper">
-                    <a onclick="scrollToSection('contactFormSection')" class="custom-cta-btn">
-                        <span class="border-line"></span>
-                        <span class="border-line"></span>
-                        <span class="border-line"></span>
-                        <span class="border-line"></span>
-                        
-                        <span class="btn-text">🎨 Request an Alter 🎨</span>
-                        
-                        <span class="arrow-icon-span">
-                            <svg viewBox="0 0 13 10">
-                                <path class="one" d="M1,5 L11,5"></path>
-                                <path class="two" d="M8,2 L11,5 L8,8"></path>
-                                <path class="three" d="M11,5 L1,5"></path>
-                            </svg>
-                        </span>
-                    </a>
+                    <div class="button--bubble__container">
+                        <a onclick="scrollToSection('contactFormSection')" class="custom-cta-btn button--bubble">
+                            <span class="border-line"></span>
+                            <span class="border-line"></span>
+                            <span class="border-line"></span>
+                            <span class="border-line"></span>
+                            
+                            <span class="btn-text">🎨 Request an Alter 🎨</span>
+                        </a>
+                        <div class="button--bubble__effect-container">
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+                            <span class="button effect-button"></span>
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="slider-relative-wrapper">
@@ -1491,6 +1494,17 @@
         </div>
 
     </div>
+
+    <!-- REJTEGG GOOEY EFFEKT SZŰRŐ SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo-filter">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
 
     <!-- LEBEGŐ TOP GOMB (BAL OLDALON) -->
     <button class="floating-top-btn" id="floatingTopBtn" onclick="scrollToPageTop()">↑ Back to top</button>
