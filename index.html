@@ -189,7 +189,7 @@
             border-radius: 14px;
             text-align: center;
             box-sizing: border-box;
-            margin: 18px 0 10px 0;
+            margin: 20px 0 10px 0;
             cursor: pointer;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25);
@@ -250,29 +250,33 @@
             width: 100%;
         }
 
+        /* MENÜGOMBOK: Finom kiemelés, diszkrét szegély és lágy árnyék */
         .link-item {
             display: block;
             background-color: #ffffff;
-            color: #000000; 
+            color: #1b2820; 
             text-decoration: none;
             padding: 13px 20px;
             font-size: clamp(11px, 0.85vw, 12px);
             font-family: 'Space Grotesk', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 400; 
+            font-weight: 700; 
             border-radius: 14px;
-            transition: all 0.25s ease;
+            border: 1px solid rgba(44, 76, 62, 0.12);
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
             text-align: center;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(44, 76, 62, 0.05);
             box-sizing: border-box;
             cursor: pointer;
         }
 
         .link-item:hover {
-            background-color: #000000;
+            background-color: #2c4c3e;
             color: #ffffff;
+            border-color: #2c4c3e;
             transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(44, 76, 62, 0.25);
         }
 
         .sidebar-footer {
@@ -1080,11 +1084,6 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB KÖRBEFUTÓ ÁTMENETES STRIP/BORDER ANIMÁCIÓVAL -->
-                <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
-                    🎨 Request an Alter 🎨
-                </a>
-
                 <div class="slider-relative-wrapper">
                     <button class="slider-external-btn" onclick="scrollMtgSlider(-1)" aria-label="Previous image">&#10094;</button>
                     
@@ -1119,6 +1118,11 @@
                 <div class="scroll-hint">
                     <span>Use arrows or swipe to browse gallery &rarr;</span>
                 </div>
+
+                <!-- REQUEST AN ALTER GOMB A KÉPEK ÉS GÖRGETÉSI TIPP ALÁ HELYEZVE -->
+                <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
+                    🎨 Request an Alter 🎨
+                </a>
 
                 <div class="post-date-meta">
                     <span>About Me</span>
