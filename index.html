@@ -168,7 +168,16 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* SHIMMERING & SPARKLE ALAPVETŐEN + HOVER KORBEN KONFETTI EFFEKT */
+        /* KERETEN GLOW ALAPHELYZETBEN + FIZZY KONFETTI KÍVÜL HOVERRE */
+        .cta-outer-container {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin: 18px 0 10px 0;
+            padding: 6px; /* Hely a külső pezsgésnek */
+            box-sizing: border-box;
+        }
+
         .inline-cta-btn {
             position: relative;
             display: block;
@@ -185,74 +194,61 @@
             border-radius: 14px;
             text-align: center;
             box-sizing: border-box;
-            margin: 18px 0 10px 0;
             cursor: pointer;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            /* BORDER GLOW EFFEKT ALAPHELYZETBEN */
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.35), 0 4px 15px rgba(44, 76, 62, 0.2);
             transition: all 0.3s ease;
-            z-index: 1;
-        }
-
-        /* FINOM CSILOGÓ/CSILLÁMLÓ FÉNYÁTFUTÁS ALAPHELYZETBEN (SHIMMER) */
-        .inline-cta-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 60%; height: 100%;
-            background: linear-gradient(
-                90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.25), 
-                rgba(255, 215, 0, 0.35), 
-                rgba(255, 255, 255, 0.25), 
-                transparent
-            );
-            transform: skewX(-20deg);
-            animation: shimmerGlow 3.5s infinite ease-in-out;
-            pointer-events: none;
+            animation: borderGlowPulse 2.5s infinite alternate ease-in-out;
             z-index: 2;
         }
 
-        @keyframes shimmerGlow {
-            0% { left: -100%; }
-            40%, 100% { left: 180%; }
+        @keyframes borderGlowPulse {
+            0% {
+                border-color: rgba(255, 215, 0, 0.4);
+                box-shadow: 0 0 8px rgba(255, 215, 0, 0.25), 0 4px 15px rgba(44, 76, 62, 0.2);
+            }
+            100% {
+                border-color: rgba(255, 215, 0, 0.85);
+                box-shadow: 0 0 18px rgba(255, 215, 0, 0.55), 0 4px 15px rgba(44, 76, 62, 0.25);
+            }
         }
 
-        /* KONFETTI KONFETTI ELEMEK AMIK HOVERRE JELENNEK MEG */
-        .inline-cta-btn::after {
+        /* FIZZY KONFETTI EFFEKT A GOMB KÖRÜL (KÍVÜL) HOVERRE */
+        .cta-outer-container::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
             background-image: 
                 radial-gradient(circle, #ff595e 2px, transparent 2.5px),
                 radial-gradient(circle, #ffca3a 2px, transparent 2.5px),
                 radial-gradient(circle, #8ac926 2px, transparent 2.5px),
                 radial-gradient(circle, #1982c4 2px, transparent 2.5px),
-                radial-gradient(circle, #6a4c93 2px, transparent 2.5px);
-            background-size: 25px 25px, 30px 30px, 20px 20px, 35px 35px, 28px 28px;
-            background-position: 0 0, 10px 15px, 15px 5px, 5px 20px, 20px 10px;
+                radial-gradient(circle, #ffca3a 2.5px, transparent 3px);
+            background-size: 28px 28px, 34px 34px, 24px 24px, 38px 38px, 30px 30px;
+            background-position: 0 0, 12px 18px, 18px 6px, 6px 22px, 22px 12px;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.35s ease;
             pointer-events: none;
-            z-index: 3;
+            z-index: 1;
+            border-radius: 20px;
+        }
+
+        .cta-outer-container:hover::before {
+            opacity: 0.9;
+            animation: fizzyOutside 0.7s infinite alternate linear;
+        }
+
+        @keyframes fizzyOutside {
+            0% { transform: scale(0.98); background-position: 0 0, 12px 18px, 18px 6px, 6px 22px, 22px 12px; }
+            100% { transform: scale(1.02); background-position: 6px 12px, 18px 6px, 6px 18px, 14px 6px, 12px 24px; }
         }
 
         .inline-cta-btn:hover {
             background-color: #1b3329;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), 0 0 15px rgba(255, 215, 0, 0.4);
-            border-color: rgba(255, 215, 0, 0.6);
-        }
-
-        .inline-cta-btn:hover::after {
-            opacity: 0.85;
-            animation: confettiPop 0.8s infinite alternate ease-in-out;
-        }
-
-        @keyframes confettiPop {
-            0% { background-position: 0 0, 10px 15px, 15px 5px, 5px 20px, 20px 10px; }
-            100% { background-position: 5px 10px, 15px 5px, 5px 15px, 12px 5px, 10px 20px; }
+            border-color: #ffd700;
+            box-shadow: 0 0 22px rgba(255, 215, 0, 0.7), 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .links-wrapper {
@@ -804,7 +800,7 @@
             background-color: #2c4c3e;
         }
 
-        /* LEBEGŐ TOP GOMB (BAL OLDALON, TE TETEJE GÖRGETÉSEL) */
+        /* LEBEGŐ TOP GOMB (BAL OLDALON) */
         .floating-top-btn {
             position: fixed;
             bottom: 30px;
@@ -1092,10 +1088,12 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB CSILLÁMLÓ EFFEKTTEL ÉS HOVER KONFETTIVEL -->
-                <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
-                    🎨 Request an Alter 🎨
-                </a>
+                <!-- REQUEST AN ALTER GOMB KERET-GLOW ALAPHELYZETBEN ÉS KÜLSŐ FIZZY KONFETTI HOVERRE -->
+                <div class="cta-outer-container">
+                    <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
+                        🎨 Request an Alter 🎨
+                    </a>
+                </div>
 
                 <div class="slider-relative-wrapper">
                     <button class="slider-external-btn" onclick="scrollMtgSlider(-1)" aria-label="Previous image">&#10094;</button>
