@@ -393,43 +393,6 @@
             margin: 0 0 14px 0;
         }
 
-        /* --- GALLERY GRID / CSEMPÉS ELRENDEZÉS STÍLUS --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .gallery-item {
-            position: relative;
-            aspect-ratio: 2.5 / 3.5;
-            border-radius: 14px;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.04);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            cursor: pointer;
-            transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.35s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
         .post-date-meta {
             display: flex;
             justify-content: space-between;
@@ -1096,7 +1059,6 @@
 
             .address-row-2col { grid-template-columns: 1fr !important; }
             .style-options-grid { grid-template-columns: 1fr 1fr !important; }
-            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)) !important; gap: 10px !important; }
 
             .designs-scroll-container img { height: 420px !important; }
             .slider-external-btn { width: 38px; height: 38px; font-size: 16px; }
@@ -1140,7 +1102,6 @@
                     </div>
                     
                     <div class="links-wrapper">
-                        <a href="#gallerySection" class="link-item">gallery</a>
                         <a href="#commissionSection" class="link-item">commission</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
                         <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
@@ -1155,7 +1116,7 @@
 
         <div class="feed-container">
             
-            <!-- ABOUT SECTION -->
+            <!-- ABOUT SECTION & GALLERY SLIDER -->
             <article class="custom-card-post" id="aboutSection">
                 <h1 class="main-seo-h1">MTG Card Alterations & Custom Commissions</h1>
                 <div class="post-body-content">
@@ -1163,6 +1124,8 @@
                     <p>I am not a full time alterist, so I usually paint at nights (10 pm- 2 am) when my kids are sleeping, the house is quiet enough and I have enough energy to enjoy painting.</p>
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
+
+                <h2 class="info-block-title" style="margin-top: 30px;">Gallery</h2>
 
                 <div class="slider-relative-wrapper">
                     <button class="slider-external-btn" id="btnMtgPrev" aria-label="Previous image">&#10094;</button>
@@ -1188,21 +1151,6 @@
                 </div>
             </article>
 
-            <!-- GALLERY SECTION (CSEMPÉS ELRENDEZÉS) -->
-            <article class="custom-card-post" id="gallerySection">
-                <h2 class="info-block-title">Card Alters Gallery</h2>
-                <p style="text-align: center; font-size: 13.5px; color: #526359; margin-top: -10px;">Click on any card to zoom in and view details.</p>
-                
-                <div class="gallery-grid" id="galleryGrid">
-                    <!-- A JavaScript automatikusan feltölti az összes képpel -->
-                </div>
-
-                <div class="post-date-meta">
-                    <span>Gallery</span>
-                    <a href="#top" class="back-to-top-link">↑ Back to top</a>
-                </div>
-            </article>
-
             <!-- COMMISSION GUIDE SECTION -->
             <div class="info-block" id="commissionSection">
                 <h2 class="info-block-title">Commission Process</h2>
@@ -1217,9 +1165,9 @@
                         <img src="images/05.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 4" data-idx="3">
                         <img src="images/06.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 5" data-idx="4">
                         <img src="images/07.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 6" data-idx="5">
-                        <img src="images/08.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 7" data-idx="7">
-                        <img src="images/10.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 8" data-idx="8">
-                        <img src="images/09.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 9" data-idx="9">
+                        <img src="images/08.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 7" data-idx="6">
+                        <img src="images/10.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 8" data-idx="7">
+                        <img src="images/09.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 9" data-idx="8">
                     </div>
 
                     <button class="slider-external-btn" id="btnProcessNext" aria-label="Next image">&#10095;</button>
@@ -1511,7 +1459,7 @@
             'images/06.png','images/07.png','images/08.png','images/10.png','images/09.png'
         ];
 
-        // TELEFON / PC / GALÉRIA ÖSSZES KÉP TELJES LISTÁJA
+        // TISZTÍTOTT LISTA (A megadott üres képek eltávolítva)
         const allAboutImages = [
             'images/alms01.png','images/arabella01.png','images/arcanesignet01.png','images/aveninterrupter01.png',
             'images/balllighting01.png','images/bird01.png','images/blood01.png','images/bramblefamiliar01.png',
@@ -1562,22 +1510,6 @@
                 img.loading = idx < 3 ? 'eager' : 'lazy';
                 if (idx >= 3) img.decoding = 'async';
                 slider.appendChild(img);
-            });
-        }
-
-        function renderGallery() {
-            const grid = document.getElementById('galleryGrid');
-            if (!grid) return;
-            grid.innerHTML = '';
-
-            allAboutImages.forEach((imgSrc, idx) => {
-                const item = document.createElement('div');
-                item.className = 'gallery-item';
-                item.innerHTML = `<img src="${imgSrc}" loading="lazy" decoding="async" alt="MTG Card Alter ${idx + 1}">`;
-                item.addEventListener('click', () => {
-                    openLight(allAboutImages, idx);
-                });
-                grid.appendChild(item);
             });
         }
 
@@ -1673,7 +1605,6 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             renderMtgSlider();
-            renderGallery();
 
             document.getElementById('btnMtgPrev').addEventListener('click', () => scrollMtgSlider(-1));
             document.getElementById('btnMtgNext').addEventListener('click', () => scrollMtgSlider(1));
@@ -1875,7 +1806,7 @@
                         form.reset();
                     })
                     .catch(() => {
-                        document.getElementById('modalLoadingState').style.display = 'none';
+                        document.getElementById('modalLoadingState5').style.display = 'none';
                         document.getElementById('modalSuccessState').style.display = 'flex';
                         btn.disabled = false;
                         form.reset();
