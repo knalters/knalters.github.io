@@ -108,7 +108,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
         }
 
         .logo-brand-group {
@@ -137,6 +137,19 @@
             margin: 0 auto;
             background-color: transparent;
             content-visibility: auto;
+        }
+
+        /* H1 SEO CÍMSOR FORMATERVEZÉS */
+        .main-seo-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #2c4c3e;
+            margin: 0;
+            text-align: center;
+            line-height: 1.3;
         }
 
         .status-badge {
@@ -170,7 +183,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* KÖRBEFUTÓ, SZÍNVÁLTÓ ANIMÁLT KONTÚRÚ REQUEST GOMB */
+        /* ANIMÁLT CTA GOMB */
         .inline-cta-btn {
             position: relative;
             display: flex;
@@ -198,7 +211,6 @@
             border: none;
         }
 
-        /* 1. MÉRÉSKERET: Animált színátmenetes háttérréteg */
         .inline-cta-btn::before {
             content: '';
             position: absolute;
@@ -218,7 +230,6 @@
             z-index: -2;
         }
 
-        /* 2. BELSŐ MASH: Eltakarja a közepet, hogy csak a 2px szegély látsszon */
         .inline-cta-btn::after {
             content: '';
             position: absolute;
@@ -250,7 +261,6 @@
             width: 100%;
         }
 
-        /* MENÜGOMBOK: Finom betűtípus, diszkrét szegély és lágy árnyék */
         .link-item {
             display: block;
             background-color: #ffffff;
@@ -309,14 +319,6 @@
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .post-header-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: #000000;
-            margin: 0 0 12px 0;
         }
 
         .post-body-content {
@@ -435,7 +437,7 @@
             transform: scale(1.08);
         }
 
-        .contact-title {
+        .contact-title, .info-block-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(14px, 1.1vw, 16px);
             font-weight: 700;
@@ -738,19 +740,6 @@
             margin-top: 5px;
         }
 
-        .info-block-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(14px, 1.1vw, 16px);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #000000;
-            margin: 0 0 18px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding-bottom: 10px;
-            text-align: center;
-        }
-
         .scroll-hint {
             display: flex;
             align-items: center;
@@ -796,7 +785,7 @@
             background-color: #2c4c3e;
         }
 
-        /* LEBEGŐ TOP GOMB (BAL OLDALON, TETŐRE GÖRGETÉSSEL) */
+        /* LEBEGŐ TOP GOMB */
         .floating-top-btn {
             position: fixed;
             bottom: 30px;
@@ -812,16 +801,9 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
+            text-decoration: none;
             z-index: 9999;
-            opacity: 0;
-            pointer-events: none;
             transition: all 0.3s ease;
-        }
-
-        .floating-top-btn.visible {
-            opacity: 1;
-            pointer-events: auto;
         }
 
         .floating-top-btn:hover {
@@ -1041,7 +1023,7 @@
         }
     </style>
 </head>
-<body>
+<body id="top">
 
     <div class="main-layout">
         
@@ -1050,17 +1032,21 @@
                 <div class="profile-card">
                     
                     <div class="logo-brand-group">
-                        <a onclick="scrollToPageTop()" class="logo-link" title="Home">
+                        <a href="#top" class="logo-link" title="Home">
                             <img src="images/logo.png" alt="kn.alters logo" class="site-logo-img" loading="eager" fetchpriority="high">
                         </a>
                     </div>
+
+                    <!-- SEO H1 CÍMSOR ELHELYEZÉSE -->
+                    <h1 class="main-seo-title">MTG Card Alterations & Custom Commissions</h1>
 
                     <div class="status-badge">
                         <span class="status-dot green"></span> Commission Slots Open
                     </div>
                     
                     <div class="links-wrapper">
-                        <a onclick="scrollToSection('commissionSection', true)" class="link-item">commission</a>
+                        <!-- NATÍV KÖZVETLEN HORGONY LINK (JS MENTES) -->
+                        <a href="#commissionSection" class="link-item">commission</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
                         <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
                     </div>
@@ -1074,7 +1060,7 @@
 
         <div class="feed-container">
             
-            <!-- HOME / ABOUT SECTION -->
+            <!-- ABOUT SECTION -->
             <article class="custom-card-post" id="aboutSection">
                 <h2 class="info-block-title">About Me</h2>
                 <div class="post-body-content">
@@ -1084,48 +1070,47 @@
                 </div>
 
                 <div class="slider-relative-wrapper">
-                    <button class="slider-external-btn" onclick="scrollMtgSlider(-1)" aria-label="Previous image">&#10094;</button>
+                    <button class="slider-external-btn" id="btnMtgPrev" aria-label="Previous image">&#10094;</button>
                     
                     <div class="mtg-scroll-container" id="mtgSlider">
-                        <img src="images/solring03.png" alt="Custom MTG Alter Sol Ring" onclick="openLight(allAboutImages, 0)" loading="lazy">
-                        <img src="images/swamp01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Swamp" onclick="openLight(allAboutImages, 1)">
-                        <img src="images/titania06.png" loading="lazy" decoding="async" alt="Custom MTG Alter Titania" onclick="openLight(allAboutImages, 2)">
-                        <img src="images/journeytonowhere01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Journey to Nowhere" onclick="openLight(allAboutImages, 3)">
-                        <img src="images/pathtoexile01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Path to Exile" onclick="openLight(allAboutImages, 4)">
-                        <img src="images/deathbaron01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Death Baron" onclick="openLight(allAboutImages, 5)">
-                        <img src="images/plain02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Plain" onclick="openLight(allAboutImages, 6)">
-                        <img src="images/selvala02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Selvala" onclick="openLight(allAboutImages, 7)">
-                        <img src="images/demonictutor02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Demonic Tutor" onclick="openLight(allAboutImages, 8)">
-                        <img src="images/elvish01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Elvish" onclick="openLight(allAboutImages, 9)">
-                        <img src="images/faeriemacabre01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Faerie Macabre" onclick="openLight(allAboutImages, 10)">
-                        <img src="images/faerieseer01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Faerie Seer" onclick="openLight(allAboutImages, 11)">
-                        <img src="images/giada01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Giada" onclick="openLight(allAboutImages, 12)">
-                        <img src="images/greed01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Greed" onclick="openLight(allAboutImages, 13)">
-                        <img src="images/guardionoftheguildpact01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Guardian of the Guildpact" onclick="openLight(allAboutImages, 14)">
-                        <img src="images/harrier01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Harrier" onclick="openLight(allAboutImages, 15)">
-                        <img src="images/island02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Island" onclick="openLight(allAboutImages, 16)">
-                        <img src="images/meren01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Meren" onclick="openLight(allAboutImages, 17)">
-                        <img src="images/kaalia01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Kaalia" onclick="openLight(allAboutImages, 18)">
-                        <img src="images/treasure01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Treasure Token" onclick="openLight(allAboutImages, 19)">
-                        <img src="images/urzastower01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Urza's Tower" onclick="openLight(allAboutImages, 20)">
-                        <img src="images/candytrail01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Candy Trail" onclick="openLight(allAboutImages, 21)">
+                        <img src="images/solring03.png" alt="Custom MTG Alter Sol Ring" data-idx="0" loading="lazy">
+                        <img src="images/swamp01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Swamp" data-idx="1">
+                        <img src="images/titania06.png" loading="lazy" decoding="async" alt="Custom MTG Alter Titania" data-idx="2">
+                        <img src="images/journeytonowhere01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Journey to Nowhere" data-idx="3">
+                        <img src="images/pathtoexile01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Path to Exile" data-idx="4">
+                        <img src="images/deathbaron01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Death Baron" data-idx="5">
+                        <img src="images/plain02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Plain" data-idx="6">
+                        <img src="images/selvala02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Selvala" data-idx="7">
+                        <img src="images/demonictutor02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Demonic Tutor" data-idx="8">
+                        <img src="images/elvish01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Elvish" data-idx="9">
+                        <img src="images/faeriemacabre01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Faerie Macabre" data-idx="10">
+                        <img src="images/faerieseer01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Faerie Seer" data-idx="11">
+                        <img src="images/giada01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Giada" data-idx="12">
+                        <img src="images/greed01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Greed" data-idx="13">
+                        <img src="images/guardionoftheguildpact01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Guardian of the Guildpact" data-idx="14">
+                        <img src="images/harrier01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Harrier" data-idx="15">
+                        <img src="images/island02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Island" data-idx="16">
+                        <img src="images/meren01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Meren" data-idx="17">
+                        <img src="images/kaalia01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Kaalia" data-idx="18">
+                        <img src="images/treasure01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Treasure Token" data-idx="19">
+                        <img src="images/urzastower01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Urza's Tower" data-idx="20">
+                        <img src="images/candytrail01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Candy Trail" data-idx="21">
                     </div>
 
-                    <button class="slider-external-btn" onclick="scrollMtgSlider(1)" aria-label="Next image">&#10095;</button>
+                    <button class="slider-external-btn" id="btnMtgNext" aria-label="Next image">&#10095;</button>
                 </div>
 
                 <div class="scroll-hint">
                     <span>Use arrows or swipe to browse gallery &rarr;</span>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB A KÉPEK ÉS GÖRGETÉSI TIPP ALÁ HELYEZVE -->
-                <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
+                <a href="#contactFormSection" class="inline-cta-btn">
                     🎨 Request an Alter 🎨
                 </a>
 
                 <div class="post-date-meta">
                     <span>About Me</span>
-                    <a onclick="scrollToPageTop()" class="back-to-top-link">↑ Back to top</a>
+                    <a href="#top" class="back-to-top-link">↑ Back to top</a>
                 </div>
             </article>
 
@@ -1134,21 +1119,21 @@
                 <h2 class="info-block-title">Commission Process</h2>
                 
                 <div class="slider-relative-wrapper">
-                    <button class="slider-external-btn" onclick="scrollProcessSlider(-1)" aria-label="Previous image">&#10094;</button>
+                    <button class="slider-external-btn" id="btnProcessPrev" aria-label="Previous image">&#10094;</button>
                     
                     <div class="designs-scroll-container" id="processSlider">
-                        <img src="images/01.png" alt="MTG Commission Guide Step 1" onclick="openLight(allProcessImages, 0)" loading="lazy">
-                        <img src="images/03.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 2" onclick="openLight(allProcessImages, 1)">
-                        <img src="images/04.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 3" onclick="openLight(allProcessImages, 2)">
-                        <img src="images/05.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 4" onclick="openLight(allProcessImages, 3)">
-                        <img src="images/06.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 5" onclick="openLight(allProcessImages, 4)">
-                        <img src="images/07.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 6" onclick="openLight(allProcessImages, 5)">
-                        <img src="images/08.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 7" onclick="openLight(allProcessImages, 6)">
-                        <img src="images/10.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 8" onclick="openLight(allProcessImages, 7)">
-                        <img src="images/09.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 9" onclick="openLight(allProcessImages, 8)">
+                        <img src="images/01.png" alt="MTG Commission Guide Step 1" data-idx="0" loading="lazy">
+                        <img src="images/03.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 2" data-idx="1">
+                        <img src="images/04.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 3" data-idx="2">
+                        <img src="images/05.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 4" data-idx="3">
+                        <img src="images/06.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 5" data-idx="4">
+                        <img src="images/07.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 6" data-idx="5">
+                        <img src="images/08.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 7" data-idx="6">
+                        <img src="images/10.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 8" data-idx="7">
+                        <img src="images/09.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 9" data-idx="8">
                     </div>
 
-                    <button class="slider-external-btn" onclick="scrollProcessSlider(1)" aria-label="Next image">&#10095;</button>
+                    <button class="slider-external-btn" id="btnProcessNext" aria-label="Next image">&#10095;</button>
                 </div>
 
                 <div class="slider-dots-container" id="sliderDots"></div>
@@ -1158,18 +1143,17 @@
                     <span>&#11015;</span>
                 </div>
 
-                <!-- REQUEST AN ALTER GOMB A COMMISSION PROCESS SLIDER ALÁ IS BEILLESZTVE -->
-                <a onclick="scrollToSection('contactFormSection')" class="inline-cta-btn">
+                <a href="#contactFormSection" class="inline-cta-btn">
                     🎨 Request an Alter 🎨
                 </a>
 
                 <div class="post-date-meta">
                     <span>Commission Process</span>
-                    <a onclick="scrollToPageTop()" class="back-to-top-link">↑ Back to top</a>
+                    <a href="#top" class="back-to-top-link">↑ Back to top</a>
                 </div>
             </div>
 
-            <!-- CONTACT / COMMISSION FORM SECTION -->
+            <!-- CONTACT FORM SECTION -->
             <div class="contact-post" id="contactFormSection">
                 <h2 class="contact-title">Commission Request Form 2026</h2>
                 
@@ -1239,42 +1223,42 @@
                     <div class="form-group" id="grp_styles">
                         <label class="field-title">What style do you want? (Select options) <span class="field-status-tag required">(Required)</span></label>
                         <div class="style-options-grid">
-                            <div class="style-card" onclick="toggleStyleCheck('style_border')">
+                            <div class="style-card" data-chk="style_border">
                                 <img src="images/04.png" loading="lazy" decoding="async" alt="Border Extension style preview">
                                 <div class="style-card-checkbox">
-                                    <input type="checkbox" id="style_border" name="types" value="Border Extension" onclick="event.stopPropagation()">
+                                    <input type="checkbox" id="style_border" name="types" value="Border Extension">
                                     <span>Border Extension</span>
                                 </div>
                             </div>
 
-                            <div class="style-card" onclick="toggleStyleCheck('style_art_replace')">
+                            <div class="style-card" data-chk="style_art_replace">
                                 <img src="images/05.png" loading="lazy" decoding="async" alt="Extended Art-Replacement style preview">
                                 <div class="style-card-checkbox">
-                                    <input type="checkbox" id="style_art_replace" name="types" value="Extended Art-Replacement" onclick="event.stopPropagation()">
+                                    <input type="checkbox" id="style_art_replace" name="types" value="Extended Art-Replacement">
                                     <span>Extended Art-Replacement</span>
                                 </div>
                             </div>
 
-                            <div class="style-card" onclick="toggleStyleCheck('style_full_art')">
+                            <div class="style-card" data-chk="style_full_art">
                                 <img src="images/07.png" loading="lazy" decoding="async" alt="Full Art style preview">
                                 <div class="style-card-checkbox">
-                                    <input type="checkbox" id="style_full_art" name="types" value="Full Art" onclick="event.stopPropagation()">
+                                    <input type="checkbox" id="style_full_art" name="types" value="Full Art">
                                     <span>Full Art</span>
                                 </div>
                             </div>
 
-                            <div class="style-card" onclick="toggleStyleCheck('style_sticker')">
+                            <div class="style-card" data-chk="style_sticker">
                                 <img src="images/06.png" loading="lazy" decoding="async" alt="Sticker Style preview">
                                 <div class="style-card-checkbox">
-                                    <input type="checkbox" id="style_sticker" name="types" value="Sticker Style" onclick="event.stopPropagation()">
+                                    <input type="checkbox" id="style_sticker" name="types" value="Sticker Style">
                                     <span>Sticker Style</span>
                                 </div>
                             </div>
 
-                            <div class="style-card" onclick="toggleStyleCheck('style_mixed')">
+                            <div class="style-card" data-chk="style_mixed">
                                 <img src="images/08.png" loading="lazy" decoding="async" alt="Mixed Styles preview">
                                 <div class="style-card-checkbox">
-                                    <input type="checkbox" id="style_mixed" name="types" value="Mixed Styles" onclick="event.stopPropagation()">
+                                    <input type="checkbox" id="style_mixed" name="types" value="Mixed Styles">
                                     <span>Mixed Styles</span>
                                 </div>
                             </div>
@@ -1393,7 +1377,7 @@
 
                 <div class="post-date-meta">
                     <span>Commission Form</span>
-                    <a onclick="scrollToPageTop()" class="back-to-top-link">↑ Back to top</a>
+                    <a href="#top" class="back-to-top-link">↑ Back to top</a>
                 </div>
             </div>
             
@@ -1401,15 +1385,15 @@
 
     </div>
 
-    <!-- LEBEGŐ TOP GOMB (BAL OLDALON) -->
-    <button class="floating-top-btn" id="floatingTopBtn" onclick="scrollToPageTop()">↑ Back to top</button>
+    <!-- LEBEGŐ TOP GOMB (KÖZVETLEN HORGONY VISSZA) -->
+    <a href="#top" class="floating-top-btn" id="floatingTopBtn">↑ Back to top</a>
 
     <!-- LIGHTBOX -->
-    <div id="customLightbox" class="custom-lightbox" onclick="closeLight()">
-        <span class="custom-lightbox-close" onclick="closeLight()">&times;</span>
-        <button class="lightbox-btn lightbox-prev" id="prevBtn" onclick="stepLight(-1, event)" aria-label="Previous image">&#8249;</button>
-        <img id="lightboxImg" src="" alt="Enlarged view of MTG alter" onclick="event.stopPropagation()">
-        <button class="lightbox-btn lightbox-next" id="nextBtn" onclick="stepLight(1, event)" aria-label="Next image">&#8250;</button>
+    <div id="customLightbox" class="custom-lightbox">
+        <span class="custom-lightbox-close" id="lightboxCloseBtn">&times;</span>
+        <button class="lightbox-btn lightbox-prev" id="prevBtn" aria-label="Previous image">&#8249;</button>
+        <img id="lightboxImg" src="" alt="Enlarged view of MTG alter">
+        <button class="lightbox-btn lightbox-next" id="nextBtn" aria-label="Next image">&#8250;</button>
     </div>
 
     <!-- STATUS POP-UP MODAL -->
@@ -1425,49 +1409,27 @@
                 <div class="modal-success-icon">&check;</div>
                 <h3 class="modal-title">Request Received!</h3>
                 <p class="modal-desc">Thank you! Your commission request has been sent successfully. I will review it and contact you soon!</p>
-                <button class="modal-close-btn" onclick="closeStatusModal()">Close</button>
+                <button class="modal-close-btn" id="modalCloseBtn">Close</button>
             </div>
         </div>
     </div>
 
+    <!-- TISZTÍTOTT, CSAK DINAMIKUS MŰKÖDÉSHEZ SZÜKSÉGES MINIMÁLIS JAVASCRIPT -->
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxiXFmXT2t_I8AU2ZPe6W6A9hxy3Eio8Mc727Gsn0qDGI5ndmRDGmJ0g3Dlxz_zRgbo/exec';
 
         const allProcessImages = [
-            'images/01.png',
-            'images/03.png',
-            'images/04.png',
-            'images/05.png',
-            'images/06.png',
-            'images/07.png',
-            'images/08.png',
-            'images/10.png',
-            'images/09.png'
+            'images/01.png','images/03.png','images/04.png','images/05.png',
+            'images/06.png','images/07.png','images/08.png','images/10.png','images/09.png'
         ];
 
         const allAboutImages = [
-            'images/solring03.png',
-            'images/swamp01.png',
-            'images/titania06.png',
-            'images/journeytonowhere01.png',
-            'images/pathtoexile01.png',
-            'images/deathbaron01.png',
-            'images/plain02.png',
-            'images/selvala02.png',
-            'images/demonictutor02.png',
-            'images/elvish01.png',
-            'images/faeriemacabre01.png',
-            'images/faerieseer01.png',
-            'images/giada01.png',
-            'images/greed01.png',
-            'images/guardionoftheguildpact01.png',
-            'images/harrier01.png',
-            'images/island02.png',
-            'images/meren01.png',
-            'images/kaalia01.png',
-            'images/treasure01.png',
-            'images/urzastower01.png',
-            'images/candytrail01.png'
+            'images/solring03.png','images/swamp01.png','images/titania06.png','images/journeytonowhere01.png',
+            'images/pathtoexile01.png','images/deathbaron01.png','images/plain02.png','images/selvala02.png',
+            'images/demonictutor02.png','images/elvish01.png','images/faeriemacabre01.png','images/faerieseer01.png',
+            'images/giada01.png','images/greed01.png','images/guardionoftheguildpact01.png','images/harrier01.png',
+            'images/island02.png','images/meren01.png','images/kaalia01.png','images/treasure01.png',
+            'images/urzastower01.png','images/candytrail01.png'
         ];
 
         let activeArray = [];
@@ -1475,29 +1437,15 @@
         let currentProcessIndex = 0;
         let currentMtgIndex = 0;
 
-        function scrollToPageTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function scrollToSection(id, alignBottom = false) {
-            const elem = document.getElementById(id);
-            if(elem) {
-                if (alignBottom) {
-                    elem.scrollIntoView({ behavior: 'smooth', block: 'end' });
-                } else {
-                    elem.scrollIntoView({ behavior: 'smooth' });
-                }
+        function scrollToSlide(containerId, index) {
+            const container = document.getElementById(containerId);
+            const images = container ? container.querySelectorAll('img') : [];
+            if (images[index]) {
+                const targetImg = images[index];
+                const targetScrollLeft = targetImg.offsetLeft - container.offsetLeft - (container.clientWidth - targetImg.clientWidth) / 2;
+                container.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
             }
         }
-
-        window.addEventListener('scroll', () => {
-            const btn = document.getElementById('floatingTopBtn');
-            if (window.scrollY > 300) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
-            }
-        });
 
         function scrollProcessSlider(direction) {
             const container = document.getElementById('processSlider');
@@ -1521,90 +1469,30 @@
             scrollToSlide('mtgSlider', currentMtgIndex);
         }
 
-        function scrollToSlide(containerId, index) {
-            const container = document.getElementById(containerId);
-            const images = container ? container.querySelectorAll('img') : [];
-            if (images[index]) {
-                const targetImg = images[index];
-                const targetScrollLeft = targetImg.offsetLeft - container.offsetLeft - (container.clientWidth - targetImg.clientWidth) / 2;
-                container.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
-            }
-        }
-
-        function initSliderDots() {
-            const container = document.getElementById('processSlider');
-            const dotsContainer = document.getElementById('sliderDots');
-            if (!container || !dotsContainer) return;
-
-            const images = container.querySelectorAll('img');
-            dotsContainer.innerHTML = '';
-
-            images.forEach((_, idx) => {
-                const dot = document.createElement('div');
-                dot.className = 'slider-dot' + (idx === 0 ? ' active' : '');
-                dot.onclick = () => {
-                    currentProcessIndex = idx;
-                    scrollToSlide('processSlider', idx);
-                };
-                dotsContainer.appendChild(dot);
-            });
-
-            container.addEventListener('scroll', () => {
-                const containerCenter = container.scrollLeft + (container.clientWidth / 2);
-                let closestIdx = 0;
-                let minDiff = Infinity;
-
-                images.forEach((img, idx) => {
-                    const imgCenter = img.offsetLeft - container.offsetLeft + (img.clientWidth / 2);
-                    const diff = Math.abs(containerCenter - imgCenter);
-                    if (diff < minDiff) {
-                        minDiff = diff;
-                        closestIdx = idx;
-                    }
-                });
-
-                currentProcessIndex = closestIdx;
-                const dots = dotsContainer.querySelectorAll('.slider-dot');
-                dots.forEach((d, idx) => {
-                    if (idx === currentProcessIndex) d.classList.add('active');
-                    else d.classList.remove('active');
-                });
-            });
-        }
-
-        // SLIDEREK GARANTÁLT NULLÁZÁSA FRISSÍTÉSKOR
-        function resetSlidersToFirst() {
-            currentProcessIndex = 0;
-            currentMtgIndex = 0;
+        function openLight(arr, idx) {
+            activeArray = arr;
+            activeIdx = idx;
+            document.getElementById('lightboxImg').src = activeArray[activeIdx];
             
-            const processContainer = document.getElementById('processSlider');
-            if (processContainer) processContainer.scrollLeft = 0;
+            const prev = document.getElementById('prevBtn');
+            const next = document.getElementById('nextBtn');
             
-            const mtgContainer = document.getElementById('mtgSlider');
-            if (mtgContainer) mtgContainer.scrollLeft = 0;
-
-            const dotsContainer = document.getElementById('sliderDots');
-            if (dotsContainer) {
-                const dots = dotsContainer.querySelectorAll('.slider-dot');
-                dots.forEach((d, idx) => {
-                    if (idx === 0) d.classList.add('active');
-                    else d.classList.remove('active');
-                });
-            }
+            prev.style.display = activeArray.length > 1 ? 'flex' : 'none';
+            next.style.display = activeArray.length > 1 ? 'flex' : 'none';
+            document.getElementById('customLightbox').style.display = 'flex';
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            initSliderDots();
-            resetSlidersToFirst();
-        });
+        function stepLight(dir, ev) {
+            if (ev) ev.stopPropagation();
+            if (activeArray.length <= 1) return;
+            activeIdx += dir;
+            if (activeIdx < 0) activeIdx = activeArray.length - 1;
+            if (activeIdx >= activeArray.length) activeIdx = 0;
+            document.getElementById('lightboxImg').src = activeArray[activeIdx];
+        }
 
-        window.addEventListener('load', () => {
-            resetSlidersToFirst();
-        });
-
-        function toggleStyleCheck(id) {
-            const chk = document.getElementById(id);
-            if(chk) chk.checked = !chk.checked;
+        function closeLight() {
+            document.getElementById('customLightbox').style.display = 'none';
         }
 
         function readFileAsBase64(file) {
@@ -1616,24 +1504,95 @@
             });
         }
 
-        function showStatusModal() {
-            document.getElementById('modalLoadingState').style.display = 'flex';
-            document.getElementById('modalSuccessState').style.display = 'none';
-            document.getElementById('statusModalOverlay').style.display = 'flex';
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            // Eseménykezelők bekötése (Clean Event Delegation)
+            document.getElementById('btnMtgPrev').addEventListener('click', () => scrollMtgSlider(-1));
+            document.getElementById('btnMtgNext').addEventListener('click', () => scrollMtgSlider(1));
+            document.getElementById('btnProcessPrev').addEventListener('click', () => scrollProcessSlider(-1));
+            document.getElementById('btnProcessNext').addEventListener('click', () => scrollProcessSlider(1));
 
-        function showStatusSuccess() {
-            document.getElementById('modalLoadingState').style.display = 'none';
-            document.getElementById('modalSuccessState').style.display = 'flex';
-        }
+            document.getElementById('mtgSlider').addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    const idx = parseInt(e.target.getAttribute('data-idx') || '0');
+                    openLight(allAboutImages, idx);
+                }
+            });
 
-        function closeStatusModal() {
-            document.getElementById('statusModalOverlay').style.display = 'none';
-        }
+            document.getElementById('processSlider').addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    const idx = parseInt(e.target.getAttribute('data-idx') || '0');
+                    openLight(allProcessImages, idx);
+                }
+            });
 
+            document.querySelectorAll('.style-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    const chkId = card.getAttribute('data-chk');
+                    const chk = document.getElementById(chkId);
+                    if (chk && e.target !== chk) chk.checked = !chk.checked;
+                });
+            });
+
+            document.getElementById('lightboxCloseBtn').addEventListener('click', closeLight);
+            document.getElementById('customLightbox').addEventListener('click', closeLight);
+            document.getElementById('lightboxImg').addEventListener('click', (e) => e.stopPropagation());
+            document.getElementById('prevBtn').addEventListener('click', (e) => stepLight(-1, e));
+            document.getElementById('nextBtn').addEventListener('click', (e) => stepLight(1, e));
+            document.getElementById('modalCloseBtn').addEventListener('click', () => {
+                document.getElementById('statusModalOverlay').style.display = 'none';
+            });
+
+            // Slider pöttyök beállítása
+            const processContainer = document.getElementById('processSlider');
+            const dotsContainer = document.getElementById('sliderDots');
+            if (processContainer && dotsContainer) {
+                const images = processContainer.querySelectorAll('img');
+                images.forEach((_, idx) => {
+                    const dot = document.createElement('div');
+                    dot.className = 'slider-dot' + (idx === 0 ? ' active' : '');
+                    dot.addEventListener('click', () => {
+                        currentProcessIndex = idx;
+                        scrollToSlide('processSlider', idx);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+
+                processContainer.addEventListener('scroll', () => {
+                    const containerCenter = processContainer.scrollLeft + (processContainer.clientWidth / 2);
+                    let closestIdx = 0;
+                    let minDiff = Infinity;
+
+                    images.forEach((img, idx) => {
+                        const imgCenter = img.offsetLeft - processContainer.offsetLeft + (img.clientWidth / 2);
+                        const diff = Math.abs(containerCenter - imgCenter);
+                        if (diff < minDiff) {
+                            minDiff = diff;
+                            closestIdx = idx;
+                        }
+                    });
+
+                    currentProcessIndex = closestIdx;
+                    const dots = dotsContainer.querySelectorAll('.slider-dot');
+                    dots.forEach((d, idx) => {
+                        d.classList.toggle('active', idx === currentProcessIndex);
+                    });
+                });
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            const box = document.getElementById('customLightbox');
+            if (box && box.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') stepLight(-1);
+                if (e.key === 'ArrowRight') stepLight(1);
+                if (e.key === 'Escape') closeLight();
+            }
+        });
+
+        // ŰRLAP BEKÜLDÉS ÉS VALIDÁCIÓ (Google AppScript)
         const form = document.getElementById('customCommissionForm');
         if (form) {
-            form.addEventListener('submit', async e => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 document.querySelectorAll('.form-group').forEach(grp => grp.classList.remove('has-error'));
 
@@ -1643,27 +1602,27 @@
                 function markError(groupId) {
                     isValid = false;
                     const grp = document.getElementById(groupId);
-                    if(grp) {
+                    if (grp) {
                         grp.classList.add('has-error');
-                        if(!firstErrorElem) firstErrorElem = grp;
+                        if (!firstErrorElem) firstErrorElem = grp;
                     }
                 }
 
-                if(!document.getElementById('gdpr').checked) markError('grp_gdpr');
-                if(!document.getElementById('full_name').value.trim()) markError('grp_full_name');
-                if(!document.querySelector('input[name="platform"]:checked')) markError('grp_platform');
-                if(!document.getElementById('profile_tag').value.trim()) markError('grp_profile_tag');
-                if(!document.getElementById('cards_to_alter').value.trim()) markError('grp_cards_to_alter');
-                if(!document.querySelector('input[name="card_provider"]:checked')) markError('grp_card_provider');
+                if (!document.getElementById('gdpr').checked) markError('grp_gdpr');
+                if (!document.getElementById('full_name').value.trim()) markError('grp_full_name');
+                if (!document.querySelector('input[name="platform"]:checked')) markError('grp_platform');
+                if (!document.getElementById('profile_tag').value.trim()) markError('grp_profile_tag');
+                if (!document.getElementById('cards_to_alter').value.trim()) markError('grp_cards_to_alter');
+                if (!document.querySelector('input[name="card_provider"]:checked')) markError('grp_card_provider');
 
                 const checkedTypes = Array.from(document.querySelectorAll('input[name="types"]:checked'))
                     .map(cb => cb.value)
                     .join(', ');
 
-                if(!checkedTypes) markError('grp_styles');
+                if (!checkedTypes) markError('grp_styles');
 
                 const exactIdeaRadio = document.querySelector('input[name="exact_idea"]:checked');
-                if(!exactIdeaRadio) {
+                if (!exactIdeaRadio) {
                     markError('grp_exact_idea');
                 } else {
                     const exactIdeaVal = exactIdeaRadio.value;
@@ -1672,27 +1631,23 @@
                     const themeDescVal = document.getElementById('theme_description').value.trim();
 
                     if (exactIdeaVal === 'Yes!') {
-                        if (!ideaLinkVal && (!fileInput || fileInput.files.length === 0)) {
-                            markError('grp_idea_details');
-                        }
+                        if (!ideaLinkVal && (!fileInput || fileInput.files.length === 0)) markError('grp_idea_details');
                     } else if (exactIdeaVal === 'No, I am ready for brainstorming!') {
-                        if (!themeDescVal) {
-                            markError('grp_theme_description');
-                        }
+                        if (!themeDescVal) markError('grp_theme_description');
                     }
                 }
 
-                if(!document.querySelector('input[name="deadline"]:checked')) markError('grp_deadline');
-                if(!document.querySelector('input[name="social_permission"]:checked')) markError('grp_social_permission');
+                if (!document.querySelector('input[name="deadline"]:checked')) markError('grp_deadline');
+                if (!document.querySelector('input[name="social_permission"]:checked')) markError('grp_social_permission');
 
-                if(!isValid) {
-                    if(firstErrorElem) {
-                        firstErrorElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
+                if (!isValid) {
+                    if (firstErrorElem) firstErrorElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     return;
                 }
 
-                showStatusModal();
+                document.getElementById('modalLoadingState').style.display = 'flex';
+                document.getElementById('modalSuccessState').style.display = 'none';
+                document.getElementById('statusModalOverlay').style.display = 'flex';
 
                 const btn = document.getElementById('submitBtn');
                 btn.disabled = true;
@@ -1702,10 +1657,7 @@
 
                 for (let i = 0; i < elements.length; i++) {
                     const el = elements[i];
-                    if (!el.name) continue;
-                    if (el.type === 'radio' && !el.checked) continue;
-                    if (el.type === 'checkbox' && el.name === 'types') continue;
-                    if (el.type === 'checkbox' && !el.checked) continue;
+                    if (!el.name || (el.type === 'radio' && !el.checked) || (el.type === 'checkbox' && (el.name === 'types' || !el.checked))) continue;
                     formData[el.name] = el.value;
                 }
                 formData['types'] = checkedTypes;
@@ -1714,14 +1666,13 @@
                 if (fileInput && fileInput.files.length > 0) {
                     const file = fileInput.files[0];
                     if (file.size > 5 * 1024 * 1024) {
-                        closeStatusModal();
+                        document.getElementById('statusModalOverlay').style.display = 'none';
                         alert('Image size exceeds 5MB limit. Please upload a smaller file.');
                         btn.disabled = false;
                         return;
                     }
                     try {
-                        const base64Data = await readFileAsBase64(file);
-                        formData['fileData'] = base64Data;
+                        formData['fileData'] = await readFileAsBase64(file);
                         formData['fileName'] = file.name;
                         formData['fileMimeType'] = file.type;
                     } catch (err) {
@@ -1740,57 +1691,19 @@
 
                 Promise.race([fetchPromise, timeoutPromise])
                     .then(() => {
-                        showStatusSuccess();
+                        document.getElementById('modalLoadingState').style.display = 'none';
+                        document.getElementById('modalSuccessState').style.display = 'flex';
                         btn.disabled = false;
                         form.reset();
                     })
                     .catch(() => {
-                        showStatusSuccess();
+                        document.getElementById('modalLoadingState').style.display = 'none';
+                        document.getElementById('modalSuccessState').style.display = 'flex';
                         btn.disabled = false;
                         form.reset();
                     });
             });
         }
-
-        function openLight(arr, idx) {
-            activeArray = arr;
-            activeIdx = idx;
-            document.getElementById('lightboxImg').src = activeArray[activeIdx];
-            
-            const prev = document.getElementById('prevBtn');
-            const next = document.getElementById('nextBtn');
-            
-            if (activeArray.length > 1) {
-                prev.style.display = 'flex';
-                next.style.display = 'flex';
-            } else {
-                prev.style.display = 'none';
-                next.style.display = 'none';
-            }
-            document.getElementById('customLightbox').style.display = 'flex';
-        }
-
-        function stepLight(dir, ev) {
-            if (ev) ev.stopPropagation();
-            if (activeArray.length <= 1) return;
-            activeIdx += dir;
-            if (activeIdx < 0) activeIdx = activeArray.length - 1;
-            if (activeIdx >= activeArray.length) activeIdx = 0;
-            document.getElementById('lightboxImg').src = activeArray[activeIdx];
-        }
-
-        function closeLight() {
-            document.getElementById('customLightbox').style.display = 'none';
-        }
-
-        document.addEventListener('keydown', function(e) {
-            const box = document.getElementById('customLightbox');
-            if (box.style.display === 'flex') {
-                if (e.key === 'ArrowLeft') stepLight(-1);
-                if (e.key === 'ArrowRight') stepLight(1);
-                if (e.key === 'Escape') closeLight();
-            }
-        });
     </script>
 
 </body>
