@@ -1459,7 +1459,7 @@
             'images/06.png','images/07.png','images/08.png','images/10.png','images/09.png'
         ];
 
-        // TISZTÍTOTT LISTA (A megadott üres képek eltávolítva)
+        // TISZTÍTOTT LISTA (A megadott nem létező/üres képek eltávolítva)
         const allAboutImages = [
             'images/alms01.png','images/arabella01.png','images/arcanesignet01.png','images/aveninterrupter01.png',
             'images/balllighting01.png','images/bird01.png','images/blood01.png','images/bramblefamiliar01.png',
@@ -1474,23 +1474,20 @@
             'images/eldrazispawn01.png','images/elvish01.png','images/entomb01.png','images/faeriemacabre01.png',
             'images/faerieseer01.png','images/faerieseer02.png','images/galvanic01.png','images/ghoucaller01.png',
             'images/giada01.png','images/golgarithug01.png','images/greed01.png','images/guardionoftheguildpact01.png',
-            'images/harrier01.png','images/hero01.png','images/hylda01.png','images/island01.png',
-            'images/island02.png','images/island03.png','images/island04.png','images/island05.png',
+            'images/harrier01.png','images/hero01.png','images/island02.png','images/island05.png',
             'images/journeytonowhere01.png','images/kaalia01.png','images/lighting02.png','images/lightning01.png',
-            'images/lotleth01.png','images/lotuscobra01.png','images/manashort01.png','images/meren01.png',
-            'images/meren02.png','images/mikeyandleo01.png','images/monarch.png','images/nihilspellbomb.png',
-            'images/ninja01.png','images/nyxbornhydra01.png','images/nyxbornhydra02.png','images/pathtoexile01.png',
-            'images/plain02.png','images/plains01.png','images/prism01.png','images/quirion01.png',
-            'images/reanimate01.png','images/refurbished01.png','images/rhinar01.png','images/roadrunner01.png',
-            'images/sacredcat01.png','images/saguwilding01.png','images/samurai01.png','images/selvala01.png',
-            'images/selvala02.png','images/skred01.png','images/slyver01.png','images/slyver02.png',
-            'images/solring01.png','images/solring02.png','images/solring03.png','images/solring04.png',
-            'images/swamp01.png','images/swamp02.png','images/swamp03.png','images/swamp04.png',
-            'images/titania01.png','images/titania02.png','images/titania03.png','images/titania04.png',
-            'images/titania05.png','images/titania06.png','images/tolarianterror01.png','images/tolarianterror02.png',
-            'images/tolarianterror03.png','images/tolarianterror04.png','images/tolarianterror05.png','images/treasure01.png',
-            'images/urzastower01.png','images/voicevictory01.png','images/wellwisher01.png','images/wildmongler01.png',
-            'images/wildmongler02.png','images/wildmongler03.png','images/yuriko01.png','images/zombie01.png'
+            'images/lotuscobra01.png','images/meren01.png','images/meren02.png','images/mikeyandleo01.png',
+            'images/monarch.png','images/nihilspellbomb.png','images/ninja01.png','images/nyxbornhydra01.png',
+            'images/nyxbornhydra02.png','images/pathtoexile01.png','images/plain02.png','images/prism01.png',
+            'images/quirion01.png','images/reanimate01.png','images/refurbished01.png','images/rhinar01.png',
+            'images/sacredcat01.png','images/saguwilding01.png','images/selvala01.png','images/selvala02.png',
+            'images/skred01.png','images/slyver02.png','images/solring01.png','images/solring02.png',
+            'images/solring03.png','images/solring04.png','images/swamp01.png','images/swamp02.png',
+            'images/swamp03.png','images/swamp04.png','images/titania01.png','images/titania02.png',
+            'images/titania03.png','images/titania04.png','images/titania05.png','images/titania06.png',
+            'images/tolarianterror01.png','images/tolarianterror02.png','images/tolarianterror03.png','images/tolarianterror04.png',
+            'images/tolarianterror05.png','images/treasure01.png','images/urzastower01.png','images/wellwisher01.png',
+            'images/wildmongler01.png','images/wildmongler02.png','images/wildmongler03.png','images/yuriko01.png'
         ];
 
         let activeArray = [];
@@ -1806,7 +1803,7 @@
                         form.reset();
                     })
                     .catch(() => {
-                        document.getElementById('modalLoadingState5').style.display = 'none';
+                        document.getElementById('modalLoadingState').style.display = 'none';
                         document.getElementById('modalSuccessState').style.display = 'flex';
                         btn.disabled = false;
                         form.reset();
