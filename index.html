@@ -1622,6 +1622,30 @@
                 }
             });
 
+            // GÖRGETÉS ÉS SWIPE ÉRZÉKELÉSE A GALÉRIÁBAN (MTG SLIDER)
+            const mtgContainer = document.getElementById('mtgSlider');
+            if (mtgContainer) {
+                mtgContainer.addEventListener('scroll', () => {
+                    const images = mtgContainer.querySelectorAll('img');
+                    if (!images.length) return;
+
+                    const containerCenter = mtgContainer.scrollLeft + (mtgContainer.clientWidth / 2);
+                    let closestIdx = 0;
+                    let minDiff = Infinity;
+
+                    images.forEach((img, idx) => {
+                        const imgCenter = img.offsetLeft - mtgContainer.offsetLeft + (img.clientWidth / 2);
+                        const diff = Math.abs(containerCenter - imgCenter);
+                        if (diff < minDiff) {
+                            minDiff = diff;
+                            closestIdx = idx;
+                        }
+                    });
+
+                    currentMtgIndex = closestIdx;
+                });
+            }
+
             document.querySelectorAll('.style-card').forEach(card => {
                 card.addEventListener('click', (e) => {
                     const chkId = card.getAttribute('data-chk');
