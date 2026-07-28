@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- LOGO PRELOAD AZ AZONNALI BETÖLTÉSHEZ -->
-    <link rel="preload" as="image" href="images/logo.png" fetchpriority="high">
+    <link rel="preload" as="image" href="images/knaltersnobg.png" fetchpriority="high">
 
     <!-- SEO META TAGS -->
     <title>kn.alters | MTG Card Alteration & Custom Commissions by Nora</title>
@@ -19,14 +19,14 @@
     <meta property="og:title" content="kn.alters | MTG Card Alteration">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://knalters.com/">
-    <meta property="og:image" content="https://knalters.com/images/logo.png">
+    <meta property="og:image" content="https://knalters.com/images/knaltersnobg.png">
     <meta property="og:description" content="Nora | Hobby MTG alterist from Hungary. Professional card extensions and custom art commissions.">
     
     <!-- TWITTER CARDS -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="kn.alters | MTG Card Alteration">
     <meta name="twitter:description" content="Custom Magic: The Gathering card alters and commissions by Nora.">
-    <meta name="twitter:image" content="https://knalters.com/images/logo.png">
+    <meta name="twitter:image" content="https://knalters.com/images/knaltersnobg.png">
 
     <!-- JSON-LD SEO -->
     <script type="application/ld+json">
@@ -59,11 +59,11 @@
         html, body {
             margin: 0 !important;
             padding: 0 !important;
-            background: linear-gradient(135deg, #1b3329 0%, #2c4c3e 40%, #c4dfd2 100%);
+            background: linear-gradient(135deg, #182e25 0%, #254236 40%, #b3cfc2 100%);
             background-attachment: fixed;
             font-family: 'Inter', sans-serif;
             font-weight: 300;
-            color: #2b3a32; 
+            color: #1e2c25; 
             letter-spacing: 0.02em;
             min-height: 100vh;
             width: 100%;
@@ -97,12 +97,15 @@
             gap: 20px;
         }
 
-        /* PROFIL KÁRTYA ÉS FOGADÓ HÁTTÉR EGYSÉGESÍTÉSE */
+        /* TÚL FEHÉR SÁV MEGSZÜNTETÉSE - ELEGÁNS NŐIES ZSÁLYA-SMRAGD ÁTMENTES ÜVEG-EFFEKT */
         .profile-card {
-            background: #ffffff;
+            background: rgba(238, 245, 241, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             padding: clamp(30px, 2.5vw, 40px) clamp(20px, 2vw, 35px);
             border-radius: 28px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(44, 76, 62, 0.12);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             box-sizing: border-box;
             width: 100%;
             display: flex;
@@ -120,7 +123,7 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
+            height: 5px;
             background: linear-gradient(90deg, #2c4c3e 0%, #8ac926 50%, #2c4c3e 100%);
         }
 
@@ -142,7 +145,6 @@
             cursor: pointer;
         }
 
-        /* LOGO KÉP BEILLESZKEDÉSÉNEK JAVÍTÁSA */
         .site-logo-img {
             max-width: 240px;
             width: 100%;
@@ -151,15 +153,14 @@
             margin: 0 auto;
             background-color: transparent;
             content-visibility: auto;
-            mix-blend-mode: multiply; /* Megszünteti a kártyától való elütést, beolvasztja a hátteret */
         }
 
         .status-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, rgba(44, 76, 62, 0.12) 0%, rgba(44, 76, 62, 0.05) 100%);
-            color: #1e362c;
+            background: rgba(44, 76, 62, 0.08);
+            color: #1a3328;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 11px;
             font-weight: 700;
@@ -168,7 +169,6 @@
             padding: 8px 16px;
             border-radius: 20px;
             border: 1px solid rgba(44, 76, 62, 0.2);
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.8);
         }
 
         .status-dot.green {
@@ -265,8 +265,8 @@
 
         .link-item {
             display: block;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f5f2 100%);
-            color: #1b2820; 
+            background: rgba(255, 255, 255, 0.7);
+            color: #182e25; 
             text-decoration: none;
             padding: 14px 20px;
             font-size: clamp(11px, 0.85vw, 12px);
@@ -275,11 +275,11 @@
             letter-spacing: 2px;
             font-weight: 700; 
             border-radius: 14px;
-            border: 1px solid rgba(44, 76, 62, 0.15);
+            border: 1px solid rgba(44, 76, 62, 0.2);
             border-left: 4px solid #2c4c3e;
             transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
             box-sizing: border-box;
             cursor: pointer;
         }
@@ -311,14 +311,17 @@
             max-width: 100%;
         }
 
+        /* TARTALMI KÁRTYÁK LÁGYABB, MELEG EGYEN-ZSÁLYA ZÖLD ÁRNYALATA A FEHÉR HELYETT */
         .contact-post,
         .info-block,
         .custom-card-post {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(240, 246, 243, 0.88);
             border-radius: 28px;
             padding: clamp(24px, 3vw, 40px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(44, 76, 62, 0.1);
-            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             box-sizing: border-box;
             width: 100%;
             max-width: 800px;
@@ -330,7 +333,7 @@
         .contact-post:hover,
         .info-block:hover,
         .custom-card-post:hover {
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(44, 76, 62, 0.2);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.16);
         }
 
         .main-seo-h1, .contact-title, .info-block-title {
@@ -339,7 +342,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #1b3329;
+            color: #182e25;
             margin: 0 0 20px 0;
             position: relative;
             padding-bottom: 12px;
@@ -362,7 +365,7 @@
         .post-body-content {
             font-size: 14.5px;
             line-height: 1.65;
-            color: #2b3a32;
+            color: #1e2c25;
         }
 
         .post-body-content p {
@@ -377,9 +380,9 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #6b7c72;
+            color: #516b5e;
             margin-top: 20px;
-            border-top: 1px solid rgba(0,0,0,0.08);
+            border-top: 1px solid rgba(44, 76, 62, 0.15);
             padding-top: 12px;
         }
 
@@ -423,7 +426,7 @@
             width: auto !important;
             max-width: 100% !important;
             object-fit: contain;
-            background: rgba(0,0,0,0.02);
+            background: rgba(0,0,0,0.03);
             border-radius: 14px;
             display: block;
             cursor: pointer;
@@ -444,13 +447,13 @@
             scroll-snap-align: center;
             scroll-snap-stop: always;
             flex-shrink: 0;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .mtg-scroll-container img:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.2);
         }
 
         .slider-external-btn {
@@ -472,13 +475,13 @@
         }
 
         .slider-external-btn:hover {
-            background: #1b3329;
+            background: #182e25;
             transform: scale(1.1);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
         }
 
         .form-welcome-box {
-            background: linear-gradient(135deg, rgba(240, 247, 243, 0.9) 0%, rgba(228, 238, 232, 0.9) 100%);
+            background: rgba(225, 236, 230, 0.85);
             border: 1px solid rgba(44, 76, 62, 0.2);
             border-left: 5px solid #2c4c3e;
             border-radius: 18px;
@@ -486,7 +489,7 @@
             margin-bottom: 15px;
             font-size: 13px;
             line-height: 1.6;
-            color: #2b3a32;
+            color: #1e2c25;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
@@ -497,7 +500,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
             font-size: 14px;
-            color: #1e362c;
+            color: #182e25;
             letter-spacing: 0.5px;
             display: block;
             margin-bottom: 8px;
@@ -523,7 +526,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #2b3a32;
+            color: #182e25;
         }
 
         .field-status-tag {
@@ -535,7 +538,7 @@
         }
 
         .field-status-tag.required { color: #8c2a2a; font-weight: 700; }
-        .field-status-tag.optional { color: #6b7c72; }
+        .field-status-tag.optional { color: #516b5e; }
 
         .form-group.has-error input[type="text"],
         .form-group.has-error input[type="email"],
@@ -567,21 +570,20 @@
         .form-group input[type="file"],
         .form-group textarea {
             width: 100%;
-            background: #ffffff;
-            border: 1px solid rgba(44, 76, 62, 0.2);
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(44, 76, 62, 0.25);
             padding: 14px 18px;
             border-radius: 14px;
             font-family: 'Inter', sans-serif;
             font-size: 14px;
-            color: #2b3a32;
+            color: #182e25;
             box-sizing: border-box;
             transition: all 0.2s ease;
             outline: none;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .form-group textarea { resize: vertical; min-height: 90px; }
-        .form-group input[type="file"] { padding: 10px; cursor: pointer; background: #ffffff; }
+        .form-group input[type="file"] { padding: 10px; cursor: pointer; background: rgba(255, 255, 255, 0.85); }
 
         .form-group input:focus,
         .form-group textarea:focus {
@@ -591,21 +593,20 @@
         }
 
         .data-privacy-container {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.65);
             padding: 18px;
             border-radius: 18px;
-            border: 1px solid rgba(44, 76, 62, 0.15);
+            border: 1px solid rgba(44, 76, 62, 0.2);
             display: flex;
             flex-direction: column;
             gap: 12px;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .data-privacy-notice {
             font-size: 12px;
             line-height: 1.5;
-            color: #2b3a32;
+            color: #1e2c25;
             font-weight: 700;
         }
 
@@ -627,7 +628,7 @@
         .checkbox-group-inline label {
             font-size: 12.5px;
             line-height: 1.4;
-            color: #2b3a32;
+            color: #1e2c25;
             cursor: pointer;
             font-weight: 400;
         }
@@ -636,11 +637,10 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.65);
             padding: 18px;
             border-radius: 20px;
-            border: 1px solid rgba(44, 76, 62, 0.15);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid rgba(44, 76, 62, 0.2);
         }
 
         .address-subfield {
@@ -654,7 +654,7 @@
             font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
             text-transform: uppercase;
-            color: #55625a;
+            color: #435b4f;
             letter-spacing: 1px;
         }
 
@@ -674,8 +674,8 @@
         }
 
         .style-card {
-            background: #ffffff;
-            border: 1px solid rgba(44, 76, 62, 0.15);
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(44, 76, 62, 0.2);
             border-radius: 16px;
             padding: 10px;
             display: flex;
@@ -684,7 +684,6 @@
             cursor: pointer;
             transition: all 0.25s ease;
             user-select: none;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
         .style-card:hover {
@@ -708,7 +707,7 @@
             gap: 8px;
             font-size: 12px;
             font-weight: 700;
-            color: #2b3a32;
+            color: #182e25;
             font-family: 'Space Grotesk', sans-serif;
             text-align: center;
         }
@@ -724,12 +723,11 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.65);
             padding: 15px;
             border-radius: 14px;
-            border: 1px solid rgba(44, 76, 62, 0.15);
+            border: 1px solid rgba(44, 76, 62, 0.2);
             transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .radio-label {
@@ -737,7 +735,7 @@
             align-items: center;
             gap: 10px;
             font-size: 13px;
-            color: #2b3a32;
+            color: #182e25;
             cursor: pointer;
         }
 
@@ -762,14 +760,14 @@
         }
 
         .submit-btn:hover {
-            background-color: #1b3329;
+            background-color: #182e25;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .form-privacy-note {
             font-size: 11px;
-            color: #7a8a81;
+            color: #516b5e;
             text-align: center;
             line-height: 1.5;
             margin-top: 5px;
@@ -786,8 +784,8 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #2b3a32;
-            opacity: 0.8;
+            color: #182e25;
+            opacity: 0.85;
             animation: bounce 2s infinite;
         }
 
@@ -841,7 +839,7 @@
         }
 
         .floating-top-btn:hover {
-            background: #1b3329;
+            background: #182e25;
             transform: translateY(-3px);
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
         }
@@ -1067,7 +1065,7 @@
                     
                     <div class="logo-brand-group">
                         <a href="#top" class="logo-link" title="Home">
-                            <img src="images/logo.png" alt="kn.alters logo" class="site-logo-img" loading="eager" fetchpriority="high">
+                            <img src="images/knaltersnobg.png" alt="kn.alters logo" class="site-logo-img" loading="eager" fetchpriority="high">
                         </a>
                     </div>
 
@@ -1361,7 +1359,7 @@
 
                     <div class="form-group">
                         <label class="field-title">Detailed Shipping Address <span class="field-status-tag optional">(Optional)</span></label>
-                        <p style="font-size: 11px; color: #55625a; margin: -2px 0 6px 0;">Fill this out only if you've already decided to commission me!</p>
+                        <p style="font-size: 11px; color: #516b5e; margin: -2px 0 6px 0;">Fill this out only if you've already decided to commission me!</p>
                         
                         <div class="address-separated-box">
                             <div class="address-subfield">
