@@ -108,7 +108,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 20px;
         }
 
         .logo-brand-group {
@@ -137,19 +137,6 @@
             margin: 0 auto;
             background-color: transparent;
             content-visibility: auto;
-        }
-
-        /* H1 SEO CÍMSOR FORMATERVEZÉS */
-        .main-seo-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #2c4c3e;
-            margin: 0;
-            text-align: center;
-            line-height: 1.3;
         }
 
         .status-badge {
@@ -183,7 +170,6 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
 
-        /* ANIMÁLT CTA GOMB */
         .inline-cta-btn {
             position: relative;
             display: flex;
@@ -319,6 +305,20 @@
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        /* H1 SEO CÍMSOR FORMÁZÁS A TARTALOM FŐBLOKKJÁBAN */
+        .main-seo-h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(15px, 1.2vw, 18px);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #000000;
+            margin: 0 0 18px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding-bottom: 10px;
+            text-align: center;
         }
 
         .post-body-content {
@@ -785,7 +785,6 @@
             background-color: #2c4c3e;
         }
 
-        /* LEBEGŐ TOP GOMB */
         .floating-top-btn {
             position: fixed;
             bottom: 30px;
@@ -1037,15 +1036,11 @@
                         </a>
                     </div>
 
-                    <!-- SEO H1 CÍMSOR ELHELYEZÉSE -->
-                    <h1 class="main-seo-title">MTG Card Alterations & Custom Commissions</h1>
-
                     <div class="status-badge">
                         <span class="status-dot green"></span> Commission Slots Open
                     </div>
                     
                     <div class="links-wrapper">
-                        <!-- NATÍV KÖZVETLEN HORGONY LINK (JS MENTES) -->
                         <a href="#commissionSection" class="link-item">commission</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
                         <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
@@ -1060,9 +1055,9 @@
 
         <div class="feed-container">
             
-            <!-- ABOUT SECTION -->
+            <!-- ABOUT SECTION / H1 CÍMSOR TÖKÉLETES SEO ELHELYEZÉSSEL -->
             <article class="custom-card-post" id="aboutSection">
-                <h2 class="info-block-title">About Me</h2>
+                <h1 class="main-seo-h1">MTG Card Alterations & Custom Commissions</h1>
                 <div class="post-body-content">
                     <p>My name is Nora, I live in Hungary (mid Europe). I am a mother of 2 baby potatoes (2 and 4 yo). I started altering in December of 2024 for fun.</p>
                     <p>I am not a full time alterist, so I usually paint at nights (10 pm- 2 am) when my kids are sleeping, the house is quiet enough and I have enough energy to enjoy painting.</p>
@@ -1385,7 +1380,7 @@
 
     </div>
 
-    <!-- LEBEGŐ TOP GOMB (KÖZVETLEN HORGONY VISSZA) -->
+    <!-- LEBEGŐ TOP GOMB -->
     <a href="#top" class="floating-top-btn" id="floatingTopBtn">↑ Back to top</a>
 
     <!-- LIGHTBOX -->
@@ -1414,7 +1409,6 @@
         </div>
     </div>
 
-    <!-- TISZTÍTOTT, CSAK DINAMIKUS MŰKÖDÉSHEZ SZÜKSÉGES MINIMÁLIS JAVASCRIPT -->
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxiXFmXT2t_I8AU2ZPe6W6A9hxy3Eio8Mc727Gsn0qDGI5ndmRDGmJ0g3Dlxz_zRgbo/exec';
 
@@ -1505,7 +1499,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Eseménykezelők bekötése (Clean Event Delegation)
             document.getElementById('btnMtgPrev').addEventListener('click', () => scrollMtgSlider(-1));
             document.getElementById('btnMtgNext').addEventListener('click', () => scrollMtgSlider(1));
             document.getElementById('btnProcessPrev').addEventListener('click', () => scrollProcessSlider(-1));
@@ -1542,7 +1535,6 @@
                 document.getElementById('statusModalOverlay').style.display = 'none';
             });
 
-            // Slider pöttyök beállítása
             const processContainer = document.getElementById('processSlider');
             const dotsContainer = document.getElementById('sliderDots');
             if (processContainer && dotsContainer) {
@@ -1589,7 +1581,6 @@
             }
         });
 
-        // ŰRLAP BEKÜLDÉS ÉS VALIDÁCIÓ (Google AppScript)
         const form = document.getElementById('customCommissionForm');
         if (form) {
             form.addEventListener('submit', async (e) => {
