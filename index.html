@@ -59,7 +59,7 @@
         html, body {
             margin: 0 !important;
             padding: 0 !important;
-            background: linear-gradient(135deg, #2c4c3e 0%, #d8eae1 100%);
+            background: linear-gradient(135deg, #1b3329 0%, #2c4c3e 40%, #c4dfd2 100%);
             background-attachment: fixed;
             font-family: 'Inter', sans-serif;
             font-weight: 300;
@@ -97,11 +97,12 @@
             gap: 20px;
         }
 
+        /* PROFIL KÁRTYA TÚLBÚJTATOTT DÍSZÍTÉSSEL */
         .profile-card {
-            background-color: #f2f4f3;
+            background: linear-gradient(145deg, #ffffff 0%, #f4f8f5 100%);
             padding: clamp(30px, 2.5vw, 40px) clamp(20px, 2vw, 35px);
             border-radius: 28px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(44, 76, 62, 0.12);
             box-sizing: border-box;
             width: 100%;
             display: flex;
@@ -109,6 +110,18 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #2c4c3e 0%, #8ac926 50%, #2c4c3e 100%);
         }
 
         .logo-brand-group {
@@ -137,22 +150,24 @@
             margin: 0 auto;
             background-color: transparent;
             content-visibility: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
         }
 
         .status-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(44, 76, 62, 0.08);
-            color: #2c4c3e;
+            background: linear-gradient(135deg, rgba(44, 76, 62, 0.12) 0%, rgba(44, 76, 62, 0.05) 100%);
+            color: #1e362c;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 20px;
-            border: 1px solid rgba(44, 76, 62, 0.15);
+            border: 1px solid rgba(44, 76, 62, 0.2);
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.8);
         }
 
         .status-dot.green {
@@ -160,7 +175,7 @@
             height: 8px;
             background-color: #2e7d32;
             border-radius: 50%;
-            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.25);
             animation: pulse 2s infinite;
         }
 
@@ -191,7 +206,7 @@
             margin: 20px 0 10px 0;
             cursor: pointer;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(44, 76, 62, 0.25);
+            box-shadow: 0 6px 20px rgba(44, 76, 62, 0.3);
             transition: all 0.3s ease;
             z-index: 1;
             border: none;
@@ -233,7 +248,7 @@
 
         .inline-cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), 0 0 15px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 18px rgba(138, 201, 38, 0.4);
         }
 
         .inline-cta-btn:hover::after {
@@ -243,43 +258,46 @@
         .links-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             width: 100%;
         }
 
+        /* MENÜGOMBOK ELEGÁNSABB DÍSZEKKEL */
         .link-item {
             display: block;
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f5f2 100%);
             color: #1b2820; 
             text-decoration: none;
-            padding: 13px 20px;
+            padding: 14px 20px;
             font-size: clamp(11px, 0.85vw, 12px);
             font-family: 'Space Grotesk', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 400; 
+            font-weight: 700; 
             border-radius: 14px;
-            border: 1px solid rgba(44, 76, 62, 0.12);
+            border: 1px solid rgba(44, 76, 62, 0.15);
+            border-left: 4px solid #2c4c3e;
             transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(44, 76, 62, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
             box-sizing: border-box;
             cursor: pointer;
         }
 
         .link-item:hover {
-            background-color: #2c4c3e;
+            background: #2c4c3e;
             color: #ffffff;
             border-color: #2c4c3e;
+            border-left-color: #8ac926;
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(44, 76, 62, 0.25);
+            box-shadow: 0 8px 20px rgba(44, 76, 62, 0.3);
         }
 
         .sidebar-footer {
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: rgba(0, 0, 0, 0.3); 
+            color: rgba(255, 255, 255, 0.6); 
             text-align: center;
         }
 
@@ -293,37 +311,59 @@
             max-width: 100%;
         }
 
+        /* TARTALMI KÁRTYÁK ÚJ PRÉMIUM KINÉZETE */
         .contact-post,
         .info-block,
         .custom-card-post {
-            background-color: rgba(255, 255, 255, 0.82);
+            background: rgba(255, 255, 255, 0.92);
             border-radius: 28px;
-            padding: clamp(20px, 2.5vw, 35px);
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.02);
-            backdrop-filter: blur(8px);
+            padding: clamp(24px, 3vw, 40px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(44, 76, 62, 0.1);
+            backdrop-filter: blur(12px);
             box-sizing: border-box;
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* H1 SEO CÍMSOR FORMÁZÁS A TARTALOM FŐBLOKKJÁBAN */
-        .main-seo-h1 {
+        .contact-post:hover,
+        .info-block:hover,
+        .custom-card-post:hover {
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(44, 76, 62, 0.2);
+        }
+
+        /* CÍMSOROK SZÍNES ELVÁLASZTÓ VALÓDI DÍSZÍTÉSSEL */
+        .main-seo-h1, .contact-title, .info-block-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(15px, 1.2vw, 18px);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #000000;
-            margin: 0 0 18px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding-bottom: 10px;
+            color: #1b3329;
+            margin: 0 0 20px 0;
+            position: relative;
+            padding-bottom: 12px;
             text-align: center;
+            border-bottom: none;
+        }
+
+        .main-seo-h1::after, .contact-title::after, .info-block-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #2c4c3e, #8ac926, #2c4c3e, transparent);
+            border-radius: 2px;
         }
 
         .post-body-content {
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 14.5px;
+            line-height: 1.65;
             color: #2b3a32;
         }
 
@@ -340,9 +380,9 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #6b7c72;
-            margin-top: 15px;
-            border-top: 1px solid rgba(0,0,0,0.06);
-            padding-top: 10px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 12px;
         }
 
         .back-to-top-link {
@@ -400,22 +440,23 @@
             height: 252px !important;
             object-fit: cover !important;
             background: rgba(0,0,0,0.04);
-            border-radius: 10px;
+            border-radius: 12px;
             display: block;
             cursor: pointer;
             scroll-snap-align: center;
             scroll-snap-stop: always;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .mtg-scroll-container img:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.18);
         }
 
         .slider-external-btn {
-            background: rgba(44, 76, 62, 0.88);
+            background: #2c4c3e;
             color: #ffffff;
             border: none;
             width: 44px;
@@ -427,38 +468,28 @@
             justify-content: center;
             cursor: pointer;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
             transition: all 0.2s ease;
             z-index: 5;
         }
 
         .slider-external-btn:hover {
-            background: #000000;
-            transform: scale(1.08);
-        }
-
-        .contact-title, .info-block-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(14px, 1.1vw, 16px);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #000000;
-            margin: 0 0 15px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding-bottom: 10px;
-            text-align: center;
+            background: #1b3329;
+            transform: scale(1.1);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
         }
 
         .form-welcome-box {
-            background: rgba(255, 255, 255, 0.65);
-            border: 1px solid rgba(44, 76, 62, 0.15);
+            background: linear-gradient(135deg, rgba(240, 247, 243, 0.9) 0%, rgba(228, 238, 232, 0.9) 100%);
+            border: 1px solid rgba(44, 76, 62, 0.2);
+            border-left: 5px solid #2c4c3e;
             border-radius: 18px;
-            padding: 16px 20px;
-            margin-bottom: 10px;
-            font-size: 12.5px;
+            padding: 18px 22px;
+            margin-bottom: 15px;
+            font-size: 13px;
             line-height: 1.6;
             color: #2b3a32;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         .form-welcome-box p { margin: 0 0 10px 0; }
@@ -467,11 +498,11 @@
         .form-welcome-box .welcome-heading {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: 13.5px;
+            font-size: 14px;
             color: #1e362c;
             letter-spacing: 0.5px;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .custom-form-container {
@@ -538,8 +569,8 @@
         .form-group input[type="file"],
         .form-group textarea {
             width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            border: 1px solid rgba(44, 76, 62, 0.2);
             padding: 14px 18px;
             border-radius: 14px;
             font-family: 'Inter', sans-serif;
@@ -548,6 +579,7 @@
             box-sizing: border-box;
             transition: all 0.2s ease;
             outline: none;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .form-group textarea { resize: vertical; min-height: 90px; }
@@ -555,20 +587,21 @@
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: #a394b8;
+            border-color: #2c4c3e;
             background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(163, 148, 184, 0.2);
+            box-shadow: 0 0 0 3px rgba(44, 76, 62, 0.18);
         }
 
         .data-privacy-container {
-            background: rgba(255, 255, 255, 0.5);
+            background: #ffffff;
             padding: 18px;
             border-radius: 18px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(44, 76, 62, 0.15);
             display: flex;
             flex-direction: column;
             gap: 12px;
             transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .data-privacy-notice {
@@ -605,10 +638,11 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            background: rgba(255, 255, 255, 0.5);
+            background: #ffffff;
             padding: 18px;
             border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.06);
+            border: 1px solid rgba(44, 76, 62, 0.15);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .address-subfield {
@@ -642,22 +676,24 @@
         }
 
         .style-card {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #ffffff;
+            border: 1px solid rgba(44, 76, 62, 0.15);
             border-radius: 16px;
             padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             user-select: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
         .style-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             background: #ffffff;
-            border-color: #a394b8;
+            border-color: #2c4c3e;
+            box-shadow: 0 6px 18px rgba(44, 76, 62, 0.15);
         }
 
         .style-card img {
@@ -690,11 +726,12 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            background: rgba(255,255,255,0.6);
+            background: #ffffff;
             padding: 15px;
             border-radius: 14px;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(44, 76, 62, 0.15);
             transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .radio-label {
@@ -723,13 +760,13 @@
             transition: all 0.25s ease;
             margin-top: 10px;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(44, 76, 62, 0.2);
+            box-shadow: 0 6px 20px rgba(44, 76, 62, 0.25);
         }
 
         .submit-btn:hover {
-            background-color: #000000;
+            background-color: #1b3329;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .form-privacy-note {
@@ -799,16 +836,16 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
             text-decoration: none;
             z-index: 9999;
             transition: all 0.3s ease;
         }
 
         .floating-top-btn:hover {
-            background: #000000;
+            background: #1b3329;
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
         }
 
         .custom-lightbox {
@@ -1001,7 +1038,7 @@
                 width: 100% !important;
                 max-width: 100% !important;
                 box-sizing: border-box !important;
-                padding: 15px !important;
+                padding: 20px 15px !important;
                 margin: 0 0 15px 0 !important;
             }
 
@@ -1055,11 +1092,11 @@
 
         <div class="feed-container">
             
-            <!-- ABOUT SECTION / H1 CÍMSOR TÖKÉLETES SEO ELHELYEZÉSSEL -->
+            <!-- ABOUT SECTION -->
             <article class="custom-card-post" id="aboutSection">
                 <h1 class="main-seo-h1">MTG Card Alterations & Custom Commissions</h1>
                 <div class="post-body-content">
-                    <p>My name is Nora, I live in Hungary (mid Europe). I am a mother of 2 baby potatoes (2 and 4 yo). I started altering in December of 2024 for fun.</p>
+                    <p><strong>About me:</strong> My name is Nora, I live in Hungary (mid Europe). I am a mother of 2 baby potatoes (2 and 4 yo). I started altering in December of 2024 for fun.</p>
                     <p>I am not a full time alterist, so I usually paint at nights (10 pm- 2 am) when my kids are sleeping, the house is quiet enough and I have enough energy to enjoy painting.</p>
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
