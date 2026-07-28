@@ -97,9 +97,9 @@
             gap: 20px;
         }
 
-        /* PROFIL KÁRTYA TÚLBÚJTATOTT DÍSZÍTÉSSEL */
+        /* PROFIL KÁRTYA ÉS FOGADÓ HÁTTÉR EGYSÉGESÍTÉSE */
         .profile-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f4f8f5 100%);
+            background: #ffffff;
             padding: clamp(30px, 2.5vw, 40px) clamp(20px, 2vw, 35px);
             border-radius: 28px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(44, 76, 62, 0.12);
@@ -142,6 +142,7 @@
             cursor: pointer;
         }
 
+        /* LOGO KÉP BEILLESZKEDÉSÉNEK JAVÍTÁSA */
         .site-logo-img {
             max-width: 240px;
             width: 100%;
@@ -150,7 +151,7 @@
             margin: 0 auto;
             background-color: transparent;
             content-visibility: auto;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
+            mix-blend-mode: multiply; /* Megszünteti a kártyától való elütést, beolvasztja a hátteret */
         }
 
         .status-badge {
@@ -262,7 +263,6 @@
             width: 100%;
         }
 
-        /* MENÜGOMBOK ELEGÁNSABB DÍSZEKKEL */
         .link-item {
             display: block;
             background: linear-gradient(135deg, #ffffff 0%, #f0f5f2 100%);
@@ -311,7 +311,6 @@
             max-width: 100%;
         }
 
-        /* TARTALMI KÁRTYÁK ÚJ PRÉMIUM KINÉZETE */
         .contact-post,
         .info-block,
         .custom-card-post {
@@ -334,7 +333,6 @@
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(44, 76, 62, 0.2);
         }
 
-        /* CÍMSOROK SZÍNES ELVÁLASZTÓ VALÓDI DÍSZÍTÉSSEL */
         .main-seo-h1, .contact-title, .info-block-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(15px, 1.2vw, 18px);
