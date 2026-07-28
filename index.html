@@ -152,43 +152,85 @@
             content-visibility: auto;
         }
 
-        /* FIGYELEMFELKELŐBB STATUS BADGE */
-        .status-badge {
-            display: inline-flex;
+        /* --- SÜLLYESZTETT, KOMPAKT INDIKÁTOR PANEL --- */
+        .status-recessed-box {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #ffffff 0%, #e3f0e9 100%);
-            color: #1a3a2a;
+            gap: 6px;
+            background: #e4e1d8;
+            padding: 10px 18px;
+            border-radius: 14px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            width: fit-content;
+        }
+
+        .status-title-row {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 11.5px;
+            font-size: 10.5px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 9px 18px;
-            border-radius: 20px;
-            border: 1.5px solid #385445;
-            box-shadow: 0 4px 12px rgba(56, 84, 69, 0.15);
-            animation: floatBadge 3s ease-in-out infinite;
+            letter-spacing: 1.2px;
+            color: #526359;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .status-dot.green {
-            width: 9px;
-            height: 9px;
-            background-color: #2e7d32;
+        .status-state-text {
+            color: #23352b;
+            font-weight: 700;
+        }
+
+        .lights-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .light-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #728277;
+            text-transform: uppercase;
+        }
+
+        .led-dot {
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            box-shadow: 0 0 8px #2e7d32;
-            animation: pulseGlow 2s infinite;
+            display: inline-block;
         }
 
-        @keyframes floatBadge {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
+        /* PIROS LÁMPA (KIKAPCSOLVA) */
+        .led-dot.red {
+            background-color: #d32f2f;
+            opacity: 0.35;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
+        }
+
+        /* ZÖLD LÁMPA (AKTÍV, VILLOGÓ) */
+        .led-dot.green.active {
+            background-color: #2e7d32;
+            opacity: 1;
+            box-shadow: 0 0 6px #2e7d32;
+            animation: pulseGlow 1.8s infinite;
+        }
+
+        .light-item.active-text {
+            color: #1b432e;
         }
 
         @keyframes pulseGlow {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7), 0 0 6px #2e7d32; }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(46, 125, 50, 0), 0 0 12px #2e7d32; }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0), 0 0 6px #2e7d32; }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7), 0 0 4px #2e7d32; }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(46, 125, 50, 0), 0 0 10px #2e7d32; }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0), 0 0 4px #2e7d32; }
         }
 
         .inline-cta-btn {
@@ -1068,8 +1110,19 @@
                         </a>
                     </div>
 
-                    <div class="status-badge">
-                        <span class="status-dot green"></span> Commission Slots Open
+                    <!-- SÜLLYESZTETT MŰSZERFAL LÁMPA PANEL -->
+                    <div class="status-recessed-box">
+                        <div class="status-title-row">
+                            Commission Slots: <span class="status-state-text">OPEN</span>
+                        </div>
+                        <div class="lights-container">
+                            <div class="light-item">
+                                <span class="led-dot red"></span> Closed
+                            </div>
+                            <div class="light-item active-text">
+                                <span class="led-dot green active"></span> Open
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="links-wrapper">
