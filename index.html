@@ -193,13 +193,11 @@
             display: inline-block;
         }
 
-        /* PIROS LÁMPA (OFF) */
         .led-dot.red {
             background-color: #c0392b;
             opacity: 0.25;
         }
 
-        /* ZÖLD LÁMPA (ON / VILLOGÓ) */
         .led-dot.green.active {
             background-color: #27ae60;
             opacity: 1;
@@ -393,6 +391,43 @@
 
         .post-body-content p {
             margin: 0 0 14px 0;
+        }
+
+        /* --- GALLERY GRID / CSEMPÉS ELRENDEZÉS STÍLUS --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 2.5 / 3.5; /* MTG kártya arány */
+            border-radius: 14px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
         .post-date-meta {
@@ -1061,6 +1096,7 @@
 
             .address-row-2col { grid-template-columns: 1fr !important; }
             .style-options-grid { grid-template-columns: 1fr 1fr !important; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)) !important; gap: 10px !important; }
 
             .designs-scroll-container img { height: 420px !important; }
             .slider-external-btn { width: 38px; height: 38px; font-size: 16px; }
@@ -1104,6 +1140,7 @@
                     </div>
                     
                     <div class="links-wrapper">
+                        <a href="#gallerySection" class="link-item">gallery</a>
                         <a href="#commissionSection" class="link-item">commission</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
                         <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
@@ -1168,6 +1205,21 @@
 
                 <div class="post-date-meta">
                     <span>About Me</span>
+                    <a href="#top" class="back-to-top-link">↑ Back to top</a>
+                </div>
+            </article>
+
+            <!-- UJ GALLERY SECTION (CSEMPÉS ELRENDEZÉS) -->
+            <article class="custom-card-post" id="gallerySection">
+                <h2 class="info-block-title">Card Alters Gallery</h2>
+                <p style="text-align: center; font-size: 13.5px; color: #526359; margin-top: -10px;">Click on any card to zoom in and view details.</p>
+                
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- A JavaScript automatikusan feltölti az összes képpel -->
+                </div>
+
+                <div class="post-date-meta">
+                    <span>Gallery</span>
                     <a href="#top" class="back-to-top-link">↑ Back to top</a>
                 </div>
             </article>
@@ -1494,6 +1546,22 @@
         let currentProcessIndex = 0;
         let currentMtgIndex = 0;
 
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            allAboutImages.forEach((imgSrc, idx) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `<img src="${imgSrc}" loading="lazy" decoding="async" alt="MTG Card Alter ${idx + 1}">`;
+                item.addEventListener('click', () => {
+                    openLight(allAboutImages, idx);
+                });
+                grid.appendChild(item);
+            });
+        }
+
         function resetSlidersToStart() {
             currentProcessIndex = 0;
             currentMtgIndex = 0;
@@ -1585,6 +1653,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            renderGallery();
+
             document.getElementById('btnMtgPrev').addEventListener('click', () => scrollMtgSlider(-1));
             document.getElementById('btnMtgNext').addEventListener('click', () => scrollMtgSlider(1));
             document.getElementById('btnProcessPrev').addEventListener('click', () => scrollProcessSlider(-1));
@@ -1657,11 +1727,9 @@
                 });
             }
 
-            // ALAPHELYZETBE ÁLLÍTÁS DOM BETÖLTÉSKOR
             resetSlidersToStart();
         });
 
-        // ALAPHELYZETBE ÁLLÍTÁS TELJES BÖNGÉSZŐ-BETÖLTÉSKOR ÉS OLDAL MENTÉSEKRE/RÁFRISSÍTÉSEKRE (MOBILON IS)
         window.addEventListener('load', () => {
             setTimeout(resetSlidersToStart, 50);
             setTimeout(resetSlidersToStart, 300);
