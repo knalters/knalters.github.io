@@ -404,7 +404,7 @@
 
         .gallery-item {
             position: relative;
-            aspect-ratio: 2.5 / 3.5; /* MTG kártya arány */
+            aspect-ratio: 2.5 / 3.5;
             border-radius: 14px;
             overflow: hidden;
             background: rgba(0, 0, 0, 0.04);
@@ -1168,28 +1168,7 @@
                     <button class="slider-external-btn" id="btnMtgPrev" aria-label="Previous image">&#10094;</button>
                     
                     <div class="mtg-scroll-container" id="mtgSlider">
-                        <img src="images/solring03.png" alt="Custom MTG Alter Sol Ring" data-idx="0" loading="lazy">
-                        <img src="images/swamp01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Swamp" data-idx="1">
-                        <img src="images/titania06.png" loading="lazy" decoding="async" alt="Custom MTG Alter Titania" data-idx="2">
-                        <img src="images/journeytonowhere01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Journey to Nowhere" data-idx="3">
-                        <img src="images/pathtoexile01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Path to Exile" data-idx="4">
-                        <img src="images/deathbaron01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Death Baron" data-idx="5">
-                        <img src="images/plain02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Plain" data-idx="6">
-                        <img src="images/selvala02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Selvala" data-idx="7">
-                        <img src="images/demonictutor02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Demonic Tutor" data-idx="8">
-                        <img src="images/elvish01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Elvish" data-idx="9">
-                        <img src="images/faeriemacabre01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Faerie Macabre" data-idx="10">
-                        <img src="images/faerieseer01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Faerie Seer" data-idx="11">
-                        <img src="images/giada01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Giada" data-idx="12">
-                        <img src="images/greed01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Greed" data-idx="13">
-                        <img src="images/guardionoftheguildpact01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Guardian of the Guildpact" data-idx="14">
-                        <img src="images/harrier01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Harrier" data-idx="15">
-                        <img src="images/island02.png" loading="lazy" decoding="async" alt="Custom MTG Alter Island" data-idx="16">
-                        <img src="images/meren01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Meren" data-idx="17">
-                        <img src="images/kaalia01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Kaalia" data-idx="18">
-                        <img src="images/treasure01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Treasure Token" data-idx="19">
-                        <img src="images/urzastower01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Urza's Tower" data-idx="20">
-                        <img src="images/candytrail01.png" loading="lazy" decoding="async" alt="Custom MTG Alter Candy Trail" data-idx="21">
+                        <!-- Az Összes Kép Dinamikusan Feltöltve JavaScriptből -->
                     </div>
 
                     <button class="slider-external-btn" id="btnMtgNext" aria-label="Next image">&#10095;</button>
@@ -1209,7 +1188,7 @@
                 </div>
             </article>
 
-            <!-- UJ GALLERY SECTION (CSEMPÉS ELRENDEZÉS) -->
+            <!-- GALLERY SECTION (CSEMPÉS ELRENDEZÉS) -->
             <article class="custom-card-post" id="gallerySection">
                 <h2 class="info-block-title">Card Alters Gallery</h2>
                 <p style="text-align: center; font-size: 13.5px; color: #526359; margin-top: -10px;">Click on any card to zoom in and view details.</p>
@@ -1238,9 +1217,9 @@
                         <img src="images/05.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 4" data-idx="3">
                         <img src="images/06.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 5" data-idx="4">
                         <img src="images/07.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 6" data-idx="5">
-                        <img src="images/08.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 7" data-idx="6">
-                        <img src="images/10.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 8" data-idx="7">
-                        <img src="images/09.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 9" data-idx="8">
+                        <img src="images/08.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 7" data-idx="7">
+                        <img src="images/10.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 8" data-idx="8">
+                        <img src="images/09.png" loading="lazy" decoding="async" alt="MTG Commission Guide Step 9" data-idx="9">
                     </div>
 
                     <button class="slider-external-btn" id="btnProcessNext" aria-label="Next image">&#10095;</button>
@@ -1532,19 +1511,59 @@
             'images/06.png','images/07.png','images/08.png','images/10.png','images/09.png'
         ];
 
+        // TELEFON / PC / GALÉRIA ÖSSZES KÉP TELJES LISTÁJA
         const allAboutImages = [
-            'images/solring03.png','images/swamp01.png','images/titania06.png','images/journeytonowhere01.png',
-            'images/pathtoexile01.png','images/deathbaron01.png','images/plain02.png','images/selvala02.png',
-            'images/demonictutor02.png','images/elvish01.png','images/faeriemacabre01.png','images/faerieseer01.png',
-            'images/giada01.png','images/greed01.png','images/guardionoftheguildpact01.png','images/harrier01.png',
-            'images/island02.png','images/meren01.png','images/kaalia01.png','images/treasure01.png',
-            'images/urzastower01.png','images/candytrail01.png'
+            'images/alms01.png','images/arabella01.png','images/arcanesignet01.png','images/aveninterrupter01.png',
+            'images/balllighting01.png','images/bird01.png','images/blood01.png','images/bramblefamiliar01.png',
+            'images/candytrail01.png','images/carrionfeeder01.png','images/castintothefire01.png','images/chrysalis01.png',
+            'images/clockwork01.png','images/clockwork02.png','images/cloud01.png','images/clue01.png',
+            'images/colossushammer01.png','images/counterspell01.png','images/counterspell02.png','images/counterspell03.png',
+            'images/counterspell04.png','images/counterspell05.png','images/counterspell06.png','images/counterspell07.png',
+            'images/counterspell08.png','images/counterspell09.png','images/counterspell10.png','images/coyote01.png',
+            'images/cryogen01.png','images/cryogen02.png','images/darkritual01.png','images/darkritual02.png',
+            'images/deadly01.png','images/deathbaron01.png','images/demonictutor02.png','images/depala01.png',
+            'images/dreadpesence01.png','images/dreadreturn01.png','images/dreadreturn02.png','images/duress01.png',
+            'images/eldrazispawn01.png','images/elvish01.png','images/entomb01.png','images/faeriemacabre01.png',
+            'images/faerieseer01.png','images/faerieseer02.png','images/galvanic01.png','images/ghoucaller01.png',
+            'images/giada01.png','images/golgarithug01.png','images/greed01.png','images/guardionoftheguildpact01.png',
+            'images/harrier01.png','images/hero01.png','images/hylda01.png','images/island01.png',
+            'images/island02.png','images/island03.png','images/island04.png','images/island05.png',
+            'images/journeytonowhere01.png','images/kaalia01.png','images/lighting02.png','images/lightning01.png',
+            'images/lotleth01.png','images/lotuscobra01.png','images/manashort01.png','images/meren01.png',
+            'images/meren02.png','images/mikeyandleo01.png','images/monarch.png','images/nihilspellbomb.png',
+            'images/ninja01.png','images/nyxbornhydra01.png','images/nyxbornhydra02.png','images/pathtoexile01.png',
+            'images/plain02.png','images/plains01.png','images/prism01.png','images/quirion01.png',
+            'images/reanimate01.png','images/refurbished01.png','images/rhinar01.png','images/roadrunner01.png',
+            'images/sacredcat01.png','images/saguwilding01.png','images/samurai01.png','images/selvala01.png',
+            'images/selvala02.png','images/skred01.png','images/slyver01.png','images/slyver02.png',
+            'images/solring01.png','images/solring02.png','images/solring03.png','images/solring04.png',
+            'images/swamp01.png','images/swamp02.png','images/swamp03.png','images/swamp04.png',
+            'images/titania01.png','images/titania02.png','images/titania03.png','images/titania04.png',
+            'images/titania05.png','images/titania06.png','images/tolarianterror01.png','images/tolarianterror02.png',
+            'images/tolarianterror03.png','images/tolarianterror04.png','images/tolarianterror05.png','images/treasure01.png',
+            'images/urzastower01.png','images/voicevictory01.png','images/wellwisher01.png','images/wildmongler01.png',
+            'images/wildmongler02.png','images/wildmongler03.png','images/yuriko01.png','images/zombie01.png'
         ];
 
         let activeArray = [];
         let activeIdx = 0;
         let currentProcessIndex = 0;
         let currentMtgIndex = 0;
+
+        function renderMtgSlider() {
+            const slider = document.getElementById('mtgSlider');
+            if (!slider) return;
+            slider.innerHTML = '';
+            allAboutImages.forEach((imgSrc, idx) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `Custom MTG Alter ${idx + 1}`;
+                img.setAttribute('data-idx', idx);
+                img.loading = idx < 3 ? 'eager' : 'lazy';
+                if (idx >= 3) img.decoding = 'async';
+                slider.appendChild(img);
+            });
+        }
 
         function renderGallery() {
             const grid = document.getElementById('galleryGrid');
@@ -1653,6 +1672,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            renderMtgSlider();
             renderGallery();
 
             document.getElementById('btnMtgPrev').addEventListener('click', () => scrollMtgSlider(-1));
