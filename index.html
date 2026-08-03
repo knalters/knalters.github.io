@@ -634,7 +634,8 @@
         .form-group.has-error .radio-options-group,
         .form-group.has-error .style-options-grid,
         .form-group.has-error .data-privacy-container,
-        .form-group.has-error .captcha-box {
+        .form-group.has-error .captcha-box,
+        .form-group.has-error .card-details-box {
             border: 2px solid #b84a4a !important;
             background-color: #fdf5f5 !important;
         }
@@ -678,6 +679,72 @@
             border-color: #385445;
             background: #ffffff;
             box-shadow: 0 0 0 3px rgba(56, 84, 69, 0.12);
+        }
+
+        /* --- SZÉTSZEDETT CARD SELECTION STÍLUSOK --- */
+        .card-details-box {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background: #e9e6df;
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid rgba(56, 84, 69, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        .card-subfield {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .card-subfield span {
+            font-size: 11px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            color: #385445;
+            letter-spacing: 1px;
+        }
+
+        .radio-inline-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #fcfbf9;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(56, 84, 69, 0.18);
+        }
+
+        .radio-inline-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            color: #28322c;
+            font-weight: 400;
+        }
+
+        .radio-inline-group input[type="radio"] {
+            accent-color: #385445;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .card-row-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card-subfield textarea {
+            min-height: 60px !important;
+            padding: 10px 14px !important;
+            font-size: 13px !important;
         }
 
         .data-privacy-container {
@@ -1126,7 +1193,8 @@
                 margin: 0 0 15px 0 !important;
             }
 
-            .address-row-2col { grid-template-columns: 1fr !important; }
+            .address-row-2col,
+            .card-row-2col { grid-template-columns: 1fr !important; }
             .style-options-grid { grid-template-columns: 1fr 1fr !important; }
 
             .designs-scroll-container img { height: 420px !important; }
@@ -1323,10 +1391,44 @@
                         <span class="error-message-text">Please provide your handle or profile link.</span>
                     </div>
 
-                    <div class="form-group" id="grp_cards_to_alter">
-                        <label class="field-title" for="cards_to_alter">Which card or cards you want to be altered? <span class="field-status-tag required">(Required)</span></label>
-                        <textarea id="cards_to_alter" name="cards_to_alter" rows="3" placeholder="Card name, preferred edition, foil or non-foil..."></textarea>
-                        <span class="error-message-text">Please specify which card(s) you would like to alter.</span>
+                    <!-- --- ÚJ, SZÉTSZEDETT CARD DETAILS MEZŐCSOPORT --- -->
+                    <div class="form-group" id="grp_card_details_section">
+                        <label class="field-title">Card Information <span class="field-status-tag required">(Required)</span></label>
+                        
+                        <div class="card-details-box">
+                            
+                            <!-- 1. Card Name(s) -->
+                            <div class="card-subfield" id="grp_card_names">
+                                <span>Card Name(s) <span class="field-status-tag required">(Required)</span></span>
+                                <input type="text" id="card_names" name="card_names" placeholder="e.g. Sol Ring / Counterspell (multiple cards separated by comma)">
+                            </div>
+
+                            <!-- 2. Finish & Edition 2-Column Grid -->
+                            <div class="card-row-2col">
+                                <!-- Foil vs Non-Foil -->
+                                <div class="card-subfield" id="grp_card_finish">
+                                    <span>Finish <span class="field-status-tag required">(Required)</span></span>
+                                    <div class="radio-inline-group">
+                                        <label><input type="radio" name="card_finish" value="Non-Foil"> Non-Foil</label>
+                                        <label><input type="radio" name="card_finish" value="Foil"> Foil</label>
+                                    </div>
+                                </div>
+
+                                <!-- Edition / Set -->
+                                <div class="card-subfield">
+                                    <span>Card Edition / Set <span class="field-status-tag optional">(Optional)</span></span>
+                                    <input type="text" name="card_edition" placeholder="e.g. Commander Masters / Any">
+                                </div>
+                            </div>
+
+                            <!-- 3. Additional Card Details (Összehúzott szabadszöveg) -->
+                            <div class="card-subfield">
+                                <span>Additional Card Details <span class="field-status-tag optional">(Optional)</span></span>
+                                <textarea name="card_extra_info" rows="2" placeholder="Any specific requirements about language, condition, or card version..."></textarea>
+                            </div>
+
+                        </div>
+                        <span class="error-message-text" id="err_card_details">Please fill in the required card name and select a finish (Foil / Non-Foil)!</span>
                     </div>
 
                     <div class="form-group" id="grp_card_provider">
@@ -1571,7 +1673,6 @@
 
         // ÚJ, EGYEDI SORRENDŰ KÉPLISTA
         const allAboutImages = [
-            // 1. Kért kiemelt sorrend:
             'images/selvala01.png',
             'images/counterspell10.png',
             'images/darkritual01.png',
@@ -1591,8 +1692,6 @@
             'images/tolarianterror02.png',
             'images/tolarianterror03.png',
             'images/tolarianterror04.png',
-
-            // 2. A többi kép ahogy jön (A-Z ábécé sorrendben):
             'images/alms01.png',
             'images/arabella01.png',
             'images/arcanesignet01.png',
@@ -1817,7 +1916,6 @@
                 }
             });
 
-            // GÖRGETÉS ÉS SWIPE ÉRZÉKELÉSE A GALÉRIÁBAN (MTG SLIDER)
             const mtgContainer = document.getElementById('mtgSlider');
             if (mtgContainer) {
                 mtgContainer.addEventListener('scroll', () => {
@@ -1920,7 +2018,7 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
-                // HONEYPOT ELEMZÉS: Ha ki van töltve a rejtett mező, csendben elutasítjuk (bot)
+                // HONEYPOT ELEMZÉS
                 const hpValue = form.elements['website_hp'] ? form.elements['website_hp'].value : '';
                 if (hpValue) {
                     console.warn('Bot submission blocked via Honeypot.');
@@ -1945,7 +2043,14 @@
                 if (!document.getElementById('full_name').value.trim()) markError('grp_full_name');
                 if (!document.querySelector('input[name="platform"]:checked')) markError('grp_platform');
                 if (!document.getElementById('profile_tag').value.trim()) markError('grp_profile_tag');
-                if (!document.getElementById('cards_to_alter').value.trim()) markError('grp_cards_to_alter');
+                
+                // CARD DETAILS VALIDATION
+                const cardNamesVal = document.getElementById('card_names').value.trim();
+                const cardFinishVal = document.querySelector('input[name="card_finish"]:checked');
+                if (!cardNamesVal || !cardFinishVal) {
+                    markError('grp_card_details_section');
+                }
+
                 if (!document.querySelector('input[name="card_provider"]:checked')) markError('grp_card_provider');
 
                 const checkedTypes = Array.from(document.querySelectorAll('input[name="types"]:checked'))
@@ -2034,14 +2139,14 @@
                         document.getElementById('modalSuccessState').style.display = 'flex';
                         btn.disabled = false;
                         form.reset();
-                        initCaptcha(); // Captcha újragenerálása
+                        initCaptcha();
                     })
                     .catch(() => {
                         document.getElementById('modalLoadingState').style.display = 'none';
                         document.getElementById('modalSuccessState').style.display = 'flex';
                         btn.disabled = false;
                         form.reset();
-                        initCaptcha(); // Captcha újragenerálása
+                        initCaptcha();
                     });
             });
         }
