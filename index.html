@@ -506,7 +506,7 @@
             border-left: 4px solid #385445;
             border-radius: 14px;
             padding: 18px 22px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 13px;
             line-height: 1.6;
             color: #28322c;
@@ -523,6 +523,72 @@
             letter-spacing: 0.5px;
             display: block;
             margin-bottom: 8px;
+        }
+
+        /* --- KIEMELT VÁRAKOZÁSI IDŐ DOBOZ --- */
+        .wait-time-banner {
+            background: rgba(217, 119, 6, 0.1);
+            border: 1.5px dashed #d97706;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin: 12px 0 16px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .wait-time-icon {
+            font-size: 20px;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .wait-time-text {
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: #7c2d12;
+            margin: 0 !important;
+        }
+
+        .wait-time-text strong {
+            color: #9a3412;
+            font-weight: 700;
+        }
+
+        /* --- SIMPLE CAPTCHA & HONEYPOT STYLES --- */
+        .captcha-box {
+            background: #e9e6df;
+            padding: 16px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(56, 84, 69, 0.18);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .captcha-challenge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #23352b;
+        }
+
+        .captcha-question {
+            background: #385445;
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .hp-field {
+            display: none !important;
+            visibility: hidden !important;
         }
 
         .custom-form-container {
@@ -560,13 +626,15 @@
         .field-status-tag.optional { color: #6d7d74; }
 
         .form-group.has-error input[type="text"],
+        .form-group.has-error input[type="number"],
         .form-group.has-error input[type="email"],
         .form-group.has-error input[type="url"],
         .form-group.has-error input[type="tel"],
         .form-group.has-error textarea,
         .form-group.has-error .radio-options-group,
         .form-group.has-error .style-options-grid,
-        .form-group.has-error .data-privacy-container {
+        .form-group.has-error .data-privacy-container,
+        .form-group.has-error .captcha-box {
             border: 2px solid #b84a4a !important;
             background-color: #fdf5f5 !important;
         }
@@ -583,6 +651,7 @@
         .form-group.has-error .error-message-text { display: block; }
 
         .form-group input[type="text"],
+        .form-group input[type="number"],
         .form-group input[type="email"],
         .form-group input[type="url"],
         .form-group input[type="tel"],
@@ -1196,6 +1265,16 @@
                 
                 <div class="form-welcome-box">
                     <span class="welcome-heading">Welcome to my altering world!✨</span>
+                    
+                    <!-- KIEMELT VÁRAKOZÁSI IDŐ FIGYELMEZTETÉS -->
+                    <div class="wait-time-banner">
+                        <span class="wait-time-icon">⏳</span>
+                        <p class="wait-time-text">
+                            <strong>Important Note on Turnaround Time:</strong><br>
+                            Due to high demand, the current estimated wait time for new commissions is <strong>3–4 months</strong>. Thank you so much for your patience and support!
+                        </p>
+                    </div>
+
                     <p>Please fill this form if you are thinking about getting an alter from me!</p>
                     <p>There will be some questions of your ideas of altering a card (which card, what type of alter and the main theme), and there will be some questions about your location. Your shipping address is only needed if you've decided to commission me, so if you haven't decided yet, just skip those questions.</p>
                     <p>I will not keep or use your personal informations, I will not send you newsletters and I will delete your form right after the commission is over (if you have your altered card in your own hands) OR you've decided not to commission me OR you ask me not to delete, because you are planning to commission me in the future.</p>
@@ -1204,6 +1283,9 @@
 
                 <form id="customCommissionForm" class="custom-form-container" novalidate>
                     
+                    <!-- HONEYPOT FIELD FOR BOT PROTECTION (HIDDEN FROM USERS) -->
+                    <input type="text" name="website_hp" class="hp-field" tabindex="-1" autocomplete="off">
+
                     <div class="form-group" id="grp_gdpr">
                         <div class="data-privacy-container">
                             <div class="data-privacy-notice">
@@ -1407,6 +1489,19 @@
                         <input type="tel" id="phone_number" name="phone_number" placeholder="e.g. +36 30 123 4567 (International format)">
                     </div>
 
+                    <!-- BOT VÉDELEM / MATH CAPTCHA -->
+                    <div class="form-group" id="grp_captcha">
+                        <label class="field-title">Anti-Bot Verification <span class="field-status-tag required">(Required)</span></label>
+                        <div class="captcha-box">
+                            <div class="captcha-challenge">
+                                <span>Please solve this simple math problem:</span>
+                                <span class="captcha-question" id="captchaMathLabel">? + ?</span>
+                            </div>
+                            <input type="number" id="captchaAnswer" placeholder="Your answer" style="max-width: 180px;">
+                        </div>
+                        <span class="error-message-text">Incorrect security answer. Please try again!</span>
+                    </div>
+
                     <button type="submit" id="submitBtn" class="submit-btn">Send Commission Request</button>
                     
                     <p class="form-privacy-note"> Your data is kept strictly private and sent directly to the artist.</p>
@@ -1453,6 +1548,21 @@
 
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxiXFmXT2t_I8AU2ZPe6W6A9hxy3Eio8Mc727Gsn0qDGI5ndmRDGmJ0g3Dlxz_zRgbo/exec';
+
+        // CAPTCHA VARS
+        let num1 = 0;
+        let num2 = 0;
+        let expectedCaptchaResult = 0;
+
+        function initCaptcha() {
+            num1 = Math.floor(Math.random() * 8) + 2; // 2..9
+            num2 = Math.floor(Math.random() * 8) + 1; // 1..8
+            expectedCaptchaResult = num1 + num2;
+            const label = document.getElementById('captchaMathLabel');
+            if (label) {
+                label.textContent = `${num1} + ${num2} = ?`;
+            }
+        }
 
         const allProcessImages = [
             'images/01.png','images/03.png','images/04.png','images/05.png',
@@ -1686,6 +1796,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             renderMtgSlider();
+            initCaptcha();
 
             document.getElementById('btnMtgPrev').addEventListener('click', () => scrollMtgSlider(-1));
             document.getElementById('btnMtgNext').addEventListener('click', () => scrollMtgSlider(1));
@@ -1808,6 +1919,14 @@
         if (form) {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
+
+                // HONEYPOT ELEMZÉS: Ha ki van töltve a rejtett mező, csendben elutasítjuk (bot)
+                const hpValue = form.elements['website_hp'] ? form.elements['website_hp'].value : '';
+                if (hpValue) {
+                    console.warn('Bot submission blocked via Honeypot.');
+                    return;
+                }
+
                 document.querySelectorAll('.form-group').forEach(grp => grp.classList.remove('has-error'));
 
                 let isValid = true;
@@ -1854,6 +1973,12 @@
                 if (!document.querySelector('input[name="deadline"]:checked')) markError('grp_deadline');
                 if (!document.querySelector('input[name="social_permission"]:checked')) markError('grp_social_permission');
 
+                // CAPTCHA VALIDÁCIÓ
+                const userCaptchaAns = parseInt(document.getElementById('captchaAnswer').value.trim(), 10);
+                if (isNaN(userCaptchaAns) || userCaptchaAns !== expectedCaptchaResult) {
+                    markError('grp_captcha');
+                }
+
                 if (!isValid) {
                     if (firstErrorElem) firstErrorElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     return;
@@ -1871,7 +1996,7 @@
 
                 for (let i = 0; i < elements.length; i++) {
                     const el = elements[i];
-                    if (!el.name || (el.type === 'radio' && !el.checked) || (el.type === 'checkbox' && (el.name === 'types' || !el.checked))) continue;
+                    if (!el.name || el.name === 'website_hp' || (el.type === 'radio' && !el.checked) || (el.type === 'checkbox' && (el.name === 'types' || !el.checked))) continue;
                     formData[el.name] = el.value;
                 }
                 formData['types'] = checkedTypes;
@@ -1909,12 +2034,14 @@
                         document.getElementById('modalSuccessState').style.display = 'flex';
                         btn.disabled = false;
                         form.reset();
+                        initCaptcha(); // Captcha újragenerálása
                     })
                     .catch(() => {
                         document.getElementById('modalLoadingState').style.display = 'none';
                         document.getElementById('modalSuccessState').style.display = 'flex';
                         btn.disabled = false;
                         form.reset();
+                        initCaptcha(); // Captcha újragenerálása
                     });
             });
         }
