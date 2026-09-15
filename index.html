@@ -576,6 +576,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
+        /* TÖKÉLETESEN BEIGAZÍTOTT CÍMSOR MOBILRA ÉS GÉPRE */
         .newsletter-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(12px, 3.5vw, 14px) !important;
@@ -620,6 +621,7 @@
             box-shadow: 0 0 0 3px rgba(56, 84, 69, 0.12);
         }
 
+        /* --- PROFI, PROPORCIONÁLIS MOBIL RESPONZÍV GOMB --- */
         .newsletter-btn {
             display: flex;
             align-items: center;
@@ -730,6 +732,7 @@
             background-color: #385445;
         }
 
+        /* POZÍCIÓ ÉS Z-INDEX JAVÍTÁS A LEBEGŐ TOP GOMBRA */
         .floating-top-btn {
             position: fixed;
             bottom: 25px;
@@ -1498,10 +1501,10 @@
                 });
             }
 
-            // WAITLIST BEKÜLDÉS HANDLING - HELYES ASZINKRON BEKÖTÉSSELE
+            // WAITLIST BEKÜLDÉS HANDLING (EREDETI, MŰKÖDŐ ASZINKRON PROMISE LOGIKA)
             const waitlistForm = document.getElementById('waitlistForm');
             if (waitlistForm) {
-                waitlistForm.addEventListener('submit', function(e) {
+                waitlistForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
 
                     const hpValue = waitlistForm.elements['website_hp'] ? waitlistForm.elements['website_hp'].value : '';
@@ -1512,7 +1515,6 @@
 
                     if (!nameVal || !emailVal) return;
 
-                    // Modal ablak megjelenítése
                     document.getElementById('modalLoadingState').style.display = 'flex';
                     document.getElementById('modalSuccessState').style.display = 'none';
                     document.getElementById('statusModalOverlay').style.display = 'flex';
@@ -1520,7 +1522,7 @@
                     const btn = document.getElementById('waitlistBtn');
                     btn.disabled = true;
 
-                    // Beküldendő adatok
+                    // Adatok összefűzése a meglévő táblázathoz (külön megjelölve a types mezőben!)
                     const formData = {
                         full_name: nameVal,
                         email: emailVal,
@@ -1530,28 +1532,28 @@
                         theme_description: 'User subscribed to re-opening waitlist'
                     };
 
-                    // Kérés küldése az Apps Scriptnek
-                    fetch(scriptURL, {
+                    const fetchPromise = fetch(scriptURL, {
                         method: 'POST',
                         mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'text/plain;charset=utf-8'
-                        },
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(formData)
-                    })
-                    .then(() => {
-                        document.getElementById('modalLoadingState').style.display = 'none';
-                        document.getElementById('modalSuccessState').style.display = 'flex';
-                        btn.disabled = false;
-                        waitlistForm.reset();
-                    })
-                    .catch((err) => {
-                        console.error('Submit error:', err);
-                        document.getElementById('modalLoadingState').style.display = 'none';
-                        document.getElementById('modalSuccessState').style.display = 'flex';
-                        btn.disabled = false;
-                        waitlistForm.reset();
                     });
+
+                    const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 10000));
+
+                    Promise.race([fetchPromise, timeoutPromise])
+                        .then(() => {
+                            document.getElementById('modalLoadingState').style.display = 'none';
+                            document.getElementById('modalSuccessState').style.display = 'flex';
+                            btn.disabled = false;
+                            waitlistForm.reset();
+                        })
+                        .catch(() => {
+                            document.getElementById('modalLoadingState').style.display = 'none';
+                            document.getElementById('modalSuccessState').style.display = 'flex';
+                            btn.disabled = false;
+                            waitlistForm.reset();
+                        });
                 });
             }
 
