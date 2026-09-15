@@ -221,16 +221,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
             width: 100%;
             background-color: #385445;
             color: #ffffff;
             text-decoration: none;
-            padding: 14px 18px;
-            font-size: clamp(11px, 1vw, 13px);
+            padding: 16px 24px;
+            font-size: 13px;
             font-family: 'Space Grotesk', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             font-weight: 700;
             border-radius: 14px;
             text-align: center;
@@ -242,7 +241,6 @@
             transition: all 0.3s ease;
             z-index: 1;
             border: none;
-            line-height: 1.2;
         }
 
         .inline-cta-btn::before {
@@ -576,23 +574,14 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        /* TÖKÉLETESEN BEIGAZÍTOTT CÍMSOR MOBILRA ÉS GÉPRE */
         .newsletter-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(12px, 3.5vw, 14px) !important;
+            font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 1.5px;
             color: #23352b;
             margin: 0;
-            text-align: center !important;
-            width: 100%;
-            line-height: 1.4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
         }
 
         .newsletter-form-row {
@@ -621,36 +610,21 @@
             box-shadow: 0 0 0 3px rgba(56, 84, 69, 0.12);
         }
 
-        /* --- PROFI, PROPORCIONÁLIS MOBIL RESPONZÍV GOMB --- */
         .newsletter-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
             background-color: #385445;
             color: #ffffff;
             border: none;
-            padding: 14px 16px;
+            padding: 14px 20px;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(11px, 3.2vw, 12.5px);
+            font-size: 12.5px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 1.5px;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.25s ease;
             width: 100%;
-            box-sizing: border-box;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-            line-height: 1.2;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        .newsletter-btn .btn-icon {
-            font-size: 15px;
-            line-height: 1;
-            flex-shrink: 0;
         }
 
         .newsletter-btn:hover {
@@ -732,24 +706,23 @@
             background-color: #385445;
         }
 
-        /* POZÍCIÓ ÉS Z-INDEX JAVÍTÁS A LEBEGŐ TOP GOMBRA */
         .floating-top-btn {
             position: fixed;
-            bottom: 25px;
-            left: 20px;
+            bottom: 30px;
+            left: 30px;
             background: #385445;
             color: #ffffff;
             border: none;
-            padding: 10px 16px;
+            padding: 12px 18px;
             border-radius: 30px;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
             text-decoration: none;
-            z-index: 99999;
+            z-index: 9999;
             transition: all 0.3s ease;
         }
 
@@ -953,32 +926,16 @@
                 margin: 0 0 15px 0 !important;
             }
 
-            .contact-post {
-                padding-bottom: 50px !important;
-            }
-
             .newsletter-form-row { grid-template-columns: 1fr !important; }
-
-            .newsletter-btn {
-                padding: 13px 10px !important;
-                font-size: 11px !important;
-                letter-spacing: 0.8px !important;
-            }
-
-            .inline-cta-btn {
-                padding: 13px 12px !important;
-                font-size: 11.5px !important;
-                letter-spacing: 1px !important;
-            }
 
             .designs-scroll-container img { height: 420px !important; }
             .slider-external-btn { width: 38px; height: 38px; font-size: 16px; }
 
             .floating-top-btn {
                 bottom: 20px;
-                left: 15px;
-                padding: 9px 14px;
-                font-size: 9.5px;
+                left: 20px;
+                padding: 10px 14px;
+                font-size: 10px;
             }
 
             .sidebar-footer { display: none !important; }
@@ -1053,7 +1010,7 @@
                 </div>
 
                 <a href="#contactFormSection" class="inline-cta-btn">
-                    <span class="btn-icon">🔔</span> Get Notified When Slots Open <span class="btn-icon">🔔</span>
+                    🔔 Get Notified When Slots Open 🔔
                 </a>
 
                 <div class="post-date-meta">
@@ -1092,7 +1049,7 @@
                 </div>
 
                 <a href="#contactFormSection" class="inline-cta-btn">
-                    <span class="btn-icon">🔔</span> Get Notified When Slots Open <span class="btn-icon">🔔</span>
+                    🔔 Get Notified When Slots Open 🔔
                 </a>
 
                 <div class="post-date-meta">
@@ -1119,9 +1076,7 @@
 
                     <!-- E-MAIL WAITLIST FORM -->
                     <form id="waitlistForm" class="newsletter-card-box">
-                        <h3 class="newsletter-title">
-                            <span>📩</span> <span>Get Notified on Next Opening</span>
-                        </h3>
+                        <h3 class="newsletter-title">📩 Get Notified on Next Opening</h3>
                         
                         <!-- HONEYPOT FIELD -->
                         <input type="text" name="website_hp" class="hp-field" tabindex="-1" autocomplete="off">
@@ -1136,9 +1091,7 @@
                             <label for="waitlist_gdpr">I agree to receive a one-time email notification when custom commissions reopen.</label>
                         </div>
 
-                        <button type="submit" id="waitlistBtn" class="newsletter-btn">
-                            <span class="btn-icon">🔔</span> <span>Notify Me When Slots Open</span>
-                        </button>
+                        <button type="submit" id="waitlistBtn" class="newsletter-btn">🔔 Notify Me When Slots Open</button>
                     </form>
 
                     <p style="margin-top: 20px; font-size: 12px; color: #6d7d74; text-align: center;">
@@ -1192,7 +1145,7 @@
     </div>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxiXFmXT2t_I8AU2ZPe6W6A9hxy3Eio8Mc727Gsn0qDGI5ndmRDGmJ0g3Dlxz_zRgbo/dev';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxx815xbMkItRwIzAw6kyScUnqUTQTVDy92j36Wjljf6o3y9IeExqPEGjO_b3xW4AEz/exec';
 
         const allProcessImages = [
             'images/01.png','images/03.png','images/04.png','images/05.png',
@@ -1501,7 +1454,7 @@
                 });
             }
 
-            // WAITLIST BEKÜLDÉS HANDLING (EREDETI, MŰKÖDŐ ASZINKRON PROMISE LOGIKA)
+            // WAITLIST BEKÜLDÉS HANDLING
             const waitlistForm = document.getElementById('waitlistForm');
             if (waitlistForm) {
                 waitlistForm.addEventListener('submit', async (e) => {
