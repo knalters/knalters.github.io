@@ -988,7 +988,7 @@
             <article class="custom-card-post" id="aboutSection">
                 <h1 class="main-seo-h1">MTG Card Alterations & Custom Commissions</h1>
                 <div class="post-body-content">
-                    <p><strong>About me:</strong> My name is Nora, I live in Hungary (mid Europe). I am a mother of 2 baby potatoes (2 and 4 yo). I started altering in December of 2024 for fun.</p>
+                    <p><strong>About me:</strong> My name is Nora, I live in Hungary (mid Europe). I am a mother of 2 baby potatoes (2 and 4 yo).</p>
                     <p>I am not a full time alterist, so I usually paint at nights (10 pm- 2 am) when my kids are sleeping, the house is quiet enough and I have enough energy to enjoy painting.</p>
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
@@ -1129,10 +1129,16 @@
                 <p class="modal-desc">Adding you to the notification list, please wait a moment!</p>
             </div>
 
-            <div id="modalSuccessState" style="display: none; flex-direction: column; align-items: center; gap: 16px;">
+            <div id="modalSuccessState" style="display: none; flex-direction: column; align-items: center; gap: 14px;">
                 <div class="modal-success-icon">&check;</div>
                 <h3 class="modal-title">You're on the list! 🎉</h3>
                 <p class="modal-desc">Thank you! I'll send you an email as soon as custom commission slots reopen.</p>
+                
+                <!-- SPAM MAPPA FIGYELMEZTETÉS -->
+                <p style="font-size: 11.5px; color: #7f8c8d; line-height: 1.4; margin: 4px 0 0 0; font-style: italic;">
+                    (Please check your Spam / Promotions folder if you don't see our confirmation email in your primary inbox.)
+                </p>
+
                 <button class="modal-close-btn" id="modalCloseBtn">Close</button>
             </div>
         </div>
@@ -1469,13 +1475,14 @@
                     const btn = document.getElementById('waitlistBtn');
                     btn.disabled = true;
 
-                    // Adatok összefűzése a meglévő táblázathoz
+                    // Adatok összefűzése a meglévő táblázathoz (külön megjelölve a types mezőben!)
                     const formData = {
                         full_name: nameVal,
                         email: emailVal,
+                        gdpr: true,
                         types: 'NEWSLETTER / WAITLIST ONLY',
-                        card_names: 'NOTIFICATION WAITLIST',
-                        card_extra_info: 'User subscribed to re-opening waitlist'
+                        cards_to_alter: 'NOTIFICATION WAITLIST',
+                        theme_description: 'User subscribed to re-opening waitlist'
                     };
 
                     const fetchPromise = fetch(scriptURL, {
