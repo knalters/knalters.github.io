@@ -576,14 +576,23 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
+        /* TÖKÉLETESEN BEIGAZÍTOTT CÍMSOR MOBILRA ÉS GÉPRE */
         .newsletter-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 14px;
+            font-size: clamp(12px, 3.5vw, 14px) !important;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             color: #23352b;
             margin: 0;
+            text-align: center !important;
+            width: 100%;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .newsletter-form-row {
@@ -723,23 +732,24 @@
             background-color: #385445;
         }
 
+        /* POZÍCIÓ ÉS Z-INDEX JAVÍTÁS A LEBEGŐ TOP GOMBRA */
         .floating-top-btn {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 25px;
+            left: 20px;
             background: #385445;
             color: #ffffff;
             border: none;
-            padding: 12px 18px;
+            padding: 10px 16px;
             border-radius: 30px;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1.2px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
             text-decoration: none;
-            z-index: 9999;
+            z-index: 99999;
             transition: all 0.3s ease;
         }
 
@@ -943,6 +953,11 @@
                 margin: 0 0 15px 0 !important;
             }
 
+            /* PLUSZ ALSÓ TÉRKÖZ A FORM KÁRTYÁNÁL MOBILON */
+            .contact-post {
+                padding-bottom: 50px !important;
+            }
+
             .newsletter-form-row { grid-template-columns: 1fr !important; }
 
             .newsletter-btn {
@@ -962,9 +977,9 @@
 
             .floating-top-btn {
                 bottom: 20px;
-                left: 20px;
-                padding: 10px 14px;
-                font-size: 10px;
+                left: 15px;
+                padding: 9px 14px;
+                font-size: 9.5px;
             }
 
             .sidebar-footer { display: none !important; }
@@ -1105,7 +1120,9 @@
 
                     <!-- E-MAIL WAITLIST FORM -->
                     <form id="waitlistForm" class="newsletter-card-box">
-                        <h3 class="newsletter-title">📩 Get Notified on Next Opening</h3>
+                        <h3 class="newsletter-title">
+                            <span>📩</span> <span>Get Notified on Next Opening</span>
+                        </h3>
                         
                         <!-- HONEYPOT FIELD -->
                         <input type="text" name="website_hp" class="hp-field" tabindex="-1" autocomplete="off">
