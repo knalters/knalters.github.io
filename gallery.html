@@ -162,7 +162,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-sizing: border-box;
             width: 100%;
-            max-width: 800px;
+            max-width: 950px; /* Nagyobb felület monitoron */
             margin: 0 auto;
             position: relative;
         }
@@ -192,14 +192,14 @@
             border-radius: 2px;
         }
 
-        /* --- GRID ÉS A KÁRTYA FELETT LEBEGŐ LATEST BADGE --- */
+        /* --- DINAMIKUS, SKÁLÁZÓDÓ GRID MONITORRA IS --- */
         .full-gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 25px 18px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px 20px;
             width: 100%;
             box-sizing: border-box;
-            padding-top: 15px; /* Helyet hagyunk a lebegő badge-eknek */
+            padding-top: 20px;
         }
 
         .gallery-card-item {
@@ -209,41 +209,42 @@
             align-items: center;
             width: 100%;
             aspect-ratio: 180 / 252;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .gallery-card-item img {
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
-            border-radius: 12px;
+            border-radius: 14px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .gallery-card-item:hover img {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
         }
 
+        /* LATEST BADGE PONTOSAN A KÁRTYA FÖLÉ LEBEGVE */
         .latest-badge-tag {
             position: absolute;
-            top: -12px; /* PONTOSAN A KÉP FÖLÉ HELYEZVE */
+            top: -14px;
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(135deg, #e07a5f 0%, #f4a261 100%);
             color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 9px;
+            font-size: 10px;
             font-weight: 700;
-            letter-spacing: 1.2px;
-            padding: 3px 10px;
-            border-radius: 12px;
+            letter-spacing: 1.5px;
+            padding: 4px 12px;
+            border-radius: 14px;
             border: 1.5px solid #ffffff;
             pointer-events: none;
             z-index: 10;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
             animation: pulseGlowWarm 1.8s infinite;
             text-transform: uppercase;
             white-space: nowrap;
@@ -264,7 +265,7 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #6d7d74;
-            margin-top: 25px;
+            margin-top: 30px;
             border-top: 1px solid rgba(56, 84, 69, 0.1);
             padding-top: 12px;
         }
@@ -352,7 +353,12 @@
             .sticky-container { position: relative !important; top: 0 !important; }
             .feed-container { width: 100% !important; padding: 10px 15px 30px 15px !important; }
             .info-block { width: 100% !important; padding: 20px 15px !important; }
-            .full-gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 20px 12px; }
+            
+            /* MOBILON VISSZAÁLL 2 OSZLOPOSRA */
+            .full-gallery-grid { 
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
+                gap: 25px 12px; 
+            }
         }
     </style>
 </head>
@@ -370,6 +376,7 @@
                     </div>
                     
                     <div class="links-wrapper">
+                        <a href="index.html#top" class="link-item">home</a>
                         <a href="index.html#commissionSection" class="link-item">commission</a>
                         <a href="gallery.html" class="link-item active">gallery</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
