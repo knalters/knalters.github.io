@@ -149,7 +149,7 @@
             position: relative;
         }
 
-        /* --- DESIGNES ELEM 1: BANNER / HEADER CARD --- */
+        /* BANNER HEADER */
         .gallery-header-banner {
             background: linear-gradient(135deg, #1f3328 0%, #2e4437 100%);
             color: #f2f0eb;
@@ -192,7 +192,7 @@
             white-space: nowrap;
         }
 
-        /* --- DESIGNES ELEM 2: DINAMIKUS SZŰRŐSÁV --- */
+        /* SZŰRŐSÁV - CSUPÁN 2 KATEGÓRIA */
         .filter-bar-container {
             display: flex;
             gap: 10px;
@@ -211,7 +211,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.2px;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -225,7 +225,7 @@
             box-shadow: 0 3px 10px rgba(56, 84, 69, 0.2);
         }
 
-        /* --- LÁTVÁNYOS MŰVÉSZI GRID --- */
+        /* GALÉRIA GRID */
         .full-gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -262,7 +262,6 @@
             border-color: rgba(244, 162, 97, 0.6);
         }
 
-        /* LATEST BADGE PONTOSAN A KÁRTYA FÖLÉ LEBEGVE */
         .latest-badge-tag {
             position: absolute;
             top: -14px;
@@ -420,7 +419,7 @@
         <div class="feed-container">
             <div class="info-block">
                 
-                <!-- STÍLUSOS FEJLÉC BANNER -->
+                <!-- FEJLÉC BANNER -->
                 <div class="gallery-header-banner">
                     <div class="banner-info-group">
                         <h1>Artwork Archive</h1>
@@ -431,12 +430,10 @@
                     </div>
                 </div>
 
-                <!-- DYNAMIC FILTER BAR -->
+                <!-- SZŰRŐSÁV CSUPÁN 2 GOMBBAL -->
                 <div class="filter-bar-container">
                     <button class="filter-chip active" data-filter="all">All Alters</button>
                     <button class="filter-chip" data-filter="latest">Latest Works ✨</button>
-                    <button class="filter-chip" data-filter="lands">Basic Lands</button>
-                    <button class="filter-chip" data-filter="spells">Commands & Spells</button>
                 </div>
                 
                 <div class="full-gallery-grid" id="fullGalleryGrid">
@@ -640,7 +637,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderFullGallery(allAboutImages);
 
-            // SZŰRŐ GOMBOK MŰKÖDTETÉSE
             const filterChips = document.querySelectorAll('.filter-chip');
             filterChips.forEach(chip => {
                 chip.addEventListener('click', (e) => {
@@ -652,12 +648,6 @@
                         renderFullGallery(allAboutImages);
                     } else if (filter === 'latest') {
                         renderFullGallery(newlyUploadedImages);
-                    } else if (filter === 'lands') {
-                        const lands = allAboutImages.filter(img => img.includes('swamp') || img.includes('plain') || img.includes('island'));
-                        renderFullGallery(lands);
-                    } else if (filter === 'spells') {
-                        const spells = allAboutImages.filter(img => img.includes('counterspell') || img.includes('ritual') || img.includes('path') || img.includes('tutor'));
-                        renderFullGallery(spells);
                     }
                 });
             });
