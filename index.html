@@ -216,44 +216,64 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(192, 57, 43, 0), 0 0 4px #c0392b; }
         }
 
-        /* --- KÁRTYA KONTÉNER ÉS A KÉP FELETT LEBEGŐ BADGE --- */
-        .card-item-container {
-            position: relative;
-            display: inline-block;
-            flex-shrink: 0;
-            width: 180px;
-            height: 252px;
-            margin-top: 15px; /* Hely a kép felett lebegő badge-nek */
-            scroll-snap-align: center;
-            scroll-snap-stop: always;
+        /* --- FULL GALLERY GRID ÉS LATEST BADGE STÍLUSOK --- */
+        .full-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+            box-sizing: border-box;
         }
 
-        .new-badge-tag {
+        .gallery-card-item {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            aspect-ratio: 180 / 252;
+        }
+
+        .gallery-card-item img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .gallery-card-item:hover img {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+        }
+
+        .latest-badge-tag {
             position: absolute;
-            top: -12px; /* A kép felső szegélye felett helyezkedik el */
-            left: 50%;
-            transform: translateX(-50%);
+            top: 8px;
+            right: 8px;
             background: linear-gradient(135deg, #e07a5f 0%, #f4a261 100%);
             color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1.5px solid #ffffff;
+            letter-spacing: 1.2px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid #ffffff;
             pointer-events: none;
             z-index: 10;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             animation: pulseGlowWarm 1.8s infinite;
             text-transform: uppercase;
-            white-space: nowrap;
         }
 
         @keyframes pulseGlowWarm {
-            0% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.8), 0 4px 10px rgba(0,0,0,0.25); }
-            50% { transform: translateX(-50%) scale(1.08); box-shadow: 0 0 0 6px rgba(244, 162, 97, 0), 0 6px 18px rgba(244, 162, 97, 0.6); }
-            100% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0), 0 4px 10px rgba(0,0,0,0.25); }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.8), 0 2px 6px rgba(0,0,0,0.25); }
+            50% { transform: scale(1.08); box-shadow: 0 0 0 5px rgba(244, 162, 97, 0), 0 4px 14px rgba(244, 162, 97, 0.6); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0), 0 2px 6px rgba(0,0,0,0.25); }
         }
 
         /* JAVÍTOTT CTA GOMB STÍLUS */
@@ -484,7 +504,7 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            padding: 15px 0 10px 0; /* Megnövelt felső padding a lebegő badge-eknek */
+            padding: 5px 0 10px 0;
             width: 100%;
             box-sizing: border-box;
             -webkit-overflow-scrolling: touch;
@@ -514,11 +534,14 @@
             border-radius: 12px;
             display: block;
             cursor: pointer;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            flex-shrink: 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .mtg-scroll-container .card-item-container:hover img {
+        .mtg-scroll-container img:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 18px rgba(0,0,0,0.15);
         }
@@ -992,6 +1015,11 @@
                 font-size: 10px;
             }
 
+            .full-gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 12px;
+            }
+
             .sidebar-footer { display: none !important; }
         }
     </style>
@@ -1025,6 +1053,7 @@
                     
                     <div class="links-wrapper">
                         <a href="#commissionSection" class="link-item">commission</a>
+                        <a href="#fullGallerySection" class="link-item">gallery</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
                         <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
                     </div>
@@ -1047,7 +1076,7 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <h2 class="info-block-title" style="margin-top: 30px;">Gallery</h2>
+                <h2 class="info-block-title" style="margin-top: 30px;">Featured Gallery</h2>
 
                 <div class="slider-relative-wrapper">
                     <button class="slider-external-btn" id="btnMtgPrev" aria-label="Previous image">&#10094;</button>
@@ -1072,6 +1101,20 @@
                     <a href="#top" class="back-to-top-link">↑ Back to top</a>
                 </div>
             </article>
+
+            <!-- FULL GALLERY SECTION -->
+            <div class="info-block" id="fullGallerySection">
+                <h2 class="info-block-title">Gallery</h2>
+                
+                <div class="full-gallery-grid" id="fullGalleryGrid">
+                    <!-- Összes kép dinamikusan feltöltve a teljes gridben -->
+                </div>
+
+                <div class="post-date-meta">
+                    <span>Complete Collection</span>
+                    <a href="#top" class="back-to-top-link">↑ Back to top</a>
+                </div>
+            </div>
 
             <!-- COMMISSION GUIDE SECTION -->
             <div class="info-block" id="commissionSection">
@@ -1341,9 +1384,6 @@
             slider.innerHTML = '';
             
             allAboutImages.forEach((imgSrc, idx) => {
-                const wrapper = document.createElement('div');
-                wrapper.className = 'card-item-container';
-
                 const img = document.createElement('img');
                 img.src = imgSrc;
                 img.alt = `Custom MTG Alter ${idx + 1}`;
@@ -1351,17 +1391,35 @@
                 img.loading = idx < 3 ? 'eager' : 'lazy';
                 if (idx >= 3) img.decoding = 'async';
                 
-                wrapper.appendChild(img);
+                slider.appendChild(img);
+            });
+        }
 
-                // KIZÁRÓLAG AZ ÚJ KÉPEKNÉL JELENÍTJÜK MEG A KÉP FELETT LEBEGŐ BADGE-ET
+        function renderFullGallery() {
+            const grid = document.getElementById('fullGalleryGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            allAboutImages.forEach((imgSrc, idx) => {
+                const cardWrapper = document.createElement('div');
+                cardWrapper.className = 'gallery-card-item';
+
+                // LATEST BADGE AZ ÚJ KÉPEKRE A FULL GALÉRIÁBAN
                 if (newlyUploadedImages.includes(imgSrc)) {
                     const badge = document.createElement('span');
-                    badge.className = 'new-badge-tag';
-                    badge.innerText = 'NEW';
-                    wrapper.appendChild(badge);
+                    badge.className = 'latest-badge-tag';
+                    badge.innerText = 'LATEST';
+                    cardWrapper.appendChild(badge);
                 }
 
-                slider.appendChild(wrapper);
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `MTG Alter ${idx + 1}`;
+                img.setAttribute('data-idx', idx);
+                img.loading = idx < 8 ? 'eager' : 'lazy';
+
+                cardWrapper.appendChild(img);
+                grid.appendChild(cardWrapper);
             });
         }
 
@@ -1392,14 +1450,11 @@
             const container = document.getElementById(containerId);
             if (!container) return;
             
-            let items = container.querySelectorAll('.card-item-container');
-            if (!items.length) {
-                items = container.querySelectorAll('img');
-            }
+            const images = container.querySelectorAll('img');
 
-            if (items[index]) {
-                const targetItem = items[index];
-                const targetScrollLeft = targetItem.offsetLeft - container.offsetLeft - (container.clientWidth - targetItem.clientWidth) / 2;
+            if (images[index]) {
+                const targetImg = images[index];
+                const targetScrollLeft = targetImg.offsetLeft - container.offsetLeft - (container.clientWidth - targetImg.clientWidth) / 2;
                 container.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
             }
         }
@@ -1418,11 +1473,11 @@
         function scrollMtgSlider(direction) {
             const container = document.getElementById('mtgSlider');
             if (!container) return;
-            const items = container.querySelectorAll('.card-item-container');
-            if (!items.length) return;
+            const images = container.querySelectorAll('img');
+            if (!images.length) return;
             currentMtgIndex += direction;
             if (currentMtgIndex < 0) currentMtgIndex = 0;
-            if (currentMtgIndex >= items.length) currentMtgIndex = items.length - 1;
+            if (currentMtgIndex >= images.length) currentMtgIndex = images.length - 1;
             scrollToSlide('mtgSlider', currentMtgIndex);
         }
 
@@ -1454,6 +1509,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             renderMtgSlider();
+            renderFullGallery();
 
             document.getElementById('btnMtgPrev').addEventListener('click', () => scrollMtgSlider(-1));
             document.getElementById('btnMtgNext').addEventListener('click', () => scrollMtgSlider(1));
@@ -1461,9 +1517,15 @@
             document.getElementById('btnProcessNext').addEventListener('click', () => scrollProcessSlider(1));
 
             document.getElementById('mtgSlider').addEventListener('click', (e) => {
-                const img = e.target.closest('.card-item-container')?.querySelector('img') || (e.target.tagName === 'IMG' ? e.target : null);
-                if (img) {
-                    const idx = parseInt(img.getAttribute('data-idx') || '0');
+                if (e.target.tagName === 'IMG') {
+                    const idx = parseInt(e.target.getAttribute('data-idx') || '0');
+                    openLight(allAboutImages, idx);
+                }
+            });
+
+            document.getElementById('fullGalleryGrid').addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    const idx = parseInt(e.target.getAttribute('data-idx') || '0');
                     openLight(allAboutImages, idx);
                 }
             });
@@ -1478,16 +1540,16 @@
             const mtgContainer = document.getElementById('mtgSlider');
             if (mtgContainer) {
                 mtgContainer.addEventListener('scroll', () => {
-                    const items = mtgContainer.querySelectorAll('.card-item-container');
-                    if (!items.length) return;
+                    const images = mtgContainer.querySelectorAll('img');
+                    if (!images.length) return;
 
                     const containerCenter = mtgContainer.scrollLeft + (mtgContainer.clientWidth / 2);
                     let closestIdx = 0;
                     let minDiff = Infinity;
 
-                    items.forEach((item, idx) => {
-                        const itemCenter = item.offsetLeft - mtgContainer.offsetLeft + (item.clientWidth / 2);
-                        const diff = Math.abs(containerCenter - itemCenter);
+                    images.forEach((img, idx) => {
+                        const imgCenter = img.offsetLeft - mtgContainer.offsetLeft + (img.clientWidth / 2);
+                        const diff = Math.abs(containerCenter - imgCenter);
                         if (diff < minDiff) {
                             minDiff = diff;
                             closestIdx = idx;
