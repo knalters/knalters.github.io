@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gallery | kn.alters - MTG Card Alterations</title>
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background: linear-gradient(135deg, #23352b 0%, #34483d 50%, #687e72 100%);
+            background-attachment: fixed;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #28322c; 
+            letter-spacing: 0.01em;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden !important;
+            scroll-behavior: smooth;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: minmax(320px, 360px) minmax(500px, 1fr);
+            width: 100%;
+            max-width: 1450px;
+            margin: 0 auto;
+            min-height: 100vh;
+            box-sizing: border-box;
+            gap: clamp(20px, 3vw, 50px);
+            padding: 0 20px;
+        }
+
+        .sidebar-wrapper {
+            padding: 40px 0;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .sticky-container {
+            position: sticky;
+            top: 40px; 
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-card {
+            background: #f2f0eb;
+            padding: clamp(30px, 2.5vw, 40px) clamp(20px, 2vw, 35px);
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-sizing: border-box;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #385445 0%, #83a883 50%, #385445 100%);
+        }
+
+        .logo-brand-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .site-logo-img {
+            max-width: 230px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .link-item {
+            display: block;
+            background: #e9e6df;
+            color: #23352b; 
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: clamp(11px, 0.85vw, 12px);
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700; 
+            border-radius: 14px;
+            border: 1px solid rgba(56, 84, 69, 0.12);
+            border-left: 4px solid #385445;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+            text-align: center;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .link-item:hover, .link-item.active {
+            background: #385445;
+            color: #ffffff;
+            border-color: #385445;
+            border-left-color: #81b29a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .feed-container {
+            padding: 40px 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .info-block {
+            background: #f2f0eb;
+            border-radius: 24px;
+            padding: clamp(24px, 3vw, 40px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .info-block-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(15px, 1.2vw, 18px);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #23352b;
+            margin: 0 0 25px 0;
+            position: relative;
+            padding-bottom: 12px;
+            text-align: center;
+        }
+
+        .info-block-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #385445, #81b29a, #385445, transparent);
+            border-radius: 2px;
+        }
+
+        /* --- GRID ÉS A KÁRTYA FELETT LEBEGŐ LATEST BADGE --- */
+        .full-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 25px 18px;
+            width: 100%;
+            box-sizing: border-box;
+            padding-top: 15px; /* Helyet hagyunk a lebegő badge-eknek */
+        }
+
+        .gallery-card-item {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            aspect-ratio: 180 / 252;
+            margin-top: 12px;
+        }
+
+        .gallery-card-item img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .gallery-card-item:hover img {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+        }
+
+        .latest-badge-tag {
+            position: absolute;
+            top: -12px; /* PONTOSAN A KÉP FÖLÉ HELYEZVE */
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #e07a5f 0%, #f4a261 100%);
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1.5px solid #ffffff;
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            animation: pulseGlowWarm 1.8s infinite;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        @keyframes pulseGlowWarm {
+            0% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.8), 0 3px 8px rgba(0,0,0,0.25); }
+            50% { transform: translateX(-50%) scale(1.08); box-shadow: 0 0 0 6px rgba(244, 162, 97, 0), 0 5px 15px rgba(244, 162, 97, 0.6); }
+            100% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0), 0 3px 8px rgba(0,0,0,0.25); }
+        }
+
+        .post-date-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #6d7d74;
+            margin-top: 25px;
+            border-top: 1px solid rgba(56, 84, 69, 0.1);
+            padding-top: 12px;
+        }
+
+        .back-to-top-link {
+            color: #385445;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .floating-top-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #385445;
+            color: #ffffff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 30px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            z-index: 9999;
+        }
+
+        .custom-lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999999;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .custom-lightbox img {
+            max-width: 85vw;
+            max-height: 85vh;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        .custom-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .lightbox-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 36px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+
+        @media (max-width: 900px) {
+            .main-layout { display: flex !important; flex-direction: column !important; padding: 0 !important; }
+            .sidebar-wrapper { width: 100% !important; padding: 20px 15px 10px 15px !important; }
+            .sticky-container { position: relative !important; top: 0 !important; }
+            .feed-container { width: 100% !important; padding: 10px 15px 30px 15px !important; }
+            .info-block { width: 100% !important; padding: 20px 15px !important; }
+            .full-gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 20px 12px; }
+        }
+    </style>
+</head>
+<body id="top">
+
+    <div class="main-layout">
+        
+        <div class="sidebar-wrapper">
+            <div class="sticky-container">
+                <div class="profile-card">
+                    <div class="logo-brand-group">
+                        <a href="index.html#top" class="logo-link">
+                            <img src="images/knaltersnobg.png" alt="kn.alters logo" class="site-logo-img">
+                        </a>
+                    </div>
+                    
+                    <div class="links-wrapper">
+                        <a href="index.html#commissionSection" class="link-item">commission</a>
+                        <a href="gallery.html" class="link-item active">gallery</a>
+                        <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
+                        <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feed-container">
+            <div class="info-block">
+                <h1 class="info-block-title">Complete Gallery</h1>
+                
+                <div class="full-gallery-grid" id="fullGalleryGrid">
+                    <!-- Képek dinamikusan feltöltve JS-ből -->
+                </div>
+
+                <div class="post-date-meta">
+                    <span>Full Artwork Archive</span>
+                    <a href="#top" class="back-to-top-link">↑ Back to top</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- LEBEGŐ TOP GOMB -->
+    <a href="#top" class="floating-top-btn">↑ Back to top</a>
+
+    <!-- LIGHTBOX -->
+    <div id="customLightbox" class="custom-lightbox">
+        <span class="custom-lightbox-close" id="lightboxCloseBtn">&times;</span>
+        <button class="lightbox-btn lightbox-prev" id="prevBtn" aria-label="Previous image">&#8249;</button>
+        <img id="lightboxImg" src="" alt="Enlarged view of MTG alter">
+        <button class="lightbox-btn lightbox-next" id="nextBtn" aria-label="Next image">&#8250;</button>
+    </div>
+
+    <script>
+        const newlyUploadedImages = [
+            'images/amphibian01.png',
+            'images/bahamut01.png',
+            'images/counterspell01.png',
+            'images/counterspell02.png',
+            'images/counterspell03.png',
+            'images/counterspell04.png',
+            'images/counterspell05.png',
+            'images/kinnan01.png',
+            'images/maralen01.png',
+            'images/sigurd01.png',
+            'images/stridehangar01.png',
+            'images/thassa01.png'
+        ];
+
+        const previousImages = [
+            'images/selvala01.png',
+            'images/counterspell10.png',
+            'images/darkritual01.png',
+            'images/swamp04.png',
+            'images/darkritual02.png',
+            'images/pathtoexile01.png',
+            'images/dreadreturn01.png',
+            'images/plain02.png',
+            'images/colossushammer01.png',
+            'images/carrionfeeder01.png',
+            'images/demonictutor02.png',
+            'images/kaalia01.png',
+            'images/journeytonowhere01.png',
+            'images/selvala02.png',
+            'images/refurbished01.png',
+            'images/tolarianterror01.png',
+            'images/tolarianterror02.png',
+            'images/tolarianterror03.png',
+            'images/tolarianterror04.png',
+            'images/alms01.png',
+            'images/arabella01.png',
+            'images/arcanesignet01.png',
+            'images/aveninterrupter01.png',
+            'images/balllighting01.png',
+            'images/bird01.png',
+            'images/blood01.png',
+            'images/bramblefamiliar01.png',
+            'images/candytrail01.png',
+            'images/castintothefire01.png',
+            'images/clockwork01.png',
+            'images/clockwork02.png',
+            'images/cloud01.png',
+            'images/clue01.png',
+            'images/counterspell06.png',
+            'images/counterspell07.png',
+            'images/counterspell08.png',
+            'images/counterspell09.png',
+            'images/coyote01.png',
+            'images/roadrunner01.png',
+            'images/cryogen01.png',
+            'images/cryogen02.png',
+            'images/deadly01.png',
+            'images/deathbaron01.png',
+            'images/depala01.png',
+            'images/dreadpesence01.png',
+            'images/dreadreturn02.png',
+            'images/duress01.png',
+            'images/eldrazispawn01.png',
+            'images/elvish01.png',
+            'images/entomb01.png',
+            'images/faeriemacabre01.png',
+            'images/faerieseer01.png',
+            'images/faerieseer02.png',
+            'images/galvanic01.png',
+            'images/ghoucaller01.png',
+            'images/giada01.png',
+            'images/golgarithug01.png',
+            'images/greed01.png',
+            'images/guardionoftheguildpact01.png',
+            'images/harrier01.png',
+            'images/hero01.png',
+            'images/island02.png',
+            'images/island05.png',
+            'images/lighting02.png',
+            'images/lightning01.png',
+            'images/lotuscobra01.png',
+            'images/meren01.png',
+            'images/meren02.png',
+            'images/mikeyandleo01.png',
+            'images/monarch.png',
+            'images/nihilspellbomb.png',
+            'images/ninja01.png',
+            'images/nyxbornhydra01.png',
+            'images/nyxbornhydra02.png',
+            'images/prism01.png',
+            'images/quirion01.png',
+            'images/reanimate01.png',
+            'images/rhinar01.png',
+            'images/sacredcat01.png',
+            'images/saguwilding01.png',
+            'images/skred01.png',
+            'images/slyver02.png',
+            'images/solring01.png',
+            'images/solring02.png',
+            'images/solring03.png',
+            'images/solring04.png',
+            'images/swamp01.png',
+            'images/swamp02.png',
+            'images/swamp03.png',
+            'images/titania01.png',
+            'images/titania02.png',
+            'images/titania03.png',
+            'images/titania04.png',
+            'images/titania05.png',
+            'images/titania06.png',
+            'images/tolarianterror05.png',
+            'images/treasure01.png',
+            'images/urzastower01.png',
+            'images/wellwisher01.png',
+            'images/wildmongler01.png',
+            'images/wildmongler02.png',
+            'images/wildmongler03.png',
+            'images/yuriko01.png'
+        ];
+
+        const allAboutImages = [...newlyUploadedImages, ...previousImages];
+        let activeIdx = 0;
+
+        function renderFullGallery() {
+            const grid = document.getElementById('fullGalleryGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            allAboutImages.forEach((imgSrc, idx) => {
+                const cardWrapper = document.createElement('div');
+                cardWrapper.className = 'gallery-card-item';
+
+                // LATEST BADGE A KÉP FÖLÉ LEBEGVE
+                if (newlyUploadedImages.includes(imgSrc)) {
+                    const badge = document.createElement('span');
+                    badge.className = 'latest-badge-tag';
+                    badge.innerText = 'LATEST';
+                    cardWrapper.appendChild(badge);
+                }
+
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `MTG Alter ${idx + 1}`;
+                img.setAttribute('data-idx', idx);
+                img.loading = idx < 12 ? 'eager' : 'lazy';
+
+                cardWrapper.appendChild(img);
+                grid.appendChild(cardWrapper);
+            });
+        }
+
+        function openLight(idx) {
+            activeIdx = idx;
+            document.getElementById('lightboxImg').src = allAboutImages[activeIdx];
+            document.getElementById('customLightbox').style.display = 'flex';
+        }
+
+        function stepLight(dir, ev) {
+            if (ev) ev.stopPropagation();
+            activeIdx += dir;
+            if (activeIdx < 0) activeIdx = allAboutImages.length - 1;
+            if (activeIdx >= allAboutImages.length) activeIdx = 0;
+            document.getElementById('lightboxImg').src = allAboutImages[activeIdx];
+        }
+
+        function closeLight() {
+            document.getElementById('customLightbox').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFullGallery();
+
+            document.getElementById('fullGalleryGrid').addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    const idx = parseInt(e.target.getAttribute('data-idx') || '0');
+                    openLight(idx);
+                }
+            });
+
+            document.getElementById('lightboxCloseBtn').addEventListener('click', closeLight);
+            document.getElementById('customLightbox').addEventListener('click', closeLight);
+            document.getElementById('lightboxImg').addEventListener('click', (e) => e.stopPropagation());
+            document.getElementById('prevBtn').addEventListener('click', (e) => stepLight(-1, e));
+            document.getElementById('nextBtn').addEventListener('click', (e) => stepLight(1, e));
+        });
+
+        document.addEventListener('keydown', (e) => {
+            const box = document.getElementById('customLightbox');
+            if (box && box.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') stepLight(-1);
+                if (e.key === 'ArrowRight') stepLight(1);
+                if (e.key === 'Escape') closeLight();
+            }
+        });
+    </script>
+</body>
+</html>
