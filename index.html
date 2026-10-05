@@ -400,110 +400,125 @@
             margin: 0 0 14px 0;
         }
 
-        /* --- INTERAKTÍV POLAROID / CARD STACK TEASER --- */
+        /* --- KELLEMES, VILÁGOS ÉS KISEBB PREVIEW KÁRTYA --- */
         .interactive-stack-banner {
-            background: linear-gradient(135deg, #1f3328 0%, #2e4437 100%);
-            border-radius: 22px;
-            padding: 30px 24px;
+            background: #e9e6df;
+            border-radius: 18px;
+            padding: 20px 18px;
             margin-top: 25px;
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 12px 30px rgba(0,0,0,0.22);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(56, 84, 69, 0.15);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 20px;
+            gap: 14px;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.6), 0 4px 15px rgba(0,0,0,0.04);
         }
 
         .stack-header h3 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(16px, 1.6vw, 20px);
+            font-size: clamp(15px, 1.4vw, 18px);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #ffffff;
-            margin: 0 0 4px 0;
+            letter-spacing: 1.5px;
+            color: #23352b;
+            margin: 0 0 20px 0;
+            position: relative;
+            padding-bottom: 8px;
         }
 
-        .stack-header p {
-            margin: 0;
-            font-size: 12.5px;
-            color: #9cb3a5;
+        .stack-header h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: #385445;
+            border-radius: 2px;
+            opacity: 0.5;
         }
 
         .card-stack-wrapper {
             position: relative;
             width: 100%;
-            max-width: 320px;
-            height: 250px;
-            margin: 10px 0;
+            max-width: 280px;
+            height: 210px;
+            margin: 4px 0;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            text-decoration: none;
         }
 
         .stack-card {
             position: absolute;
-            width: 150px;
-            height: 210px;
-            border-radius: 12px;
+            width: 125px;
+            height: 175px;
+            border-radius: 10px;
             object-fit: cover;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
             border: 2px solid #ffffff;
-            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        .stack-card-1 {
-            transform: translateX(-40px) rotate(-12deg);
+        /* BAL OLDAL: Demonic Tutor */
+        .stack-card-left {
+            transform: translateX(-42px) rotate(-11deg);
             z-index: 1;
         }
 
-        .stack-card-2 {
-            transform: translateX(40px) rotate(12deg);
+        /* JOBB OLDAL: Kaalia */
+        .stack-card-right {
+            transform: translateX(42px) rotate(11deg);
             z-index: 2;
         }
 
-        .stack-card-3 {
-            transform: translateY(-8px) rotate(0deg);
+        /* KÖZÉP: Selvala */
+        .stack-card-center {
+            transform: translateY(-6px) rotate(0deg);
             z-index: 3;
         }
 
-        /* HOVER HATÁS A KÁRTYAPAKLIRA */
-        .card-stack-wrapper:hover .stack-card-1 {
-            transform: translateX(-85px) rotate(-18deg) scale(1.05);
+        /* INTERAKTÍV SZÉTN YÍLÁS HOVER / TOUCH ESETÉN */
+        .card-stack-wrapper:hover .stack-card-left {
+            transform: translateX(-75px) rotate(-16deg) scale(1.04);
         }
 
-        .card-stack-wrapper:hover .stack-card-2 {
-            transform: translateX(85px) rotate(18deg) scale(1.05);
+        .card-stack-wrapper:hover .stack-card-right {
+            transform: translateX(75px) rotate(16deg) scale(1.04);
         }
 
-        .card-stack-wrapper:hover .stack-card-3 {
-            transform: translateY(-16px) scale(1.08);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        .card-stack-wrapper:hover .stack-card-center {
+            transform: translateY(-12px) scale(1.06);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
         }
 
         .stack-go-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, #e07a5f 0%, #f4a261 100%);
+            background: #385445;
             color: #ffffff;
             text-decoration: none;
-            padding: 12px 24px;
+            padding: 10px 22px;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            border-radius: 30px;
+            border-radius: 20px;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 15px rgba(224, 122, 95, 0.35);
+            box-shadow: 0 3px 10px rgba(56, 84, 69, 0.2);
+            margin-top: 4px;
         }
 
         .stack-go-btn:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 8px 22px rgba(224, 122, 95, 0.5);
+            background: #23352b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
         }
 
         .post-date-meta {
@@ -520,7 +535,6 @@
             padding-top: 12px;
         }
 
-        /* --- FIGYELEMFELKELŐ, STÍLUSOS BACK TO TOP GOMB --- */
         .floating-top-btn {
             position: fixed;
             bottom: 30px;
@@ -1079,17 +1093,16 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- ÚJ INTERAKTÍV POLAROID/STACK KÁRTYA TEASER -->
+                <!-- LÁGY, KIS KERETES KÁRTYAPAKLI PREVIEW -->
                 <div class="interactive-stack-banner">
                     <div class="stack-header">
-                        <h3>Artwork Archive</h3>
-                        <p>Hover / Tap cards to unfold collection • 116+ Alters</p>
+                        <h3>Artwork Gallery</h3>
                     </div>
 
                     <a href="gallery.html" class="card-stack-wrapper" title="Open Full Gallery">
-                        <img src="images/counterspell01.png" alt="Card Alter Preview 1" class="stack-card stack-card-1" decoding="async" loading="eager">
-                        <img src="images/bahamut01.png" alt="Card Alter Preview 2" class="stack-card stack-card-2" decoding="async" loading="eager">
-                        <img src="images/amphibian01.png" alt="Card Alter Preview 3" class="stack-card stack-card-3" decoding="async" loading="eager">
+                        <img src="images/demonictutor02.png" alt="Demonic Tutor Alter" class="stack-card stack-card-left" decoding="async" loading="eager">
+                        <img src="images/kaalia01.png" alt="Kaalia Alter" class="stack-card stack-card-right" decoding="async" loading="eager">
+                        <img src="images/selvala01.png" alt="Selvala Alter" class="stack-card stack-card-center" decoding="async" loading="eager">
                     </a>
 
                     <a href="gallery.html" class="stack-go-btn">
@@ -1192,7 +1205,7 @@
 
     </div>
 
-    <!-- STÍLUSOS, FIGYELEMFELKELŐ TOP GOMB -->
+    <!-- STÍLUSOS BACK TO TOP GOMB -->
     <a href="#top" class="floating-top-btn" id="floatingTopBtn">↑ Back to top</a>
 
     <div id="customLightbox" class="custom-lightbox">
