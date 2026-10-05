@@ -258,36 +258,29 @@
         .gallery-card-item:hover img {
             transform: translateY(-6px) scale(1.02);
             box-shadow: 0 14px 28px rgba(0,0,0,0.22);
-            border-color: rgba(42, 157, 143, 0.6);
+            border-color: rgba(56, 84, 69, 0.6);
         }
 
-        /* ÚJ ELEG ÁNS SMARAGDZÖLD / ARANY LATEST BADGE */
+        /* LETISZTULT, PRÉMIUM LATEST BADGE (ANIMÁCIÓ NÉLKÜL) */
         .latest-badge-tag {
             position: absolute;
-            top: -14px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #2a9d8f 0%, #385445 100%);
-            color: #ffffff;
+            background: #23352b;
+            color: #f4a261;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 9.5px;
+            font-size: 9px;
             font-weight: 700;
             letter-spacing: 1.5px;
             padding: 4px 12px;
-            border-radius: 14px;
-            border: 1.5px solid #81b29a;
+            border-radius: 12px;
+            border: 1px solid #f4a261;
             pointer-events: none;
             z-index: 10;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-            animation: pulseGlowEmerald 2s infinite;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
             text-transform: uppercase;
             white-space: nowrap;
-        }
-
-        @keyframes pulseGlowEmerald {
-            0% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.8), 0 3px 8px rgba(0,0,0,0.25); }
-            50% { transform: translateX(-50%) scale(1.08); box-shadow: 0 0 0 6px rgba(42, 157, 143, 0), 0 5px 15px rgba(42, 157, 143, 0.5); }
-            100% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(42, 157, 143, 0), 0 3px 8px rgba(0,0,0,0.25); }
         }
 
         .post-date-meta {
