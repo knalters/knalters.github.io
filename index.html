@@ -216,66 +216,6 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(192, 57, 43, 0), 0 0 4px #c0392b; }
         }
 
-        /* --- FULL GALLERY GRID ÉS LATEST BADGE STÍLUSOK --- */
-        .full-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 20px;
-            width: 100%;
-            margin-top: 20px;
-            box-sizing: border-box;
-        }
-
-        .gallery-card-item {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            aspect-ratio: 180 / 252;
-        }
-
-        .gallery-card-item img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            border-radius: 12px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .gallery-card-item:hover img {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.18);
-        }
-
-        .latest-badge-tag {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: linear-gradient(135deg, #e07a5f 0%, #f4a261 100%);
-            color: #ffffff;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            padding: 3px 8px;
-            border-radius: 6px;
-            border: 1px solid #ffffff;
-            pointer-events: none;
-            z-index: 10;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            animation: pulseGlowWarm 1.8s infinite;
-            text-transform: uppercase;
-        }
-
-        @keyframes pulseGlowWarm {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.8), 0 2px 6px rgba(0,0,0,0.25); }
-            50% { transform: scale(1.08); box-shadow: 0 0 0 5px rgba(244, 162, 97, 0), 0 4px 14px rgba(244, 162, 97, 0.6); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0), 0 2px 6px rgba(0,0,0,0.25); }
-        }
-
         /* JAVÍTOTT CTA GOMB STÍLUS */
         .inline-cta-btn {
             position: relative;
@@ -1015,11 +955,6 @@
                 font-size: 10px;
             }
 
-            .full-gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-                gap: 12px;
-            }
-
             .sidebar-footer { display: none !important; }
         }
     </style>
@@ -1033,7 +968,7 @@
                 <div class="profile-card">
                     
                     <div class="logo-brand-group">
-                        <a href="#top" class="logo-link" title="Home">
+                        <a href="index.html#top" class="logo-link" title="Home">
                             <img src="images/knaltersnobg.png" alt="kn.alters logo" class="site-logo-img" loading="eager" fetchpriority="high">
                         </a>
                     </div>
@@ -1053,7 +988,7 @@
                     
                     <div class="links-wrapper">
                         <a href="#commissionSection" class="link-item">commission</a>
-                        <a href="#fullGallerySection" class="link-item">gallery</a>
+                        <a href="gallery.html" class="link-item">gallery</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
                         <a href="https://www.tiktok.com/@kn.alters?_r=1&amp;_t=ZN-988Rg6Ms9Sw" class="link-item" target="_blank" rel="noopener">tiktok</a>
                     </div>
@@ -1101,20 +1036,6 @@
                     <a href="#top" class="back-to-top-link">↑ Back to top</a>
                 </div>
             </article>
-
-            <!-- FULL GALLERY SECTION -->
-            <div class="info-block" id="fullGallerySection">
-                <h2 class="info-block-title">Gallery</h2>
-                
-                <div class="full-gallery-grid" id="fullGalleryGrid">
-                    <!-- Összes kép dinamikusan feltöltve a teljes gridben -->
-                </div>
-
-                <div class="post-date-meta">
-                    <span>Complete Collection</span>
-                    <a href="#top" class="back-to-top-link">↑ Back to top</a>
-                </div>
-            </div>
 
             <!-- COMMISSION GUIDE SECTION -->
             <div class="info-block" id="commissionSection">
@@ -1248,7 +1169,6 @@
             'images/06.png','images/07.png','images/08.png','images/10.png','images/09.png'
         ];
 
-        // KIZÁRÓLAG AZ ÚJ KÉPEK LISTÁJA
         const newlyUploadedImages = [
             'images/amphibian01.png',
             'images/bahamut01.png',
@@ -1264,7 +1184,6 @@
             'images/thassa01.png'
         ];
 
-        // A RÉGI KÉPEK LISTÁJA
         const previousImages = [
             'images/selvala01.png',
             'images/counterspell10.png',
@@ -1395,34 +1314,6 @@
             });
         }
 
-        function renderFullGallery() {
-            const grid = document.getElementById('fullGalleryGrid');
-            if (!grid) return;
-            grid.innerHTML = '';
-
-            allAboutImages.forEach((imgSrc, idx) => {
-                const cardWrapper = document.createElement('div');
-                cardWrapper.className = 'gallery-card-item';
-
-                // LATEST BADGE AZ ÚJ KÉPEKRE A FULL GALÉRIÁBAN
-                if (newlyUploadedImages.includes(imgSrc)) {
-                    const badge = document.createElement('span');
-                    badge.className = 'latest-badge-tag';
-                    badge.innerText = 'LATEST';
-                    cardWrapper.appendChild(badge);
-                }
-
-                const img = document.createElement('img');
-                img.src = imgSrc;
-                img.alt = `MTG Alter ${idx + 1}`;
-                img.setAttribute('data-idx', idx);
-                img.loading = idx < 8 ? 'eager' : 'lazy';
-
-                cardWrapper.appendChild(img);
-                grid.appendChild(cardWrapper);
-            });
-        }
-
         function resetSlidersToStart() {
             currentProcessIndex = 0;
             currentMtgIndex = 0;
@@ -1509,7 +1400,6 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             renderMtgSlider();
-            renderFullGallery();
 
             document.getElementById('btnMtgPrev').addEventListener('click', () => scrollMtgSlider(-1));
             document.getElementById('btnMtgNext').addEventListener('click', () => scrollMtgSlider(1));
@@ -1517,13 +1407,6 @@
             document.getElementById('btnProcessNext').addEventListener('click', () => scrollProcessSlider(1));
 
             document.getElementById('mtgSlider').addEventListener('click', (e) => {
-                if (e.target.tagName === 'IMG') {
-                    const idx = parseInt(e.target.getAttribute('data-idx') || '0');
-                    openLight(allAboutImages, idx);
-                }
-            });
-
-            document.getElementById('fullGalleryGrid').addEventListener('click', (e) => {
                 if (e.target.tagName === 'IMG') {
                     const idx = parseInt(e.target.getAttribute('data-idx') || '0');
                     openLight(allAboutImages, idx);
