@@ -149,7 +149,6 @@
             position: relative;
         }
 
-        /* BANNER HEADER */
         .gallery-header-banner {
             background: linear-gradient(135deg, #1f3328 0%, #2e4437 100%);
             color: #f2f0eb;
@@ -192,7 +191,6 @@
             white-space: nowrap;
         }
 
-        /* SZŰRŐSÁV - CSUPÁN 2 KATEGÓRIA */
         .filter-bar-container {
             display: flex;
             gap: 10px;
@@ -225,7 +223,6 @@
             box-shadow: 0 3px 10px rgba(56, 84, 69, 0.2);
         }
 
-        /* GALÉRIA GRID */
         .full-gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -243,6 +240,8 @@
             width: 100%;
             aspect-ratio: 180 / 252;
             margin-top: 10px;
+            background: rgba(0,0,0,0.03);
+            border-radius: 14px;
         }
 
         .gallery-card-item img {
@@ -311,23 +310,30 @@
             cursor: pointer;
         }
 
+        /* --- STÍLUSOS, FIGYELEMFELKELŐ TOP GOMB --- */
         .floating-top-btn {
             position: fixed;
             bottom: 30px;
             left: 30px;
-            background: #385445;
+            background: linear-gradient(135deg, #e07a5f 0%, #f4a261 100%);
             color: #ffffff;
-            border: none;
-            padding: 12px 18px;
+            border: 1.5px solid #ffffff;
+            padding: 12px 20px;
             border-radius: 30px;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(224, 122, 95, 0.4);
             text-decoration: none;
             z-index: 9999;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .floating-top-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(224, 122, 95, 0.6);
         }
 
         .custom-lightbox {
@@ -389,6 +395,7 @@
             .info-block { width: 100% !important; padding: 20px 15px !important; }
             .gallery-header-banner { flex-direction: column; align-items: flex-start; gap: 12px; }
             .full-gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 25px 12px; }
+            .floating-top-btn { bottom: 20px; left: 20px; padding: 10px 16px; font-size: 10px; }
         }
     </style>
 </head>
@@ -419,7 +426,6 @@
         <div class="feed-container">
             <div class="info-block">
                 
-                <!-- FEJLÉC BANNER -->
                 <div class="gallery-header-banner">
                     <div class="banner-info-group">
                         <h1>Artwork Archive</h1>
@@ -430,7 +436,6 @@
                     </div>
                 </div>
 
-                <!-- SZŰRŐSÁV CSUPÁN 2 GOMBBAL -->
                 <div class="filter-bar-container">
                     <button class="filter-chip active" data-filter="all">All Alters</button>
                     <button class="filter-chip" data-filter="latest">Latest Works ✨</button>
@@ -449,10 +454,9 @@
 
     </div>
 
-    <!-- LEBEGŐ TOP GOMB -->
+    <!-- STÍLUSOS, FIGYELEMFELKELŐ TOP GOMB -->
     <a href="#top" class="floating-top-btn">↑ Back to top</a>
 
-    <!-- LIGHTBOX -->
     <div id="customLightbox" class="custom-lightbox">
         <span class="custom-lightbox-close" id="lightboxCloseBtn">&times;</span>
         <button class="lightbox-btn lightbox-prev" id="prevBtn" aria-label="Previous image">&#8249;</button>
@@ -608,8 +612,10 @@
                 const img = document.createElement('img');
                 img.src = imgSrc;
                 img.alt = `MTG Alter ${idx + 1}`;
-                img.setAttribute('data-idx', idx);
+                
+                // PERFORMANCE OPTIMIZATION: Előre betöltés az első 12 képnél, aszinkron dekódolással
                 img.loading = idx < 12 ? 'eager' : 'lazy';
+                img.decoding = 'async';
 
                 cardWrapper.appendChild(img);
                 grid.appendChild(cardWrapper);
