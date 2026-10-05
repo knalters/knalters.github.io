@@ -400,15 +400,15 @@
             margin: 0 0 14px 0;
         }
 
-        /* --- TÁTONGÓ ÜRESSÉG MENTES, NAGYÍTOTT KÁRTYA SHOWCASE --- */
+        /* --- ÖSSZEHÚZOTT PAKLI HATÁS (SZÉTNYÍLÓ ANIMÁCIÓVAL) --- */
         .interactive-stack-banner {
-            margin: 30px 0 20px 0;
+            margin: 25px 0 15px 0;
             padding: 10px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 20px;
+            gap: 16px;
         }
 
         .stack-header h3 {
@@ -421,51 +421,61 @@
             margin: 0;
         }
 
-        .card-showcase-strip {
+        .card-stack-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            height: 230px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: clamp(12px, 2.5vw, 30px);
-            width: 100%;
             text-decoration: none;
-            padding: 10px 0;
+            cursor: pointer;
+            margin: 5px 0;
         }
 
-        .showcase-card {
-            width: clamp(140px, 18vw, 190px);
-            aspect-ratio: 180 / 252;
-            border-radius: 14px;
+        .stack-card {
+            position: absolute;
+            width: 140px;
+            height: 195px;
+            border-radius: 12px;
             object-fit: cover;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
             border: 2px solid #ffffff;
-            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.33, 1);
         }
 
-        .showcase-card-left {
-            transform: rotate(-6deg) translateY(6px);
+        /* BAL OLDAL (Demonic Tutor) - Alul helyezkedik el */
+        .stack-card-left {
+            transform: translateX(-25px) rotate(-8deg);
+            z-index: 1;
         }
 
-        .showcase-card-center {
-            transform: translateY(-8px) scale(1.04);
-            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+        /* JOBB OLDAL (Kaalia) - Középső réteg */
+        .stack-card-right {
+            transform: translateX(25px) rotate(8deg);
             z-index: 2;
         }
 
-        .showcase-card-right {
-            transform: rotate(6deg) translateY(6px);
+        /* KÖZÉP (Selvala) - Legfelül van a pakliban */
+        .stack-card-center {
+            transform: translateY(-4px) rotate(0deg);
+            z-index: 3;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
         }
 
-        .card-showcase-strip:hover .showcase-card-left {
-            transform: rotate(-10deg) translateY(0) scale(1.02);
+        /* LÁTVÁNYOS SZÉTNYÍLÁS HOVER / TOUCH ESETÉN */
+        .card-stack-container:hover .stack-card-left {
+            transform: translateX(-95px) rotate(-16deg) scale(1.05);
         }
 
-        .card-showcase-strip:hover .showcase-card-center {
+        .card-stack-container:hover .stack-card-right {
+            transform: translateX(95px) rotate(16deg) scale(1.05);
+        }
+
+        .card-stack-container:hover .stack-card-center {
             transform: translateY(-16px) scale(1.08);
-            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-showcase-strip:hover .showcase-card-right {
-            transform: rotate(10deg) translateY(0) scale(1.02);
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
         }
 
         .stack-go-btn {
@@ -1064,16 +1074,16 @@
                     <p><strong>My style:</strong> I love every type of art and I like challenges, so I paint almost everything, except for realistic portrait for now.</p>
                 </div>
 
-                <!-- TÁTONGÓ ÜRESSÉG MENTES PREVIEW -->
+                <!-- ÖSSZEHÚZOTT PAKLI HATÁS -->
                 <div class="interactive-stack-banner">
                     <div class="stack-header">
                         <h3>Artwork Gallery</h3>
                     </div>
 
-                    <a href="gallery.html" class="card-showcase-strip" title="Open Full Gallery">
-                        <img src="images/demonictutor02.png" alt="Demonic Tutor Alter" class="showcase-card showcase-card-left" decoding="async" loading="eager">
-                        <img src="images/selvala01.png" alt="Selvala Alter" class="showcase-card showcase-card-center" decoding="async" loading="eager">
-                        <img src="images/kaalia01.png" alt="Kaalia Alter" class="showcase-card showcase-card-right" decoding="async" loading="eager">
+                    <a href="gallery.html" class="card-stack-container" title="Open Full Gallery">
+                        <img src="images/demonictutor02.png" alt="Demonic Tutor Alter" class="stack-card stack-card-left" decoding="async" loading="eager">
+                        <img src="images/kaalia01.png" alt="Kaalia Alter" class="stack-card stack-card-right" decoding="async" loading="eager">
+                        <img src="images/selvala01.png" alt="Selvala Alter" class="stack-card stack-card-center" decoding="async" loading="eager">
                     </a>
 
                     <a href="gallery.html" class="stack-go-btn">
