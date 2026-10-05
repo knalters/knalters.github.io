@@ -317,7 +317,7 @@
             cursor: pointer;
         }
 
-        .link-item:hover {
+        .link-item:hover, .link-item.active {
             background: #385445;
             color: #ffffff;
             border-color: #385445;
@@ -354,7 +354,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-sizing: border-box;
             width: 100%;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             position: relative;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -440,11 +440,11 @@
         .designs-scroll-container,
         .mtg-scroll-container {
             display: flex;
-            gap: 15px;
+            gap: 18px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            padding: 5px 0 10px 0;
+            padding: 10px 0 15px 0;
             width: 100%;
             box-sizing: border-box;
             -webkit-overflow-scrolling: touch;
@@ -466,32 +466,33 @@
             margin: 0 auto;
         }
 
+        /* NAGY MONITOROKON NAGYOBB KÁRTYÁK A SLIDERBEN */
         .mtg-scroll-container img {
-            width: 180px !important;
-            height: 252px !important;
+            width: 220px !important;
+            height: 308px !important;
             object-fit: cover !important;
             background: rgba(0,0,0,0.03);
-            border-radius: 12px;
+            border-radius: 14px;
             display: block;
             cursor: pointer;
             scroll-snap-align: center;
             scroll-snap-stop: always;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .mtg-scroll-container img:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.18);
         }
 
         .slider-external-btn {
             background: #385445;
             color: #ffffff;
             border: none;
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             font-size: 18px;
             display: flex;
@@ -943,6 +944,11 @@
                 margin: 0 0 15px 0 !important;
             }
 
+            .mtg-scroll-container img {
+                width: 170px !important;
+                height: 238px !important;
+            }
+
             .newsletter-form-row { grid-template-columns: 1fr !important; }
 
             .designs-scroll-container img { height: 420px !important; }
@@ -987,6 +993,7 @@
                     </div>
                     
                     <div class="links-wrapper">
+                        <a href="index.html#top" class="link-item active">home</a>
                         <a href="#commissionSection" class="link-item">commission</a>
                         <a href="gallery.html" class="link-item">gallery</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
