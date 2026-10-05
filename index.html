@@ -216,6 +216,40 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(192, 57, 43, 0), 0 0 4px #c0392b; }
         }
 
+        /* --- NEW ALTER BADGE STÍLUS & SEJTELMES VILLOGÁS --- */
+        .card-wrapper-item {
+            position: relative;
+            display: inline-block;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: linear-gradient(135deg, #28322c 0%, #385445 100%);
+            color: #f2f0eb;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 3px 7px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+            z-index: 2;
+            box-shadow: 0 0 6px rgba(56, 84, 69, 0.6);
+            animation: pulseGlowNew 2s infinite;
+        }
+
+        @keyframes pulseGlowNew {
+            0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(129, 178, 154, 0.7), 0 0 4px rgba(129, 178, 154, 0.5); }
+            50% { transform: scale(1.04); box-shadow: 0 0 0 5px rgba(129, 178, 154, 0), 0 0 12px rgba(129, 178, 154, 0.8); }
+            100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(129, 178, 154, 0), 0 0 4px rgba(129, 178, 154, 0.5); }
+        }
+
         /* JAVÍTOTT CTA GOMB STÍLUS - NEM CSÚSZIK SZÉT MOBILON SEM */
         .inline-cta-btn {
             position: relative;
@@ -474,9 +508,6 @@
             border-radius: 12px;
             display: block;
             cursor: pointer;
-            scroll-snap-align: center;
-            scroll-snap-stop: always;
-            flex-shrink: 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
@@ -1017,7 +1048,7 @@
                     <button class="slider-external-btn" id="btnMtgPrev" aria-label="Previous image">&#10094;</button>
                     
                     <div class="mtg-scroll-container" id="mtgSlider">
-                        <!-- Az Összes Kép Dinamikusan Feltöltve JavaScriptből -->
+                        <!-- Az Összes Kép Dinamikusam Feltöltve JavaScriptből -->
                     </div>
 
                     <button class="slider-external-btn" id="btnMtgNext" aria-label="Next image">&#10095;</button>
@@ -1170,7 +1201,23 @@
             'images/06.png','images/07.png','images/08.png','images/10.png','images/09.png'
         ];
 
-        const allAboutImages = [
+        // Legújabb alterek a tömb elején (új badge megjelöléssel rendelkező fájlok)
+        const newImages = [
+            'images/amphibian01.png',
+            'images/bahamut01.png',
+            'images/kinnan01.png',
+            'images/maralen01.png',
+            'images/sigurd01.png',
+            'images/stridehangar01.png',
+            'images/thassa01.png',
+            'images/counterspell01.png',
+            'images/counterspell02.png',
+            'images/counterspell03.png',
+            'images/counterspell04.png',
+            'images/counterspell05.png'
+        ];
+
+        const olderImages = [
             'images/selvala01.png',
             'images/counterspell10.png',
             'images/darkritual01.png',
@@ -1204,11 +1251,6 @@
             'images/clockwork02.png',
             'images/cloud01.png',
             'images/clue01.png',
-            'images/counterspell01.png',
-            'images/counterspell02.png',
-            'images/counterspell03.png',
-            'images/counterspell04.png',
-            'images/counterspell05.png',
             'images/counterspell06.png',
             'images/counterspell07.png',
             'images/counterspell08.png',
@@ -1281,6 +1323,8 @@
             'images/yuriko01.png'
         ];
 
+        const allAboutImages = [...newImages, ...olderImages];
+
         let activeArray = [];
         let activeIdx = 0;
         let currentProcessIndex = 0;
@@ -1291,13 +1335,26 @@
             if (!slider) return;
             slider.innerHTML = '';
             allAboutImages.forEach((imgSrc, idx) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'card-wrapper-item';
+
+                // Új alterek megjelölése szép animált badge-dzsel
+                if (idx < newImages.length) {
+                    const badge = document.createElement('span');
+                    badge.className = 'new-badge';
+                    badge.innerText = 'NEW';
+                    wrapper.appendChild(badge);
+                }
+
                 const img = document.createElement('img');
                 img.src = imgSrc;
                 img.alt = `Custom MTG Alter ${idx + 1}`;
                 img.setAttribute('data-idx', idx);
                 img.loading = idx < 3 ? 'eager' : 'lazy';
                 if (idx >= 3) img.decoding = 'async';
-                slider.appendChild(img);
+                
+                wrapper.appendChild(img);
+                slider.appendChild(wrapper);
             });
         }
 
@@ -1326,10 +1383,16 @@
 
         function scrollToSlide(containerId, index) {
             const container = document.getElementById(containerId);
-            const images = container ? container.querySelectorAll('img') : [];
-            if (images[index]) {
-                const targetImg = images[index];
-                const targetScrollLeft = targetImg.offsetLeft - container.offsetLeft - (container.clientWidth - targetImg.clientWidth) / 2;
+            if (!container) return;
+            
+            let items = container.querySelectorAll('.card-wrapper-item');
+            if (!items.length) {
+                items = container.querySelectorAll('img');
+            }
+
+            if (items[index]) {
+                const targetItem = items[index];
+                const targetScrollLeft = targetItem.offsetLeft - container.offsetLeft - (container.clientWidth - targetItem.clientWidth) / 2;
                 container.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
             }
         }
@@ -1348,11 +1411,11 @@
         function scrollMtgSlider(direction) {
             const container = document.getElementById('mtgSlider');
             if (!container) return;
-            const images = container.querySelectorAll('img');
-            if (!images.length) return;
+            const items = container.querySelectorAll('.card-wrapper-item');
+            if (!items.length) return;
             currentMtgIndex += direction;
             if (currentMtgIndex < 0) currentMtgIndex = 0;
-            if (currentMtgIndex >= images.length) currentMtgIndex = images.length - 1;
+            if (currentMtgIndex >= items.length) currentMtgIndex = items.length - 1;
             scrollToSlide('mtgSlider', currentMtgIndex);
         }
 
@@ -1407,16 +1470,16 @@
             const mtgContainer = document.getElementById('mtgSlider');
             if (mtgContainer) {
                 mtgContainer.addEventListener('scroll', () => {
-                    const images = mtgContainer.querySelectorAll('img');
-                    if (!images.length) return;
+                    const items = mtgContainer.querySelectorAll('.card-wrapper-item');
+                    if (!items.length) return;
 
                     const containerCenter = mtgContainer.scrollLeft + (mtgContainer.clientWidth / 2);
                     let closestIdx = 0;
                     let minDiff = Infinity;
 
-                    images.forEach((img, idx) => {
-                        const imgCenter = img.offsetLeft - mtgContainer.offsetLeft + (img.clientWidth / 2);
-                        const diff = Math.abs(containerCenter - imgCenter);
+                    items.forEach((item, idx) => {
+                        const itemCenter = item.offsetLeft - mtgContainer.offsetLeft + (item.clientWidth / 2);
+                        const diff = Math.abs(containerCenter - itemCenter);
                         if (diff < minDiff) {
                             minDiff = diff;
                             closestIdx = idx;
@@ -1493,7 +1556,7 @@
                     const btn = document.getElementById('waitlistBtn');
                     btn.disabled = true;
 
-                    // Adatok összefűzése a meglévő táblázathoz (külön megjelölve a types mezőben!)
+                    // Adatok összefűzése a meglévő táblázathoz
                     const formData = {
                         full_name: nameVal,
                         email: emailVal,
