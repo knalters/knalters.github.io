@@ -258,15 +258,16 @@
         .gallery-card-item:hover img {
             transform: translateY(-6px) scale(1.02);
             box-shadow: 0 14px 28px rgba(0,0,0,0.22);
-            border-color: rgba(244, 162, 97, 0.6);
+            border-color: rgba(42, 157, 143, 0.6);
         }
 
+        /* ÚJ ELEG ÁNS SMARAGDZÖLD / ARANY LATEST BADGE */
         .latest-badge-tag {
             position: absolute;
             top: -14px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #e07a5f 0%, #f4a261 100%);
+            background: linear-gradient(135deg, #2a9d8f 0%, #385445 100%);
             color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 9.5px;
@@ -274,19 +275,19 @@
             letter-spacing: 1.5px;
             padding: 4px 12px;
             border-radius: 14px;
-            border: 1.5px solid #ffffff;
+            border: 1.5px solid #81b29a;
             pointer-events: none;
             z-index: 10;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-            animation: pulseGlowWarm 1.8s infinite;
+            animation: pulseGlowEmerald 2s infinite;
             text-transform: uppercase;
             white-space: nowrap;
         }
 
-        @keyframes pulseGlowWarm {
-            0% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.8), 0 3px 8px rgba(0,0,0,0.25); }
-            50% { transform: translateX(-50%) scale(1.08); box-shadow: 0 0 0 6px rgba(244, 162, 97, 0), 0 5px 15px rgba(244, 162, 97, 0.6); }
-            100% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(244, 162, 97, 0), 0 3px 8px rgba(0,0,0,0.25); }
+        @keyframes pulseGlowEmerald {
+            0% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.8), 0 3px 8px rgba(0,0,0,0.25); }
+            50% { transform: translateX(-50%) scale(1.08); box-shadow: 0 0 0 6px rgba(42, 157, 143, 0), 0 5px 15px rgba(42, 157, 143, 0.5); }
+            100% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(42, 157, 143, 0), 0 3px 8px rgba(0,0,0,0.25); }
         }
 
         .post-date-meta {
@@ -310,7 +311,6 @@
             cursor: pointer;
         }
 
-        /* --- STÍLUSOS, FIGYELEMFELKELŐ TOP GOMB --- */
         .floating-top-btn {
             position: fixed;
             bottom: 30px;
@@ -454,7 +454,7 @@
 
     </div>
 
-    <!-- STÍLUSOS, FIGYELEMFELKELŐ TOP GOMB -->
+    <!-- STÍLUSOS BACK TO TOP GOMB -->
     <a href="#top" class="floating-top-btn">↑ Back to top</a>
 
     <div id="customLightbox" class="custom-lightbox">
@@ -613,7 +613,6 @@
                 img.src = imgSrc;
                 img.alt = `MTG Alter ${idx + 1}`;
                 
-                // PERFORMANCE OPTIMIZATION: Előre betöltés az első 12 képnél, aszinkron dekódolással
                 img.loading = idx < 12 ? 'eager' : 'lazy';
                 img.decoding = 'async';
 
