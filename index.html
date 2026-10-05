@@ -152,7 +152,6 @@
             content-visibility: auto;
         }
 
-        /* --- MINIMALISTA EGY SOROS INDIKÁTOR --- */
         .status-minimal-row {
             display: flex;
             align-items: center;
@@ -216,7 +215,6 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(192, 57, 43, 0), 0 0 4px #c0392b; }
         }
 
-        /* JAVÍTOTT CTA GOMB STÍLUS */
         .inline-cta-btn {
             position: relative;
             display: flex;
@@ -466,7 +464,6 @@
             margin: 0 auto;
         }
 
-        /* NAGY MONITOROKON NAGYOBB KÁRTYÁK A SLIDERBEN */
         .mtg-scroll-container img {
             width: 220px !important;
             height: 308px !important;
@@ -535,7 +532,6 @@
             margin-bottom: 8px;
         }
 
-        /* --- LEZÁRT ÁLLAPOT BANNER --- */
         .wait-time-banner {
             background: rgba(192, 57, 43, 0.1);
             border: 1.5px dashed #c0392b;
@@ -566,7 +562,6 @@
             font-weight: 700;
         }
 
-        /* --- E-MAIL WAITLIST / FELIRATKOZÓ BOX --- */
         .newsletter-card-box {
             background: #e9e6df;
             border: 1px solid rgba(56, 84, 69, 0.2);
@@ -974,12 +969,11 @@
                 <div class="profile-card">
                     
                     <div class="logo-brand-group">
-                        <a href="index.html#top" class="logo-link" title="Home">
+                        <a href="index.html" class="logo-link" title="Home">
                             <img src="images/knaltersnobg.png" alt="kn.alters logo" class="site-logo-img" loading="eager" fetchpriority="high">
                         </a>
                     </div>
 
-                    <!-- MINIMALISTA EGY SOROS INDIKÁTOR - CLOSED STATE -->
                     <div class="status-minimal-row">
                         <span>Commission Slots:</span>
                         <div class="lights-inline-group">
@@ -993,7 +987,7 @@
                     </div>
                     
                     <div class="links-wrapper">
-                        <a href="index.html#top" class="link-item active">home</a>
+                        <a href="index.html" class="link-item active">home</a>
                         <a href="#commissionSection" class="link-item">commission</a>
                         <a href="gallery.html" class="link-item">gallery</a>
                         <a href="https://www.instagram.com/kn.alters" class="link-item" target="_blank" rel="noopener">instagram</a>
@@ -1009,7 +1003,6 @@
 
         <div class="feed-container">
             
-            <!-- ABOUT SECTION & GALLERY SLIDER -->
             <article class="custom-card-post" id="aboutSection">
                 <h1 class="main-seo-h1">MTG Card Alterations & Custom Commissions</h1>
                 <div class="post-body-content">
@@ -1044,7 +1037,6 @@
                 </div>
             </article>
 
-            <!-- COMMISSION GUIDE SECTION -->
             <div class="info-block" id="commissionSection">
                 <h2 class="info-block-title">Commission Process</h2>
                 
@@ -1083,14 +1075,12 @@
                 </div>
             </div>
 
-            <!-- WAITLIST / NOTIFICATION FORM SECTION -->
             <div class="contact-post" id="contactFormSection">
                 <h2 class="contact-title">Commissions Currently Closed</h2>
                 
                 <div class="form-welcome-box">
                     <span class="welcome-heading">Welcome to my altering world!✨</span>
                     
-                    <!-- KIEMELT LEZÁRT ÁLLAPOT FIGYELMEZTETÉS -->
                     <div class="wait-time-banner">
                         <span class="wait-time-icon">🚫</span>
                         <p class="wait-time-text">
@@ -1099,11 +1089,9 @@
                         </p>
                     </div>
 
-                    <!-- E-MAIL WAITLIST FORM -->
                     <form id="waitlistForm" class="newsletter-card-box">
                         <h3 class="newsletter-title">📩 Get Notified on Next Opening</h3>
                         
-                        <!-- HONEYPOT FIELD -->
                         <input type="text" name="website_hp" class="hp-field" tabindex="-1" autocomplete="off">
                         
                         <div class="newsletter-form-row">
@@ -1134,10 +1122,8 @@
 
     </div>
 
-    <!-- LEBEGŐ TOP GOMB -->
     <a href="#top" class="floating-top-btn" id="floatingTopBtn">↑ Back to top</a>
 
-    <!-- LIGHTBOX -->
     <div id="customLightbox" class="custom-lightbox">
         <span class="custom-lightbox-close" id="lightboxCloseBtn">&times;</span>
         <button class="lightbox-btn lightbox-prev" id="prevBtn" aria-label="Previous image">&#8249;</button>
@@ -1145,7 +1131,6 @@
         <button class="lightbox-btn lightbox-next" id="nextBtn" aria-label="Next image">&#8250;</button>
     </div>
 
-    <!-- STATUS POP-UP MODAL -->
     <div id="statusModalOverlay" class="status-modal-overlay">
         <div class="status-modal-card">
             <div id="modalLoadingState" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
@@ -1326,21 +1311,15 @@
             currentMtgIndex = 0;
 
             const pContainer = document.getElementById('processSlider');
-            if (pContainer) {
-                pContainer.scrollLeft = 0;
-            }
+            if (pContainer) pContainer.scrollLeft = 0;
 
             const mContainer = document.getElementById('mtgSlider');
-            if (mContainer) {
-                mContainer.scrollLeft = 0;
-            }
+            if (mContainer) mContainer.scrollLeft = 0;
 
             const dotsContainer = document.getElementById('sliderDots');
             if (dotsContainer) {
                 const dots = dotsContainer.querySelectorAll('.slider-dot');
-                dots.forEach((d, idx) => {
-                    d.classList.toggle('active', idx === 0);
-                });
+                dots.forEach((d, idx) => d.classList.toggle('active', idx === 0));
             }
         }
 
@@ -1427,29 +1406,6 @@
                 }
             });
 
-            const mtgContainer = document.getElementById('mtgSlider');
-            if (mtgContainer) {
-                mtgContainer.addEventListener('scroll', () => {
-                    const images = mtgContainer.querySelectorAll('img');
-                    if (!images.length) return;
-
-                    const containerCenter = mtgContainer.scrollLeft + (mtgContainer.clientWidth / 2);
-                    let closestIdx = 0;
-                    let minDiff = Infinity;
-
-                    images.forEach((img, idx) => {
-                        const imgCenter = img.offsetLeft - mtgContainer.offsetLeft + (img.clientWidth / 2);
-                        const diff = Math.abs(containerCenter - imgCenter);
-                        if (diff < minDiff) {
-                            minDiff = diff;
-                            closestIdx = idx;
-                        }
-                    });
-
-                    currentMtgIndex = closestIdx;
-                });
-            }
-
             document.getElementById('lightboxCloseBtn').addEventListener('click', closeLight);
             document.getElementById('customLightbox').addEventListener('click', closeLight);
             document.getElementById('lightboxImg').addEventListener('click', (e) => e.stopPropagation());
@@ -1495,7 +1451,6 @@
                 });
             }
 
-            // WAITLIST BEKÜLDÉS HANDLING
             const waitlistForm = document.getElementById('waitlistForm');
             if (waitlistForm) {
                 waitlistForm.addEventListener('submit', async (e) => {
@@ -1556,10 +1511,6 @@
         window.addEventListener('load', () => {
             setTimeout(resetSlidersToStart, 50);
             setTimeout(resetSlidersToStart, 300);
-        });
-
-        window.addEventListener('pageshow', (event) => {
-            resetSlidersToStart();
         });
 
         document.addEventListener('keydown', (e) => {
