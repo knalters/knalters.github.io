@@ -258,29 +258,36 @@
         .gallery-card-item:hover img {
             transform: translateY(-6px) scale(1.02);
             box-shadow: 0 14px 28px rgba(0,0,0,0.22);
-            border-color: rgba(56, 84, 69, 0.6);
+            border-color: rgba(255, 42, 109, 0.6);
         }
 
-        /* LETISZTULT, PRÉMIUM LATEST BADGE (ANIMÁCIÓ NÉLKÜL) */
+        /* PIROS-RÓZSASZÍN PULZÁLÓ LATEST BADGE */
         .latest-badge-tag {
             position: absolute;
-            top: -12px;
+            top: -14px;
             left: 50%;
             transform: translateX(-50%);
-            background: #23352b;
-            color: #f4a261;
+            background: linear-gradient(135deg, #ff2a6d 0%, #ff758c 100%);
+            color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 9px;
+            font-size: 9.5px;
             font-weight: 700;
             letter-spacing: 1.5px;
             padding: 4px 12px;
-            border-radius: 12px;
-            border: 1px solid #f4a261;
+            border-radius: 14px;
+            border: 1.5px solid #ffffff;
             pointer-events: none;
             z-index: 10;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(255, 42, 109, 0.35);
+            animation: pulseGlowRedPink 1.8s infinite;
             text-transform: uppercase;
             white-space: nowrap;
+        }
+
+        @keyframes pulseGlowRedPink {
+            0% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(255, 42, 109, 0.8), 0 3px 8px rgba(0,0,0,0.25); }
+            50% { transform: translateX(-50%) scale(1.08); box-shadow: 0 0 0 6px rgba(255, 42, 109, 0), 0 5px 15px rgba(255, 42, 109, 0.6); }
+            100% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(255, 42, 109, 0), 0 3px 8px rgba(0,0,0,0.25); }
         }
 
         .post-date-meta {
