@@ -261,10 +261,10 @@
             border-color: rgba(255, 42, 109, 0.6);
         }
 
-        /* PIROS-RÓZSASZÍN PULZÁLÓ LATEST BADGE */
+        /* FINOM, MINIMALISTA PULZÁLÓ LATEST BADGE */
         .latest-badge-tag {
             position: absolute;
-            top: -14px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(135deg, #ff2a6d 0%, #ff758c 100%);
@@ -274,20 +274,20 @@
             font-weight: 700;
             letter-spacing: 1.5px;
             padding: 4px 12px;
-            border-radius: 14px;
-            border: 1.5px solid #ffffff;
+            border-radius: 12px;
+            border: 1px solid #ffffff;
             pointer-events: none;
             z-index: 10;
-            box-shadow: 0 4px 12px rgba(255, 42, 109, 0.35);
-            animation: pulseGlowRedPink 1.8s infinite;
+            box-shadow: 0 2px 8px rgba(255, 42, 109, 0.3);
+            animation: pulseGlowMinimal 2.5s infinite ease-in-out;
             text-transform: uppercase;
             white-space: nowrap;
         }
 
-        @keyframes pulseGlowRedPink {
-            0% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(255, 42, 109, 0.8), 0 3px 8px rgba(0,0,0,0.25); }
-            50% { transform: translateX(-50%) scale(1.08); box-shadow: 0 0 0 6px rgba(255, 42, 109, 0), 0 5px 15px rgba(255, 42, 109, 0.6); }
-            100% { transform: translateX(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(255, 42, 109, 0), 0 3px 8px rgba(0,0,0,0.25); }
+        @keyframes pulseGlowMinimal {
+            0% { box-shadow: 0 0 0 0 rgba(255, 42, 109, 0.5); }
+            50% { box-shadow: 0 0 0 6px rgba(255, 42, 109, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 42, 109, 0); }
         }
 
         .post-date-meta {
